@@ -25,7 +25,7 @@ const routes = [
       {
         path: '/IniciarSesion',
         name: 'Iniciar Sesion',
-        component: () => import('@/views/StartSection/StartSection.vue'),
+        component: () => import('@/views/Login/Login.vue'),
       }
     ],
   },

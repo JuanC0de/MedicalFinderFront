@@ -1,10 +1,10 @@
 <script setup>
-import FormStartSection from '../../layouts/FormStartSection/FormStartSection.vue'
+import FormLogin from '../../layouts/FormLogin/FormLogin.vue'
 </script>
 
 <template>
     <div class="my-view">
-        <FormStartSection class="formContainer"/>
+        <FormLogin class="formContainer"/>
     </div>   
 </template>
 
