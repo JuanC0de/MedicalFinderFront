@@ -33,40 +33,63 @@
     },
   }
 </script>
+
 <template>
-  <form @submit.prevent="submit">
+  <v-card title="Iniciar Sesión" class="formContainer">
+    <form @submit.prevent="submit">
+      <v-text-field
+        v-model="email.value.value"
+        :error-messages="email.errorMessage.value"
+        label="Correo electrónico"
+      ></v-text-field>
 
-    <v-text-field
-      v-model="email.value.value"
-      :error-messages="email.errorMessage.value"
-      label="Correo electrónico"
-    ></v-text-field>
-
-    <v-text-field
-            :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
-            :rules="[rules.required, rules.min]"
-            :type="show2 ? 'text' : 'password'"
-            name="input-10-2"
-            label="Contraseña"
-            hint="Al menos 8 caracteres"
-            class="input-group--focused"
-            @click:append="show2 = !show2"
-          ></v-text-field>
-
-    <v-btn
-      class="me-4"
-      type="submit"
-    >
-      Enviar
-    </v-btn>
-
-    <v-text>
-      ¿Olvidaste tu contraseña?
-    </v-text>
-
-    <v-text>
-      ¿No tiene una cuenta? Cree una.
-    </v-text>
-
-  </form>
+      <v-text-field
+              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[rules.required, rules.min]"
+              :type="show2 ? 'text' : 'password'"
+              name="input-10-2"
+              label="Contraseña"
+              hint="Al menos 8 caracteres"
+              class="input-group--focused"
+              @click:append="show2 = !show2"
+            ></v-text-field>
+      <v-container>
+        <v-row justify="center">
+          <v-col>
+            <v-btn
+              class="me-4"
+              type="submit"
+            >
+              Enviar
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-row justify="center">
+          <v-col>        
+            <v-text>
+              ¿Olvidaste tu contraseña?
+            </v-text>
+          </v-col>
+        </v-row>
+        <v-row justify="center">
+          <v-col>
+            <v-text>
+              ¿No tiene una cuenta? Cree una.
+            </v-text>
+          </v-col>
+        </v-row>
+      </v-container>
+    </form>
+  </v-card>
 </template>
+
+<style>
+    .formContainer{
+        /* margin: 5cm 8cm 2cm 4cm; */
+        position: absolute;
+        left: 35%;
+        transform: translate(-50%, 20%); 
+        width: 80%; 
+        max-width: 500px; 
+    } 
+</style>
