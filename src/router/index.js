@@ -26,6 +26,11 @@ const routes = [
         path: '/IniciarSesion',
         name: 'Iniciar Sesion',
         component: () => import('@/views/Login/Login.vue'),
+      },
+      {
+        path: '/AcercaDeNosotros',
+        name: 'Acerca De Nosotros',
+        component: () => import('@/views/AboutUs/AboutUs.vue'),
       }
     ],
   },
