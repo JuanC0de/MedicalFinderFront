@@ -37,6 +37,11 @@ const routes = [
   {
     path: '/home2',
     component: () => import('@/views/Home/Home.vue')
+  },
+  {
+    path: '/Support',
+    name: 'Support',
+    component: () => import('@/layouts/FormSupport/FormSupport.vue'),
   }
 ]
 
