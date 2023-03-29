@@ -41,7 +41,7 @@ const routes = [
   {
     path: '/Support',
     name: 'Support',
-    component: () => import('@/layouts/FormSupport/FormSupport.vue'),
+    component: () => import('@/views/Support/Support.vue'),
   }
 ]
 
