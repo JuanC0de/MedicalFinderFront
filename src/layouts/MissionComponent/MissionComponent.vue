@@ -8,10 +8,6 @@ export default {
     text: {
       type: String,
       required: true
-    },
-    image: {
-      type: String,
-      required: true
     }
   }
 }
@@ -26,10 +22,10 @@ export default {
       </v-col>
       <v-col cols="6">
         <v-img
-          :src="image"
+          src="@/assets/images/imgMissionVision/Mision1.png"
           :alt="title"
-          width="100%"
-          height="auto"
+          width="90%"
+          height="80%"
         />
       </v-col>
     </v-row>
