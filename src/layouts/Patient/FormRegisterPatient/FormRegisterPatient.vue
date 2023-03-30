@@ -92,8 +92,6 @@
           sm="6"
         >
          <v-text-field
-          v-model="email.value.value"
-          :error-messages="email.errorMessage.value"
           label="Fecha nacimiento"
         ></v-text-field> 
         </v-col>
@@ -136,9 +134,9 @@
           cols="12"
           sm="6"
         >
-          <v-text-field
-          label="Ciudad"
-        ></v-text-field>
+            <v-text-field
+                label="Confirmar contraseña"
+            ></v-text-field>
         </v-col>
       </v-row>
     </v-container>

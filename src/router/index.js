@@ -51,7 +51,7 @@ const routes = [
   {
     path: '/RegistroPaciente',
     name: 'Registro Paciente',
-    component: () => import('@/layouts/Patient/FormRegisterPatient/FormRegisterPatient.vue'),
+    component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
   }
 ]
 
