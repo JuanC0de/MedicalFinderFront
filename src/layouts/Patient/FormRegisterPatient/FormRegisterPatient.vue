@@ -3,11 +3,17 @@
 
   export default {
       data: () => ({
-
+        show2: false,
+        password: 'Password',
       rules: [
         value => !!value || 'Requerido',
         value => (value && value.length >= 3) || 'Debe escribir un mensaje de minimo 3 caracteres.',
       ],
+      rules: {
+          required: value => !!value || 'Requerido.',
+          min: v => v.length >= 8 || 'Mínimo 8 caracteres',
+          emailMatch: () => (`El correo electrónico y la contraseña introducidos no coinciden`),
+        },
     }),
     setup () {
       const { handleSubmit } = useForm({
@@ -115,8 +121,15 @@
           sm="6"
         >
           <v-text-field
-          label="Ciudad"
-        ></v-text-field>
+              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[rules.required, rules.min]"
+              :type="show2 ? 'text' : 'password'"
+              name="input-10-2"
+              label="Contraseña"
+              hint="Al menos 8 caracteres"
+              class="input-group--focused"
+              @click:append="show2 = !show2"
+            ></v-text-field>
         </v-col>
 
         <v-col
