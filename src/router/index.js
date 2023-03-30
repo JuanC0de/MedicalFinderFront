@@ -47,6 +47,11 @@ const routes = [
     path: '/RegistroMedico',
     name: 'Registro Medico',
     component: () => import('@/views/Register/Doctor/RegisterDoctor.vue'),
+  },
+  {
+    path: '/RegistroPaciente',
+    name: 'Registro Paciente',
+    component: () => import('@/components/CheckBoxPolitica.vue'),
   }
 ]
 
