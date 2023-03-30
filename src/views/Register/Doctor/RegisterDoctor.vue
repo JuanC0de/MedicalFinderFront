@@ -1,8 +1,9 @@
-<script>
-import FormRegisterDoctor from '@/layouts/Doctor/FormRegisterDoctor/FormRegisterDoctor.vue'
+<script setup>
+import FormRegisterDoctor from '@/layouts/Doctor/FormRegisterDoctor/FormRegisterDoctor.vue';
+import CheckBoxPolitica from '@/components/CheckBoxPolitica.vue';
 </script>
 
 <template>
-    <h1>holiiiiiiiiii</h1>
-<FormRegisterDoctor/>
+    <FormRegisterDoctor/>
+    <CheckBoxPolitica/>
 </template>
