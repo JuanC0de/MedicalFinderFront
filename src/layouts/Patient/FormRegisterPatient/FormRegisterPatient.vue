@@ -1,5 +1,6 @@
 <script>
   import { useField, useForm } from 'vee-validate'
+  import AccordionCities from '@/components/AccordionCities/AccordionCities.vue'
 
   export default {
       data: () => ({
@@ -9,12 +10,17 @@
         value => !!value || 'Requerido',
         value => (value && value.length >= 3) || 'Debe escribir un mensaje de minimo 3 caracteres.',
       ],
-      rules: {
-          required: value => !!value || 'Requerido.',
-          min: v => v.length >= 8 || 'Mínimo 8 caracteres',
-          emailMatch: () => (`El correo electrónico y la contraseña introducidos no coinciden`),
-        },
+      // rules: {
+      //     required: value => !!value || 'Requerido.',
+      //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
+      //     emailMatch: () => (`El correo electrónico y la contraseña introducidos no coinciden`),
+      //   },
     }),
+    
+    components: {
+      AccordionCities
+    },
+    
     setup () {
       const { handleSubmit } = useForm({
         validationSchema: {
@@ -58,7 +64,7 @@
         >
           <v-text-field
           v-model="name.value.value"
-          :counter="10"
+          :counter="20"
           :error-messages="name.errorMessage.value"
           label="Nombre"
         ></v-text-field>
@@ -70,7 +76,7 @@
         >
           <v-text-field
           v-model="lastName.value.value"
-          :counter="7"
+          :counter="20"
           :error-messages="lastName.errorMessage.value"
           label="Apellido"
         ></v-text-field>
@@ -105,14 +111,7 @@
         ></v-text-field>
         </v-col>
 
-        <v-col
-          cols="12"
-          sm="6"
-        >
-          <v-text-field
-          label="Ciudad"
-        ></v-text-field>
-        </v-col>
+        <AccordionCities/>
 
         <v-col
           cols="12"
