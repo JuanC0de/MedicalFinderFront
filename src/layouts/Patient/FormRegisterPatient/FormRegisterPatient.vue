@@ -55,6 +55,7 @@
 </script>
 
 <template>
+<v-text align-center justify-center>Registrate como paciente</v-text>
   <v-form>
     <v-container>
       <v-row>
