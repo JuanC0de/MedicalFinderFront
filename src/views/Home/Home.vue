@@ -1,4 +1,67 @@
 <template>
+  <!--
+  <v-card>
+    <v-layout>
+      <v-navigation-drawer
+        expand-on-hover
+        rail
+      >
+        <v-list>
+          <v-list-item
+            prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
+            title="Sandra Adams"
+            subtitle="sandra_a88@gmailcom"
+          ></v-list-item>
+        </v-list>
+
+        <v-divider></v-divider>
+
+        <v-list density="compact" nav>
+          <v-list-item prepend-icon="mdi-folder" title="My Files" value="myfiles"></v-list-item>
+          <v-list-item prepend-icon="mdi-account-multiple" title="Shared with me" value="shared"></v-list-item>
+          <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-main style="height: 100%">
+  <v-card
+  title="Card title"
+  subtitle="Subtitle"
+  text="..."
+  variant="tonal"
+  >
+  <v-card-actions>
+    <v-btn class="bg-red">Click me</v-btn>
+  </v-card-actions>
+  </v-card>
+  <br>
+  <v-card
+  title="Card title"
+  subtitle="Subtitle"
+  text="..."
+  variant="tonal"
+  >
+  <v-card-actions>
+    <v-btn>Click me</v-btn>
+  </v-card-actions>
+  </v-card>
+  <br>
+
+  <v-card
+  title="Card title"
+  subtitle="Subtitle"
+  text="..."
+  variant="tonal"
+  >
+  <v-card-actions>
+    <v-btn class="bg-azulElCielo">Click me</v-btn>
+  </v-card-actions>
+  </v-card>
+      </v-main>
+    </v-layout>
+  </v-card>
+  <br>
+-->
 
 <v-card
     color="grey-lighten-1"
@@ -34,26 +97,6 @@
       </v-btn>
     </v-toolbar>
   </v-card>
-
-  <div class="text-center">
-    <v-row class="pa-5">
-      
-    </v-row>
-
-    <v-sheet
-      :class="model"
-      max-width="596"
-      class="mx-auto mt-8"
-      elevation="12"
-      height="508"
-      width="70%"
-    ></v-sheet>
-
-    <div class="py-3"></div>
-
-    <code class="text-subtitle-1">.{{ model }}</code>
-  </div>
-
 </template>
 
 <style>
