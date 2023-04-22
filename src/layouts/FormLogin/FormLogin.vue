@@ -35,7 +35,7 @@
 </script>
 
 <template>
-  <v-card title="Iniciar Sesión" class="formContainer">
+  <v-card title="Iniciar Sesión" class="formContainer pa-4">
     <form @submit.prevent="submit">
       <v-text-field
         v-model="email.value.value"
@@ -52,29 +52,33 @@
               hint="Al menos 8 caracteres"
               class="input-group--focused"
               @click:append="show2 = !show2"
-            ></v-text-field>
+        ></v-text-field>
       <v-container>
         <v-row justify="center">
+          <v-col>        
+            <v-text>
+              <a href="#" class="ColorAncla">
+                ¿Olvidaste tu contraseña?
+              </a>  
+            </v-text>
+          </v-col>
+        </v-row>
+        <v-row justify="center">
           <v-col>
-            <v-btn
-              class="me-4"
-              type="submit"
+            <v-btn 
+              type="submit" 
+              variant="outlined" 
+              color="PrincipalCyan" 
+              block class="mt-2"
             >
               Enviar
             </v-btn>
           </v-col>
         </v-row>
         <v-row justify="center">
-          <v-col>        
-            <v-text>
-              ¿Olvidaste tu contraseña?
-            </v-text>
-          </v-col>
-        </v-row>
-        <v-row justify="center">
           <v-col>
             <v-text>
-              ¿No tiene una cuenta? Cree una.
+              ¿No tiene una cuenta? <a href="#" class="ColorAncla">Cree una.</a>
             </v-text>
           </v-col>
         </v-row>
@@ -84,6 +88,10 @@
 </template>
 
 <style>
+    .ColorAncla{
+      color: inherit; 
+      color: DarkCyan;
+    }
     .formContainer{
         /* margin: 5cm 8cm 2cm 4cm; */
         position: absolute;
