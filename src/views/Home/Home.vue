@@ -1,5 +1,39 @@
 <template>
-  <nav class="menu">
+  <div class="container justify-center">
+    <div class="h-auto d-flex justify-center">
+      <v-toolbar class="d-flex flex-row-reverse mb-6 bg-surface-variant w-75 .rounded-b-lg ">
+        <v-toolbar-title class="text-grey">
+          Medical Finder
+        </v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+
+        <v-btn>
+          Button
+        </v-btn>
+        <v-btn>
+          Button
+        </v-btn>
+        <v-btn>
+          Button
+        </v-btn>
+        
+      </v-toolbar>
+      <div>
+
+      </div>
+    </div>
+    <v-card class="" height="500" >
+    </v-card>
+    <v-card class="bg-white" height="500">
+
+    </v-card>
+  </div>
+  <!-- <nav class="menu">
     <div class="menu-logo">
       <router-link to="/">
         <img src="/assets/logo.png" alt="Logo de la empresa">
@@ -14,7 +48,7 @@
       <router-link to="/registrarse" class="btn">Registrarse</router-link>
       <router-link to="/iniciar-sesion" class="btn btn-primary">Iniciar sesión</router-link>
     </div>
-  </nav>
+  </nav> -->
 </template>
 
 <script>
@@ -33,17 +67,27 @@ export default {
 </script>
 
 <style>
-.menu {
+
+.container{
+  /* background: url('../../assets/images/Cyanwallpaper.jpg') no-repeat  center;*/
+  background-image: linear-gradient(to right top, #1c565c, #26747d, #31949f, #3bb6c3, #46d8e8);
+  height: 1000px;
+  margin:0;
+}
+
+/* .menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   background-color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 999;
+  
 }
 
 .menu-logo img {
@@ -67,12 +111,12 @@ export default {
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 5px;
-  background-color: #fff;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out ;
 }
 
 .menu-options li a:hover {
-  background-color: #f2f2f2;
+  background-color: #1C565C;
+  color:#f2f2f2;
 }
 
 .menu-buttons {
@@ -100,7 +144,7 @@ export default {
   background-color: #007bff;
 }
 
-/* Estilos para pantallas pequeñas */
+/* Estilos para pantallas pequeñas 
 @media (max-width: 768px) {
   .menu {
     flex-direction: column;
@@ -118,7 +162,7 @@ export default {
   .menu-buttons {
     margin-top: 10px;
   }
-}
+} */
 </style>
 
 

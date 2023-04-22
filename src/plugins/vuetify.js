@@ -24,7 +24,8 @@ export default createVuetify({
           MediumCyan:'#2F919C',
           PrincipalCyan:'#42CCDB',
           SecondaryCyan:'#3AB4C2',
-          LightCyan:'#46D8E8'
+          LightCyan:'#46D8E8',
+          
         },
       },
     },
