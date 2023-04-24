@@ -98,9 +98,9 @@
           cols="12"
           sm="6"
         >
-         <v-text-field
-          label="Fecha nacimiento"
-        ></v-text-field> 
+          <v-text-field
+          label="Fecha de nacimiento">
+        </v-text-field>
         </v-col>
 
         <v-col
@@ -134,8 +134,15 @@
           cols="12"
           sm="6"
         >
-            <v-text-field
-                label="Confirmar contraseña"
+          <v-text-field
+              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[rules.required, rules.min]"
+              :type="show2 ? 'text' : 'password'"
+              name="input-10-2"
+              label="Confirmar contraseña"
+              hint="Al menos 8 caracteres"
+              class="input-group--focused"
+              @click:append="show2 = !show2"
             ></v-text-field>
         </v-col>
       </v-row>
