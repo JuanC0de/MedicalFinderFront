@@ -1,7 +1,7 @@
 <template>
   <div class="container justify-center">
     <div class="h-auto d-flex justify-center text-white backTransparent">
-      <v-toolbar class="d-flex flex-row-reverse mb-6 bg-surface-variant w-75 rounded-b-lg elevation-10">
+      <v-toolbar class="d-flex flex-row-reverse mb-6 bg-surface-variant w-75 rounded-b-lg elevation-20">
         <v-toolbar-title class="text-grey">
           Medical Finder
         </v-toolbar-title>
@@ -16,7 +16,7 @@
           Button
         </v-btn>
         <v-btn>
-          Button
+          {{boton1}}
         </v-btn>
         <v-btn>
           Button
@@ -27,13 +27,13 @@
     <!-- <v-card class="transparent" height="500" >
     </v-card> -->
     <v-container class="mb-8" >
-    <v-row no-gutters>
+      <v-row no-gutters>
       <v-col cols="6">
         <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitabas!</div>
 
         <v-row no-gutters >
             <v-card
-              class="w-100">
+              class="w-100 elevation-10">
               <template v-slot:title>
                 Selecciona la ciudad y la especialidad
               </template>
@@ -72,26 +72,121 @@
       </v-col>
     </v-row>
     </v-container>
-    <v-card class="bg-white elevation-10" height="500">
+    <v-card class="bg-white elevation-10" >
+      <v-container class="mb-8" >
+        <v-row no-gutters>
+          <v-col cols="4">
+            <v-card
+            class="mx-auto"
+            max-width="450">
+        <v-img
+              class="align-end text-white"
+              height="200"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              cover
+            >
+          <v-card-title>Top 10 Australian beaches</v-card-title>
+       </v-img>
 
-    </v-card>
+      <v-card-subtitle class="pt-4">
+        Number 10
+      </v-card-subtitle>
+
+      <v-card-text>
+        <div>Whitehaven Beach</div>
+
+        <div>Whitsunday Island, Whitsunday Islands</div>
+      </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="orange">
+            Share
+          </v-btn>
+        
+          <v-btn color="orange">
+            Explore
+          </v-btn>
+        </v-card-actions>
+            </v-card>
+          </v-col>
+          <v-col cols="4">
+            <v-card
+            class="mx-auto"
+            max-width="450">
+        <v-img
+              class="align-end text-white"
+              height="200"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              cover
+            >
+          <v-card-title>Top 10 Australian beaches</v-card-title>
+       </v-img>
+
+      <v-card-subtitle class="pt-4">
+        Number 10
+      </v-card-subtitle>
+
+      <v-card-text>
+        <div>Whitehaven Beach</div>
+
+        <div>Whitsunday Island, Whitsunday Islands</div>
+      </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="orange">
+            Share
+          </v-btn>
+        
+          <v-btn color="orange">
+            Explore
+          </v-btn>
+        </v-card-actions>
+            </v-card>
+          </v-col>
+          <v-col cols="4">
+            <v-card
+            class="mx-auto"
+            max-width="450">
+        <v-img
+              class="align-end text-white"
+              height="200"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              cover
+            >
+          <v-card-title>Top 10 Australian beaches</v-card-title>
+       </v-img>
+
+      <v-card-subtitle class="pt-4">
+        Number 10
+      </v-card-subtitle>
+
+      <v-card-text>
+        <div>Whitehaven Beach</div>
+
+        <div>Whitsunday Island, Whitsunday Islands</div>
+      </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="orange">
+            Share
+          </v-btn>
+        
+          <v-btn color="orange">
+            Explore
+          </v-btn>
+        </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+    </v-container>
+    <div class="transparent" height="800px">
+      <h1>hola</h1>
+    </div>
+    <div class="" height="800px">
+      <h1>hola</h1>
+    </div>
+  </v-card>
   </div>
-  <!-- <nav class="menu">
-    <div class="menu-logo">
-      <router-link to="/">
-        <img src="/assets/logo.png" alt="Logo de la empresa">
-      </router-link>
-    </div>
-    <ul class="menu-options">
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/acerca-de-nosotros">Acerca de nosotros</router-link></li>
-      <li><router-link to="/soporte">Soporte</router-link></li>
-    </ul>
-    <div class="menu-buttons">
-      <router-link to="/registrarse" class="btn">Registrarse</router-link>
-      <router-link to="/iniciar-sesion" class="btn btn-primary">Iniciar sesión</router-link>
-    </div>
-  </nav> -->
 </template>
 
 <script>
@@ -103,7 +198,7 @@ export default {
     msg: String
   },
   data: () => ({
-
+        boton1:"Aguapanelea"
     }
 ),
 }

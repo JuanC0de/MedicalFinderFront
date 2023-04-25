@@ -39,7 +39,7 @@ const routes = [
     component: () => import('@/views/Home/Home.vue')
   },
   {
-    path: '/Support',
+    path: '/Soporte',
     name: 'Support',
     component: () => import('@/views/Support/Support.vue'),
   },
