@@ -42,8 +42,9 @@
 </script>
 
 <template>
-  <v-card title="Soporte" class="formSupport">
-    <form @submit.prevent="submit">
+  <v-container class="text-center">
+    <v-text>Soporte</v-text>
+    <form @submit.prevent="submit" class="pa-6">
         <v-text-field
           v-model="name.value.value"
           :counter="10"
@@ -70,11 +71,14 @@
           hide-details="auto"
         ></v-textarea>
 
+  
         <v-btn
-          class="me-4"
+          class="me-4 mt-3"
+          color="SecondaryCyan"
           type="submit">
           Enviar
         </v-btn>
+
     </form>
-  </v-card>
+  </v-container>
 </template>

@@ -8,9 +8,7 @@ import SupportingParagraph from '@/layouts/SupportingParagraph/SupportingParagra
     <v-container>
       <v-row>
         <v-col cols="6">
-            <div class="paragraphSupp">
                 <SupportingParagraph/>
-            </div>
         </v-col>
         <v-col cols="6">
             <FormSupport/>
@@ -25,10 +23,3 @@ import SupportingParagraph from '@/layouts/SupportingParagraph/SupportingParagra
         ></v-img>
     </v-card>
 </template>
-
-<style>
-    .paragraphSupp{
-        margin-top: 20%;
-        margin-left: 30px;
-    }
-</style>
