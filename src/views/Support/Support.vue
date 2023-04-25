@@ -6,7 +6,7 @@ import SupportingParagraph from '@/layouts/SupportingParagraph/SupportingParagra
 
 <template>
     <v-container>
-      <v-row>
+      <v-row align ="center">
         <v-col cols="6">
                 <SupportingParagraph/>
         </v-col>
