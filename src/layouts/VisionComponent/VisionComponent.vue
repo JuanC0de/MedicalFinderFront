@@ -15,7 +15,9 @@ export default {
 
 <template>
   <v-container>
-    <v-row align = "center">
+    <v-row 
+      align = "center"
+    >
       <v-col cols="6">
         <v-img
           src="@/assets/images/imgMissionVision/2-vision1.png"
