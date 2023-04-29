@@ -21,14 +21,16 @@ export default {
 
 <template>
 <div>
-    <v-app-bar app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Medical Finder</v-toolbar-title>
+    <v-app-bar app class="bg-PrincipalCyan">
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="menu"></v-app-bar-nav-icon> -->
+      <v-toolbar-title>
+        <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%">
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text>Inicio</v-btn>
-      <v-btn text>Acerca de Nosotros</v-btn>
-      <v-btn text>Soporte</v-btn>
-      <v-btn id="menu-activator" color="primary">
+      <v-btn text color="white">Inicio</v-btn>
+      <v-btn text color="white">Acerca de Nosotros</v-btn>
+      <v-btn text color="white">Soporte</v-btn>
+      <v-btn id="menu-activator" color="white">
         Registrarnos
       </v-btn>
       <v-menu activator="#menu-activator">
@@ -38,7 +40,7 @@ export default {
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn text>Iniciar Sesión</v-btn>
+      <v-btn text color="white">Iniciar Sesión</v-btn>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app>
@@ -66,6 +68,15 @@ export default {
 @media only screen and (max-width: 600px) {
   .v-navigation-drawer__content {
     max-width: calc(100% - 56px);
+  }
+  .menu{
+   display: none; 
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .menu{
+
   }
 }
 </style>
