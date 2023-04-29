@@ -1,31 +1,11 @@
 <template>
+  <Navbar></Navbar>
   <div class="container justify-center">
-    <div class="h-auto d-flex justify-center text-white backTransparent">
-      <v-toolbar class="d-flex flex-row-reverse mb-6 bg-surface-variant w-75 rounded-b-lg elevation-20">
-        <v-toolbar-title class="text-grey">
-          Medical Finder
-        </v-toolbar-title>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-
-        <v-btn>
-          Button
-        </v-btn>
-        <v-btn>
-          {{boton1}}
-        </v-btn>
-        <v-btn>
-          Button
-        </v-btn>
-        
-      </v-toolbar>
-    </div>
+   
     <!-- <v-card class="transparent" height="500" >
     </v-card> -->
+
+    <!-- Buscador -->
     <v-container class="mb-8" >
       <v-row no-gutters>
       <v-col cols="6">
@@ -72,8 +52,17 @@
       </v-col>
     </v-row>
     </v-container>
+    <!-- Fin de Buscador  -->
+
     <v-card class="bg-white elevation-10" >
       <v-container class="mb-8" >
+        <v-row no-gutters>
+          <v-col cols="6">
+            <div class="text-h4 justify-center align-center text-MediumCyan">
+                Consejos para ingresar
+            </div>
+          </v-col>
+        </v-row>
         <v-row no-gutters>
           <v-col cols="4">
             <v-card
@@ -185,15 +174,20 @@
     <div class="" height="800px">
       <h1>hola</h1>
     </div>
-  </v-card>
+    </v-card>
   </div>
 </template>
 
 <script>
+import Menu from '@/components/Menu.vue';
+import Navbar from '@/components/Navbar.vue';
+
 export default {
-  // Aquí puedes agregar la lógica que necesites para el menú
-  
   name: 'HomeView',
+  components:{
+    Menu,
+    Navbar
+  },
   props: {
     msg: String
   },
