@@ -2,14 +2,15 @@
 import MissionComponent from '@/layouts/MissionComponent/MissionComponent.vue';
 import VisionComponent from '@/layouts/VisionComponent/VisionComponent.vue';
 import CircularImageCard from '@/layouts/CircularImageCard/CircularImageCard.vue';
+import FormUser from '@/layouts/Doctor/FormUser/FormUser.vue'
 
-//import jh from '@/assets/images/imgMissionVision/Mision1.png'
 //https://vuetifyjs.com/en/components/windows/  (para acomodar las card)
 export default {
   components: {
     MissionComponent,
     VisionComponent,
-    CircularImageCard
+    CircularImageCard,
+    FormUser
   }
 }
 </script>
@@ -23,66 +24,67 @@ export default {
         title="Visión"
         text="Pretendemos ayudar y Satisfacer de manera eficaz y eficiente las necesidades del cuidado, mejorando cada vez más en diferentes aspectos como la atención que tenga el ciudadano y el ambiente dentro de nuestro sistema, también queremos llegar inicialmente a todo el territorio de nuestro país, y así, esparcirnos a nivel mundial."
     />
-    <v-container class="bg-surface-variant">
-      <v-row no-gutters>
+    <v-container align = "center">
+      <v-row>
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
+              imagen="@/assets/images/imgWorkingGroup/JuanAndres.jpg"
               title="Juan Andrés Bolaño Ospina"
               text="Scrum Master"
-              :image="'@/assets/images/imgWorkingGroup/JuanAndres.jpg'"
             />
           </v-sheet>
         </v-col>
         <v-col order="6">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
+              imagen="@/assets/images/imgWorkingGroup/Vanessa.jpg"
               title="Karelys Vanessa Silva Quitian"
               text="Product Owner"
-              :image="'@/assets/images/imgWorkingGroup/JuanAndres.jpg'"
             />
           </v-sheet>
         </v-col>
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
+              imagen="@/assets/images/imgWorkingGroup/JuanJose.jpg"
               title="Juan Jose Rojas Guaneme"
               text="Equipo de Desarrollo"
-              :image="'@/assets/images/imgWorkingGroup/JuanAndres.jpg'"
             />
           </v-sheet>
         </v-col>
       </v-row>
     </v-container>
-    <v-container class="bg-surface-variant">
-      <v-row no-gutters>
+    <v-container align = "center">
+      <v-row>
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
+              imagen="@/assets/images/imgWorkingGroup/Luisa.jpg"
               title="Luisa Fernanda Castiblanco"
-              text="Equipo de Desarrollo"
-              :image="'@/assets/images/imgWorkingGroup/JuanAndres.jpg'"
+              text="Equipo de Desarrollo"            
             />
           </v-sheet>
         </v-col>
         <v-col order="6">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
+              imagen="@/assets/images/imgWorkingGroup/JoseLuis.jpg"
               title="Jose Luis Ordoñez Calderón "
-              text="Equipo de Desarrollo"
-              :image="'@/assets/images/imgWorkingGroup/JuanAndres.jpg'"
+              text="Equipo de Desarrollo"            
             />
           </v-sheet>
         </v-col>
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
+              imagen="@/assets/images/imgWorkingGroup/Majo.jpg"
               title="Maria Jose Paz García"
-              text="Equipo de Desarrollo"
-              :image="'@/assets/images/imgWorkingGroup/JuanAndres.jpg'"
+              text="Equipo de Desarrollo"                   
             />
           </v-sheet>
         </v-col>
       </v-row>
     </v-container>
+    <FormUser/>
 </template>
