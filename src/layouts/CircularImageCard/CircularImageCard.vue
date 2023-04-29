@@ -16,6 +16,10 @@ export default {
         imagen: {
           type: String,
           default: ""
+        },
+        textCard: {
+          type: String,
+          required: true
         }
     }
 }
@@ -23,10 +27,10 @@ export default {
 <template>
 <v-card class="card">
   <v-avatar :size="tamano" class="align-center">
-    <img 
-      :src="imagen" 
+    <v-img 
+      :src="imagen"
       alt="icono-grupo"
-    />
+    ></v-img>
   </v-avatar>
   <v-card-title>
     {{ title }}
@@ -41,11 +45,11 @@ export default {
   position: relative;
   width: 320px;
   height: 320px;
-  background: mediumturquoise;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 15px;
   font-weight: bold;
   border-radius: 15px;
   cursor: pointer;
@@ -62,27 +66,27 @@ export default {
   justify-content: center;
   font-size: 25px;
   font-weight: bold;
-  background-color: lightblue;
+  background-color: #3AB4C2;
   transition: all 0.5s;
 }
 
 .card::before {
   top: 0;
   right: 0;
-  border-radius: 0 15px 0 100%;
+  border-radius: 0 5px 0 100%;
 }
 
 .card::after {
   bottom: 0;
   left: 0;
-  border-radius: 0 100%  0 15px;
+  border-radius: 0 100%  0 5px;
 }
 
 .card:hover::before,
 .card:hover:after {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 5px;
   transition: all 0.5s;
 }
 
