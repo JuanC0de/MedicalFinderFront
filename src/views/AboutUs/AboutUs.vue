@@ -30,6 +30,7 @@ export default {
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/JuanAndres.jpg"
+              tamano=80
               title="Juan Andrés Bolaño Ospina"
               text="Scrum Master"
             />
@@ -39,6 +40,7 @@ export default {
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/Vanessa.jpg"
+              tamano=80
               title="Karelys Vanessa Silva Quitian"
               text="Product Owner"
             />
@@ -48,6 +50,7 @@ export default {
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/JuanJose.jpg"
+              tamano=80
               title="Juan Jose Rojas Guaneme"
               text="Equipo de Desarrollo"
             />
@@ -61,6 +64,7 @@ export default {
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/Luisa.jpg"
+              tamano=80
               title="Luisa Fernanda Castiblanco"
               text="Equipo de Desarrollo"            
             />
@@ -70,6 +74,7 @@ export default {
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/JoseLuis.jpg"
+              tamano=80
               title="Jose Luis Ordoñez Calderón "
               text="Equipo de Desarrollo"            
             />
@@ -79,6 +84,7 @@ export default {
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/Majo.jpg"
+              tamano=80
               title="Maria Jose Paz García"
               text="Equipo de Desarrollo"                   
             />
@@ -86,5 +92,4 @@ export default {
         </v-col>
       </v-row>
     </v-container>
-    <FormUser/>
 </template>
