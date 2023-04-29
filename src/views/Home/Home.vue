@@ -1,4 +1,4 @@
-<template>
+<template>    
   <div class="container justify-center">
     <div class="h-auto d-flex justify-center text-white backTransparent">
       <v-toolbar class="d-flex flex-row-reverse mb-6 bg-surface-variant w-75 rounded-b-lg elevation-20">
@@ -24,8 +24,7 @@
         
       </v-toolbar>
     </div>
-    <!-- <v-card class="transparent" height="500" >
-    </v-card> -->
+    <!--  -->
     <v-container class="mb-8" >
       <v-row no-gutters>
       <v-col cols="6">
@@ -54,13 +53,6 @@
                     </v-btn>
                   </v-col>
                 </v-row>
-                <!-- <v-row no-gutters justify="end">
-                  <v-col  cols="2">
-                    <v-btn class="ma-2 w-100" variant="outlined">
-                        Buscar
-                    </v-btn>
-                  </v-col>
-                </v-row> -->
               </v-card-text>
             </v-card>
         </v-row>
@@ -180,13 +172,33 @@
         </v-row>
     </v-container>
     <div class="transparent" height="800px">
-      <h1>hola</h1>
+      <h1>------</h1>
     </div>
+     
+  <!-- Footer --> 
     <div class="" height="800px">
-      <h1>hola</h1>
+      <v-footer class="bg-grey-lighten-1">
+    <v-row justify="center" no-gutters>
+      <v-btn
+        v-for="link in links"
+        :key="link"
+        color="white"
+        variant="text"
+        class="mx-2"
+        rounded="xl"
+      >
+        {{ link }}
+      </v-btn>
+      <v-col class="text-center mt-4" cols="12">
+        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+      </v-col>
+    </v-row>
+  </v-footer>
     </div>
   </v-card>
   </div>
+
+  
 </template>
 
 <script>
@@ -221,94 +233,6 @@ export default {
   background-color: transparent;
 }
 
-/* .menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #f2f2f2;
-  background-color: rgba(0, 0, 0, 0);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  
-}
-
-.menu-logo img {
-  height: 50px;
-}
-
-.menu-options {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.menu-options li {
-  margin-right: 10px;
-}
-
-.menu-options li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: all 0.2s ease-in-out ;
-}
-
-.menu-options li a:hover {
-  background-color: #1C565C;
-  color:#f2f2f2;
-}
-
-.menu-buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.menu-buttons .btn {
-  margin-right: 10px;
-  color: #fff;
-  background-color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-}
-
-.menu-buttons .btn:hover {
-  background-color: #666;
-}
-
-.menu-buttons .btn-primary {
-  background-color: #007bff;
-}
-
-/* Estilos para pantallas pequeñas 
-@media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-  }
-  
-  .menu-options {
-    margin-top: 10px;
-  }
-  
-  .menu-options li {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-  
-  .menu-buttons {
-    margin-top: 10px;
-  }
-} */
 </style>
 
 
