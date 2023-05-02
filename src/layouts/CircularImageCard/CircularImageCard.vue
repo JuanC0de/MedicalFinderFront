@@ -1,21 +1,18 @@
 <script>
 export default {
+    name: 'CircularImageCard',
     props: {
         title: {
-            type: String,
-            required: true
+          type: String,
+          required: true
         },
         text: {
-            type: String,
-            required: true
-        },
-        tamano: {
-          type: Number,
-          default: 64
+          type: String,
+          required: true
         },
         imagen: {
-          type: String,
-          default: ""
+          img: String,
+          required: true
         },
         textCard: {
           type: String,
@@ -26,11 +23,11 @@ export default {
 </script>
 <template>
 <v-card class="card">
-  <v-avatar :size="tamano" class="align-center">
-    <v-img 
+  <v-avatar size=80 class="align-center">
+    <img 
       :src="imagen"
       alt="icono-grupo"
-    ></v-img>
+    />
   </v-avatar>
   <v-card-title>
     {{ title }}
