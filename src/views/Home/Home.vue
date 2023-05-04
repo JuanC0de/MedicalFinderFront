@@ -1,5 +1,5 @@
 <template>
-  <Navbar></Navbar>
+  <Navbar/>
   <div class="container justify-center">
    
     <!-- <v-card class="transparent" height="500" >
@@ -179,13 +179,11 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue';
 import Navbar from '@/components/Navbar.vue';
 
 export default {
   name: 'HomeView',
   components:{
-    Menu,
     Navbar
   },
   props: {
