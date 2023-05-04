@@ -2,16 +2,16 @@
 export default {
     name: 'CircularImageCard',
     props: {
+      imagen: {
+          img: String,
+          required: true
+        },
         title: {
           type: String,
           required: true
         },
-        text: {
+        subtitle: {
           type: String,
-          required: true
-        },
-        imagen: {
-          img: String,
           required: true
         },
         textCard: {
@@ -33,7 +33,8 @@ export default {
     {{ title }}
   </v-card-title>
   <v-card-text>
-    <p>{{ text }}</p>
+    <p>{{ subtitle }}</p>
+    <p>{{ textCard }}</p>
   </v-card-text>
 </v-card>
 </template>

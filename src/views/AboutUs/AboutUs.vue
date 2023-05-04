@@ -36,7 +36,8 @@ export default {
             <CircularImageCard
               :img="imageJuanAndres"
               title="Juan Andrés Bolaño Ospina"
-              text="Scrum Master"
+              subtitle="Scrum Master"
+              textCard="Facilita el proceso de Scrum y elimina obstáculos para el equipo."
             />
           </v-sheet>
         </v-col>
@@ -45,7 +46,8 @@ export default {
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/Vanessa.jpg"
               title="Karelys Vanessa Silva Quitian"
-              text="Product Owner"
+              subtitle="Product Owner"
+              textCard="Define los requisitos del producto y prioriza el trabajo del equipo."
             />
           </v-sheet>
         </v-col>
@@ -54,7 +56,8 @@ export default {
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/JuanJose.jpg"
               title="Juan Jose Rojas Guaneme"
-              text="Equipo de Desarrollo"
+              subtitle="Equipo de Desarrollo"
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
             />
           </v-sheet>
         </v-col>
@@ -67,7 +70,8 @@ export default {
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/Luisa.jpg"
               title="Luisa Fernanda Castiblanco"
-              text="Equipo de Desarrollo"            
+              subtitle="Equipo de Desarrollo" 
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."           
             />
           </v-sheet>
         </v-col>
@@ -76,7 +80,8 @@ export default {
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/JoseLuis.jpg"
               title="Jose Luis Ordoñez Calderón "
-              text="Equipo de Desarrollo"            
+              subtitle="Equipo de Desarrollo" 
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."           
             />
           </v-sheet>
         </v-col>
@@ -85,7 +90,8 @@ export default {
             <CircularImageCard
               imagen="@/assets/images/imgWorkingGroup/Majo.jpg"
               title="Maria Jose Paz García"
-              text="Equipo de Desarrollo"                   
+              subtitle="Equipo de Desarrollo" 
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."                  
             />
           </v-sheet>
         </v-col>
