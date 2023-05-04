@@ -9,7 +9,7 @@
     <v-container class="mb-8" >
       <v-row no-gutters>
       <v-col cols="6">
-        <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitabas!</div>
+        <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
 
         <v-row no-gutters >
             <v-card
@@ -167,13 +167,10 @@
             </v-card>
           </v-col>
         </v-row>
-    </v-container>
-    <div class="transparent" height="800px">
-      <h1>hola</h1>
-    </div>
-    <div class="" height="800px">
-      <h1>hola</h1>
-    </div>
+      </v-container>
+    </v-card>
+    <v-card class="bg-DarkCyan" height="400px">
+
     </v-card>
   </div>
 </template>
