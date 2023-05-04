@@ -27,20 +27,31 @@ export default {
         <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%">
       </v-toolbar-title>
       <v-spacer></v-spacer>
+<<<<<<< HEAD
       <v-btn text color="white">Inicio</v-btn>
       <v-btn text color="white">Acerca de Nosotros</v-btn>
       <v-btn text color="white">Soporte</v-btn>
       <v-btn id="menu-activator" color="white">
+=======
+      <v-btn text class="top-items">Inicio</v-btn>
+      <v-btn text class="top-items">Acerca de Nosotros</v-btn>
+      <v-btn text class="top-items">Soporte</v-btn>
+      <v-btn id="menu-activator" color="primary" class="top-items">
+>>>>>>> ece1db64238a8def514a6bab0b87bb61a5d9e718
         Registrarnos
       </v-btn>
-      <v-menu activator="#menu-activator">
+      <v-menu activator="#menu-activator" class="top-items">
         <v-list>
           <v-list-item v-for="(item, index) in registro" :key="index" :value="index">
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
+<<<<<<< HEAD
       <v-btn text color="white">Iniciar Sesión</v-btn>
+=======
+      <v-btn text class="top-items">Iniciar Sesión</v-btn>
+>>>>>>> ece1db64238a8def514a6bab0b87bb61a5d9e718
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app>
@@ -64,11 +75,17 @@ export default {
 .v-navigation-drawer__content {
   max-width: 256px;
 }
-
-@media only screen and (max-width: 600px) {
+.v-app-bar-nav-icon{
+  display: none;
+}
+.v-navigation-drawer{
+  display: none;
+}
+@media only screen and (max-width: 750px) {
   .v-navigation-drawer__content {
     max-width: calc(100% - 56px);
   }
+<<<<<<< HEAD
   .menu{
    display: none; 
   }
@@ -78,5 +95,16 @@ export default {
   .menu{
 
   }
+=======
+  .v-app-bar-nav-icon{
+    display: block;
+  }
+  .top-items{
+    display:none;
+  }
+  .v-navigation-drawer{
+    display: block;
+  } 
+>>>>>>> ece1db64238a8def514a6bab0b87bb61a5d9e718
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <Navbar></Navbar>
+  <Navbar/>
   <div class="container justify-center">
 
     <!-- <v-card class="transparent" height="500" >
@@ -8,8 +8,8 @@
     <!-- Buscador -->
     <v-container class="mb-8">
       <v-row no-gutters>
-        <v-col cols="6">
-          <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitabas!</div>
+      <v-col cols="6">
+        <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
 
           <v-row no-gutters>
             <v-card class="w-100 elevation-10">
@@ -240,13 +240,11 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue';
 import Navbar from '@/components/Navbar.vue';
 
 export default {
   name: 'HomeView',
-  components: {
-    Menu,
+  components:{
     Navbar
   },
   props: {
