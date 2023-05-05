@@ -26,11 +26,11 @@
     </div>
     <!--  -->
     <v-container class="mb-8" >
-      <v-row no-gutters>
+      <v-row >
       <v-col cols="6">
         <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitabas!</div>
 
-        <v-row no-gutters >
+        <v-row >
             <v-card
               class="w-100 elevation-10">
               <template v-slot:title>
@@ -38,7 +38,7 @@
               </template>
             
               <v-card-text>
-                <v-row no-gutters justify="center" align="center">
+                <v-row justify="center" align="center">
                   <v-col  cols="5">
                     <v-select class="ma-1" label="Select" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
                     </v-select>
@@ -66,8 +66,112 @@
     </v-container>
     <v-card class="bg-white elevation-10" >
       <v-container class="mb-8" >
-        <v-row no-gutters>
+        <v-row >
+          <v-col cols="4" >
+            <v-card
+            class="mx-auto"
+            max-width="450">
+        <v-img
+              class="align-end text-white"
+              height="200"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              cover
+            >
+          <v-card-title>Top 10 Australian beaches</v-card-title>
+       </v-img>
+
+      <v-card-subtitle class="pt-4">
+        Number 10
+      </v-card-subtitle>
+
+      <v-card-text>
+        <div>Whitehaven Beach</div>
+
+        <div>Whitsunday Island, Whitsunday Islands</div>
+      </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="orange">
+            Share
+          </v-btn>
+        
+          <v-btn color="orange">
+            Explore
+          </v-btn>
+        </v-card-actions>
+            </v-card>
+          </v-col>
           <v-col cols="4">
+            <v-card
+            class="mx-auto"
+            max-width="450">
+        <v-img
+              class="align-end text-white"
+              height="200"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              cover
+            >
+          <v-card-title>Top 10 Australian beaches</v-card-title>
+       </v-img>
+
+      <v-card-subtitle class="pt-4">
+        Number 10
+      </v-card-subtitle>
+
+      <v-card-text>
+        <div>Whitehaven Beach</div>
+
+        <div>Whitsunday Island, Whitsunday Islands</div>
+      </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="orange">
+            Share
+          </v-btn>
+        
+          <v-btn color="orange">
+            Explore
+          </v-btn>
+        </v-card-actions>
+            </v-card>
+          </v-col>
+          <v-col cols="4">
+            <v-card
+            class="mx-auto"
+            max-width="450">
+        <v-img
+              class="align-end text-white"
+              height="200"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              cover
+            >
+          <v-card-title>Top 10 Australian beaches</v-card-title>
+       </v-img>
+
+      <v-card-subtitle class="pt-4">
+        Number 10
+      </v-card-subtitle>
+
+      <v-card-text>
+        <div>Whitehaven Beach</div>
+
+        <div>Whitsunday Island, Whitsunday Islands</div>
+      </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="orange">
+            Share
+          </v-btn>
+        
+          <v-btn color="orange">
+            Explore
+          </v-btn>
+        </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row >
+          <v-col cols="4" >
             <v-card
             class="mx-auto"
             max-width="450">
@@ -175,10 +279,10 @@
       <h1>------</h1>
     </div>
      
-  <!-- Footer --> 
+ <!-- Footer -->
     <div class="" height="800px">
-      <v-footer class="bg-grey-lighten-1">
-    <v-row justify="center" no-gutters>
+  <v-footer class="bg-grey-lighten-1">
+    <v-row justify="center" >
       <v-btn
         v-for="link in links"
         :key="link"
@@ -190,11 +294,20 @@
         {{ link }}
       </v-btn>
       <v-col class="text-center mt-4" cols="12">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        {{ new Date().getFullYear() }} — <strong>Medical Finder</strong> 
+      </v-col>
+      <v-col class="text-center mt-4" cols="12">
+        <a href="#">Privacy Policy</a>
+        <span class="mx-2">•</span>
+        <a href="#">Terms of Service</a>
+      </v-col>
+      <v-col class="text-center mt-4" cols="12">
+        <span>&copy; {{ new Date().getFullYear() }} Medical Finder</span>
       </v-col>
     </v-row>
   </v-footer>
-    </div>
+</div>
+<!-- Footer fin -->
   </v-card>
   </div>
 
