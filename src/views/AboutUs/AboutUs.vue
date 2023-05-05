@@ -14,7 +14,12 @@ export default {
   },
   data() {
     return {
-      imageJuanAndres: '@/assets/images/imgWorkingGroup/JuanAndres.jpg'
+      imageJuanAndres: '@/assets/images/imgWorkingGroup/JuanAndres.jpg',
+      imageJuanJose: '@/assets/images/imgWorkingGroup/JuanJose.jpg',
+      imageJoseLuis: '@/assets/images/imgWorkingGroup/JoseLuis.jpg',
+      imageLuisaFernanda: '@/assets/images/imgWorkingGroup/Luisa.jpg',
+      imageKarelysVanessa: '@/assets/images/imgWorkingGroup/Vanessa.jpg',
+      imageMariaJose: '@/assets/images/imgWorkingGroup/Majo.jpg'
     }
   }
 }
@@ -44,7 +49,7 @@ export default {
         <v-col order="6">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
-              imagen="@/assets/images/imgWorkingGroup/Vanessa.jpg"
+              :img="imageKarelysVanessa"
               title="Karelys Vanessa Silva Quitian"
               subtitle="Product Owner"
               textCard="Define los requisitos del producto y prioriza el trabajo del equipo."
@@ -54,7 +59,7 @@ export default {
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
-              imagen="@/assets/images/imgWorkingGroup/JuanJose.jpg"
+              :img="imageJuanJose" 
               title="Juan Jose Rojas Guaneme"
               subtitle="Equipo de Desarrollo"
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
@@ -68,7 +73,7 @@ export default {
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
-              imagen="@/assets/images/imgWorkingGroup/Luisa.jpg"
+              :img="imageLuisaFernanda"    
               title="Luisa Fernanda Castiblanco"
               subtitle="Equipo de Desarrollo" 
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."           
@@ -78,7 +83,7 @@ export default {
         <v-col order="6">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
-              imagen="@/assets/images/imgWorkingGroup/JoseLuis.jpg"
+              :img="imageJoseLuis"  
               title="Jose Luis Ordoñez Calderón "
               subtitle="Equipo de Desarrollo" 
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."           
@@ -88,7 +93,7 @@ export default {
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <CircularImageCard
-              imagen="@/assets/images/imgWorkingGroup/Majo.jpg"
+              :img="imageMariaJose" 
               title="Maria Jose Paz García"
               subtitle="Equipo de Desarrollo" 
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."                  

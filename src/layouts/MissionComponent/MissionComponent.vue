@@ -13,21 +13,23 @@ export default {
 }
 </script>
 
-<template>
-  <v-container>
-    <v-row 
-      align = "center"
-    >
-      <v-col cols="6">
-        <h2>{{ title }}</h2>
-        <p>{{ text }}</p>
+<template>      
+  <v-container align = "center">
+    <v-row align = "center" justify="space-around">
+      <v-col cols="6" order="1">
+        <v-sheet class="pa-2 ma-2">
+          <h2>{{ title }}</h2>
+          <p>{{ text }}</p>
+        </v-sheet>
       </v-col>
-      <v-col cols="6">
-        <v-img
-          src="@/assets/images/imgMissionVision/Mision1.png"
-          :alt="title"
-          width="100%"
-        />
+      <v-col  cols="6" order="2">
+        <v-sheet class="pa-2 ma-2">
+          <v-img
+            src="@/assets/images/imgMissionVision/Mision1.png"
+            :alt="title"
+            width="100%"
+          />
+        </v-sheet>
       </v-col>
     </v-row>
   </v-container>   
