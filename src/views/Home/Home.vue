@@ -1,4 +1,5 @@
-<template>    
+<template>
+  <Navbar/>
   <div class="container justify-center">
     <div class="h-auto d-flex justify-center text-white backTransparent">
       <v-toolbar class="d-flex flex-row-reverse mb-6 bg-surface-variant w-75 rounded-b-lg elevation-20">
@@ -28,15 +29,17 @@
     <v-container class="mb-8" >
       <v-row >
       <v-col cols="6">
-        <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitabas!</div>
+        <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
 
         <v-row >
             <v-card
               class="w-100 elevation-10">
+          <v-row no-gutters>
+            <v-card class="w-100 elevation-10">
               <template v-slot:title>
                 Selecciona la ciudad y la especialidad
               </template>
-            
+
               <v-card-text>
                 <v-row justify="center" align="center">
                   <v-col  cols="5">
@@ -44,233 +47,121 @@
                     </v-select>
                   </v-col>
                   <v-col cols="5">
-                    <v-select class="ma-1" label="Select" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
+                    <v-select class="ma-1" label="Select"
+                      :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
                     </v-select>
                   </v-col>
                   <v-col cols="2">
                     <v-btn class="ma-1 w-100" variant="outlined">
-                        Buscar
+                      Buscar
                     </v-btn>
                   </v-col>
                 </v-row>
               </v-card-text>
             </v-card>
-        </v-row>
-        
-      </v-col>
+          </v-row>
 
-      <v-col>
-        
-      </v-col>
-    </v-row>
+        </v-col>
+
+        <v-col>
+
+        </v-col>
+      </v-row>
     </v-container>
-    <v-card class="bg-white elevation-10" >
-      <v-container class="mb-8" >
-        <v-row >
-          <v-col cols="4" >
-            <v-card
-            class="mx-auto"
-            max-width="450">
-        <v-img
-              class="align-end text-white"
-              height="200"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              cover
-            >
-          <v-card-title>Top 10 Australian beaches</v-card-title>
-       </v-img>
+    <!-- Fin de Buscador  -->
 
-      <v-card-subtitle class="pt-4">
-        Number 10
-      </v-card-subtitle>
-
-      <v-card-text>
-        <div>Whitehaven Beach</div>
-
-        <div>Whitsunday Island, Whitsunday Islands</div>
-      </v-card-text>
-
-        <v-card-actions>
-          <v-btn color="orange">
-            Share
-          </v-btn>
-        
-          <v-btn color="orange">
-            Explore
-          </v-btn>
-        </v-card-actions>
-            </v-card>
-          </v-col>
-          <v-col cols="4">
-            <v-card
-            class="mx-auto"
-            max-width="450">
-        <v-img
-              class="align-end text-white"
-              height="200"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              cover
-            >
-          <v-card-title>Top 10 Australian beaches</v-card-title>
-       </v-img>
-
-      <v-card-subtitle class="pt-4">
-        Number 10
-      </v-card-subtitle>
-
-      <v-card-text>
-        <div>Whitehaven Beach</div>
-
-        <div>Whitsunday Island, Whitsunday Islands</div>
-      </v-card-text>
-
-        <v-card-actions>
-          <v-btn color="orange">
-            Share
-          </v-btn>
-        
-          <v-btn color="orange">
-            Explore
-          </v-btn>
-        </v-card-actions>
-            </v-card>
-          </v-col>
-          <v-col cols="4">
-            <v-card
-            class="mx-auto"
-            max-width="450">
-        <v-img
-              class="align-end text-white"
-              height="200"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              cover
-            >
-          <v-card-title>Top 10 Australian beaches</v-card-title>
-       </v-img>
-
-      <v-card-subtitle class="pt-4">
-        Number 10
-      </v-card-subtitle>
-
-      <v-card-text>
-        <div>Whitehaven Beach</div>
-
-        <div>Whitsunday Island, Whitsunday Islands</div>
-      </v-card-text>
-
-        <v-card-actions>
-          <v-btn color="orange">
-            Share
-          </v-btn>
-        
-          <v-btn color="orange">
-            Explore
-          </v-btn>
-        </v-card-actions>
-            </v-card>
+    <v-card class="bg-white elevation-10">
+      <v-container class="mb-8">
+        <v-row no-gutters class="mb-8">
+          <v-col cols="12 justify-end align-center">
+            <div class="text-h4 text-MediumCyan" justify="center" align="center">
+              Consejos para ingresar
+            </div>
           </v-col>
         </v-row>
-        <v-row >
-          <v-col cols="4" >
-            <v-card
-            class="mx-auto"
-            max-width="450">
-        <v-img
-              class="align-end text-white"
-              height="200"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              cover
-            >
-          <v-card-title>Top 10 Australian beaches</v-card-title>
-       </v-img>
+        <v-row no-gutters>
+          <v-col cols="4">
+            <v-card class="mx-auto" max-width="450">
+              <v-img class="align-end text-white" height="200" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                cover>
+                <v-card-title>Top 10 Australian beaches</v-card-title>
+              </v-img>
 
-      <v-card-subtitle class="pt-4">
-        Number 10
-      </v-card-subtitle>
+              <v-card-subtitle class="pt-4">
+                Number 10
+              </v-card-subtitle>
 
-      <v-card-text>
-        <div>Whitehaven Beach</div>
+              <v-card-text>
+                <div>Whitehaven Beach</div>
 
-        <div>Whitsunday Island, Whitsunday Islands</div>
-      </v-card-text>
+                <div>Whitsunday Island, Whitsunday Islands</div>
+              </v-card-text>
 
-        <v-card-actions>
-          <v-btn color="orange">
-            Share
-          </v-btn>
-        
-          <v-btn color="orange">
-            Explore
-          </v-btn>
-        </v-card-actions>
+              <v-card-actions>
+                <v-btn color="orange">
+                  Share
+                </v-btn>
+
+                <v-btn color="orange">
+                  Explore
+                </v-btn>
+              </v-card-actions>
             </v-card>
           </v-col>
           <v-col cols="4">
-            <v-card
-            class="mx-auto"
-            max-width="450">
-        <v-img
-              class="align-end text-white"
-              height="200"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              cover
-            >
-          <v-card-title>Top 10 Australian beaches</v-card-title>
-       </v-img>
+            <v-card class="mx-auto" max-width="450">
+              <v-img class="align-end text-white" height="200" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                cover>
+                <v-card-title>Top 10 Australian beaches</v-card-title>
+              </v-img>
 
-      <v-card-subtitle class="pt-4">
-        Number 10
-      </v-card-subtitle>
+              <v-card-subtitle class="pt-4">
+                Number 10
+              </v-card-subtitle>
 
-      <v-card-text>
-        <div>Whitehaven Beach</div>
+              <v-card-text>
+                <div>Whitehaven Beach</div>
 
-        <div>Whitsunday Island, Whitsunday Islands</div>
-      </v-card-text>
+                <div>Whitsunday Island, Whitsunday Islands</div>
+              </v-card-text>
 
-        <v-card-actions>
-          <v-btn color="orange">
-            Share
-          </v-btn>
-        
-          <v-btn color="orange">
-            Explore
-          </v-btn>
-        </v-card-actions>
+              <v-card-actions>
+                <v-btn color="orange">
+                  Share
+                </v-btn>
+
+                <v-btn color="orange">
+                  Explore
+                </v-btn>
+              </v-card-actions>
             </v-card>
           </v-col>
           <v-col cols="4">
-            <v-card
-            class="mx-auto"
-            max-width="450">
-        <v-img
-              class="align-end text-white"
-              height="200"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              cover
-            >
-          <v-card-title>Top 10 Australian beaches</v-card-title>
-       </v-img>
+            <v-card class="mx-auto" max-width="450">
+              <v-img class="align-end text-white" height="200" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                cover>
+                <v-card-title>Top 10 Australian beaches</v-card-title>
+              </v-img>
 
-      <v-card-subtitle class="pt-4">
-        Number 10
-      </v-card-subtitle>
+              <v-card-subtitle class="pt-4">
+                Number 10
+              </v-card-subtitle>
 
-      <v-card-text>
-        <div>Whitehaven Beach</div>
+              <v-card-text>
+                <div>Whitehaven Beach</div>
 
-        <div>Whitsunday Island, Whitsunday Islands</div>
-      </v-card-text>
+                <div>Whitsunday Island, Whitsunday Islands</div>
+              </v-card-text>
 
-        <v-card-actions>
-          <v-btn color="orange">
-            Share
-          </v-btn>
-        
-          <v-btn color="orange">
-            Explore
-          </v-btn>
-        </v-card-actions>
+              <v-card-actions>
+                <v-btn color="orange">
+                  Share
+                </v-btn>
+
+                <v-btn color="orange">
+                  Explore
+                </v-btn>
+              </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
@@ -315,34 +206,36 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue';
+
 export default {
-  // Aquí puedes agregar la lógica que necesites para el menú
-  
   name: 'HomeView',
+  components:{
+    Navbar
+  },
   props: {
     msg: String
   },
   data: () => ({
-        boton1:"Aguapanelea"
-    }
-),
+    boton1: "Aguapanelea"
+  }
+  ),
 }
 </script>
 
 <style>
-
-.container{
+.container {
   /* background: url('../../assets/images/Cyanwallpaper.jpg') no-repeat  center;*/
   background-image: linear-gradient(to right top, #1c565c, #26747d, #31949f, #3bb6c3, #46d8e8);
   height: 1000px;
-  margin:0;
+  margin: 0;
 }
 
-.transparent{
+.transparent {
   opacity: 0;
 }
 
-.backTransparent{
+.backTransparent {
   background-color: transparent;
 }
 

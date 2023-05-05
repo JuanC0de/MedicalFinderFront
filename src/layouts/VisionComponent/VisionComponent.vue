@@ -15,13 +15,14 @@ export default {
 
 <template>
   <v-container>
-    <v-row>
+    <v-row 
+      align = "center"
+    >
       <v-col cols="6">
         <v-img
           src="@/assets/images/imgMissionVision/2-vision1.png"
           :alt="title"
-          width="90%"
-          height="70%"
+          width="80%"
         />
       </v-col>
       <v-col cols="6">
