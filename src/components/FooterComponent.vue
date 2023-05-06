@@ -1,7 +1,7 @@
 <template>
 <!-- FooterComponent -->
     <div class="" height="800px">
-        <v-footer class="bg-MediumCyan">
+        <v-footer class="bg-PrincipalCyan">
           <v-row justify="center">
             <v-btn v-for="link in links" :key="link" color="white" variant="text" class="mx-2" rounded="xl">
               {{ link }}

@@ -168,7 +168,7 @@ import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
-  name: 'HomeView',
+  name: 'BusquedaView',
   components: {
     Navbar,
     FooterComponent
@@ -237,7 +237,3 @@ export default {
   }
 }
 </style>
-
-
-
-
