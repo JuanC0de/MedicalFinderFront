@@ -27,10 +27,10 @@ export default {
         <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%">
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text class="top-items">Inicio</v-btn>
-      <v-btn text class="top-items">Acerca de Nosotros</v-btn>
-      <v-btn text class="top-items">Soporte</v-btn>
-      <v-btn id="menu-activator" color="primary" class="top-items">
+      <v-btn text class="top-items text-white">Inicio</v-btn>
+      <v-btn text class="top-items text-white">Acerca de Nosotros</v-btn>
+      <v-btn text class="top-items text-white">Soporte</v-btn>
+      <v-btn id="menu-activator" color="white" class="top-items">
         Registrarnos
       </v-btn>
       <v-menu activator="#menu-activator" class="top-items">
@@ -40,7 +40,7 @@ export default {
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn text class="top-items">Iniciar Sesión</v-btn>
+      <v-btn text class="top-items text-white">Iniciar Sesión</v-btn>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app>

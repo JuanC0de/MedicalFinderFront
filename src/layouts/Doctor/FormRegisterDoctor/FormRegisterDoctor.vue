@@ -58,7 +58,7 @@
         >
           <v-text-field
           v-model="name.value.value"
-          :counter="20"
+          :counter="40"
           :error-messages="name.errorMessage.value"
           label="Nombre Completo"
         ></v-text-field>
