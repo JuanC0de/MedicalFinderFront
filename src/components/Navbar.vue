@@ -35,7 +35,7 @@ export default {
       </v-btn>
       <v-menu activator="#menu-activator" class="top-items">
         <v-list>
-          <v-list-item  v-for="(item, index ) in registro" :key="index" :value="index" to="{{item.routerTo}}">
+          <v-list-item  v-for="(item, index ) in registro" :key="index" :value="index">
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
