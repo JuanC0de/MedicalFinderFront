@@ -18,7 +18,9 @@ export default {
     <v-row align = "center" justify="space-around">
       <v-col cols="6" order="2">
         <v-sheet class="pa-2 ma-2">
-        <h2>{{ title }}</h2>
+        <h2 
+        class="text-lg font-custom"
+        >{{ title }}</h2>
         <p>{{ text }}</p>
         </v-sheet>
       </v-col>
@@ -34,3 +36,13 @@ export default {
     </v-row>
   </v-container>   
 </template>
+
+<style>
+  .text-lg {
+    font-size: 35px; /* Cambiar el tamaño de letra */
+  }
+
+  .font-custom {
+    font-family: 'Montserrat', sans-serif; /* Agregar un tipo de letra personalizado */
+  }
+</style>

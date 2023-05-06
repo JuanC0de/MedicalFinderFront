@@ -29,13 +29,15 @@ export default {
       alt="icono-grupo"
     />
   </v-avatar>
-  <v-card-title>
-    {{ title }}
-  </v-card-title>
-  <v-card-text>
-    <p>{{ subtitle }}</p>
-    <p>{{ textCard }}</p>
-  </v-card-text>
+  <v-container>
+      <v-card-title>
+        {{ title }}
+      </v-card-title>
+      <v-card-text>
+        <p>{{ subtitle }}</p>
+        <p>{{ textCard }}</p>
+      </v-card-text>
+  </v-container>
 </v-card>
 </template>
 <style>
