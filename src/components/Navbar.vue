@@ -11,8 +11,8 @@ export default {
         { title: 'Cerrar sesión', icon: 'mdi-logout' },
       ],
       registro: [
-        { title: 'Médico' },
-        { title: 'Paciente' },
+        { title: 'Médico',  routerTo:'/registro/medico' },
+        { title: 'Paciente', routerTo:'/registro/paciente' },
       ],
     }
   },
@@ -27,20 +27,20 @@ export default {
         <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%">
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text class="top-items text-white">Inicio</v-btn>
-      <v-btn text class="top-items text-white">Acerca de Nosotros</v-btn>
-      <v-btn text class="top-items text-white">Soporte</v-btn>
+      <v-btn to="/" class="top-items text-white">Inicio</v-btn>
+      <v-btn to="/AcercaDeNosotros" class="top-items text-white">Acerca de Nosotros</v-btn>
+      <v-btn to="/Soporte" class="top-items text-white">Soporte</v-btn>
       <v-btn id="menu-activator" color="white" class="top-items">
         Registrarnos
       </v-btn>
       <v-menu activator="#menu-activator" class="top-items">
         <v-list>
-          <v-list-item v-for="(item, index) in registro" :key="index" :value="index">
+          <v-list-item  v-for="(item, index ) in registro" :key="index" :value="index">
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn text class="top-items text-white">Iniciar Sesión</v-btn>
+      <v-btn to="/IniciarSesion" class="top-items text-white">Iniciar Sesión</v-btn>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app>
