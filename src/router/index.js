@@ -9,17 +9,6 @@ const routes = [
       {
         path: '',
         name: 'Home',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home/Home.vue'),
-      },
-      {
-        path: '/SegundoHome',
-        name: 'Home2',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home/Home.vue'),
       },
       {
@@ -31,32 +20,28 @@ const routes = [
         path: '/AcercaDeNosotros',
         name: 'Acerca De Nosotros',
         component: () => import('@/views/AboutUs/AboutUs.vue'),
-      }
+      },
+      {
+        path: '/Soporte',
+        name: 'Support',
+        component: () => import('@/views/Support/Support.vue'),
+      },
     ],
   },
   {
-    path: '/home2',
-    component: () => import('@/views/Home/Home.vue')
-  },
-  {
-    path: '/Soporte',
-    name: 'Support',
-    component: () => import('@/views/Support/Support.vue'),
-  },
-  {
-    path: '/RegistroMedico',
+    path: '/registro/medico',
     name: 'Registro Medico',
     component: () => import('@/views/Register/Doctor/RegisterDoctor.vue'),
   },
   {
-    path: '/RegistroPaciente',
+    path: '/registro/paciente',
     name: 'Registro Paciente',
     component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
   },
   {
-    path: '/prueba',
-    name: 'prueba',
-    component: () => import('@/components/AccordionCities/AccordionCities.vue'),
+    path: '/buscar',
+    name: 'Buscar Especialista',
+    component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
   }
 ]
 
