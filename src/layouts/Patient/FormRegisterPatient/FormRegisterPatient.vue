@@ -89,7 +89,8 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field label="Fecha de nacimiento"> </v-text-field>
+          <v-text-field type="date" label="Fecha de nacimiento"> </v-text-field>
+          
         </v-col>
 
         <v-col cols="12" sm="6">
