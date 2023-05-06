@@ -11,8 +11,8 @@ export default {
         { title: 'Cerrar sesión', icon: 'mdi-logout' },
       ],
       registro: [
-        { title: 'Médico',  routerTo:'/registro/medico' },
-        { title: 'Paciente', routerTo:'/registro/paciente' },
+        { title: 'Médico' },
+        { title: 'Paciente' },
       ],
     }
   },
@@ -35,8 +35,8 @@ export default {
       </v-btn>
       <v-menu activator="#menu-activator" class="top-items">
         <v-list>
-          <v-list-item  v-for="(item, index ) in registro" :key="index" :value="index">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item v-for="(item, index ) in registro" :key="index" :value="index" :to="item.route">
+            <v-list-item-title >{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
