@@ -1,70 +1,72 @@
 <template>
-  <Navbar/>
+  <Navbar />
   <div class="container justify-center">
 
     <!-- <v-card class="transparent" height="500" >
     </v-card> -->
 
     <!-- Buscador -->
-    <v-container class="mb-8 w-100" width="100%">
-      <v-row >
-      <v-col cols="6">
-        <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
+    <v-card height="500px">
+      <v-container class="mb-8 w-100" width="100%">
+        <v-row>
+          <v-col cols="6">
+            <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
 
-          <v-row >
-            <v-card class="w-100 elevation-10">
-              <template v-slot:title>
-                Selecciona la ciudad y la especialidad
-              </template>
+            <v-row>
+              <v-card class="w-100 elevation-10">
+                <template v-slot:title>
+                  Selecciona la ciudad y la especialidad
+                </template>
 
-              <v-card-text>
-                <v-row  justify="center" align="center">
-                  <v-col cols="5">
-                    <v-select class="ma-1" label="Select"
-                      :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
-                    </v-select>
-                  </v-col>
-                  <v-col cols="5">
-                    <v-select class="ma-1" label="Select"
-                      :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
-                    </v-select>
-                  </v-col>
-                  <v-col cols="2">
-                    <v-btn class="ma-1 w-100" variant="outlined">
-                      Buscar
-                    </v-btn>
-                  </v-col>
-                </v-row>
-                <!-- <v-row  justify="end">
+                <v-card-text>
+                  <v-row justify="center" align="center">
+                    <v-col cols="5">
+                      <v-select class="ma-1" label="Select"
+                        :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
+                      </v-select>
+                    </v-col>
+                    <v-col cols="5">
+                      <v-select class="ma-1" label="Select"
+                        :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
+                      </v-select>
+                    </v-col>
+                    <v-col cols="2">
+                      <v-btn class="ma-1 w-100" variant="outlined">
+                        Buscar
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                  <!-- <v-row  justify="end">
                   <v-col  cols="2">
                     <v-btn class="ma-2 w-100" variant="outlined">
                         Buscar
                     </v-btn>
                   </v-col>
                 </v-row> -->
-              </v-card-text>
-            </v-card>
-          </v-row>
+                </v-card-text>
+              </v-card>
+            </v-row>
 
-        </v-col>
+          </v-col>
 
-        <v-col>
+          <v-col>
 
-        </v-col>
-      </v-row>
-    </v-container>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card>
     <!-- Fin de Buscador  -->
 
     <v-card class="bg-white elevation-10">
       <v-container class="mb-8">
-        <v-row  class="mb-8">
+        <v-row class="mb-8">
           <v-col cols="12 justify-end align-center">
             <div class="text-h4 text-MediumCyan" justify="center" align="center">
               Consejos para ingresar
             </div>
           </v-col>
         </v-row>
-        <v-row >
+        <v-row>
           <v-col cols="4">
             <v-card class="mx-auto" max-width="450">
               <v-img class="align-end text-white" height="200" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
@@ -151,28 +153,26 @@
           </v-col>
         </v-row>
       </v-container>
-      <div class="transparent" height="800px">
-        <h1>hola</h1>
-      </div>
-      <div class="" height="800px">
+      <v-card class="" height="500px">
         <v-carousel>
           <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
 
           <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
 
           <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
+          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
         </v-carousel>
-      </div>
+      </v-card>
       <div class="bg-PrincipalCyan" height="800px">
         <v-container class="mb-8">
-          <v-row  class="mb-8">
+          <v-row class="mb-8">
             <v-col cols="12 justify-end align-center">
               <div class="text-h4 text-MediumCyan" justify="center" align="center">
                 Consejos para ingresar
               </div>
             </v-col>
           </v-row>
-          <v-row >
+          <v-row>
             <v-col cols="4">
               <v-card width="400" title="This is a title" subtitle="This is a subtitle" text="This is content"></v-card>
             </v-col>
@@ -236,39 +236,22 @@
         </v-container>
       </div>
 
-      <!-- Footer -->
-      <div class="" height="800px">
-        <v-footer class="bg-grey-lighten-1">
-          <v-row justify="center">
-            <v-btn v-for="link in links" :key="link" color="white" variant="text" class="mx-2" rounded="xl">
-              {{ link }}
-            </v-btn>
-            <v-col class="text-center mt-4" cols="12">
-              {{ new Date().getFullYear() }} — <strong>Medical Finder</strong>
-            </v-col>
-            <v-col class="text-center mt-4" cols="12">
-              <a href="#">Privacy Policy</a>
-              <span class="mx-2">•</span>
-              <a href="#">Terms of Service</a>
-            </v-col>
-            <v-col class="text-center mt-4" cols="12">
-              <span>&copy; {{ new Date().getFullYear() }} Medical Finder</span>
-            </v-col>
-          </v-row>
-        </v-footer>
-      </div>
-      <!-- Footer fin -->
+      
     </v-card>
+    <FooterComponent/>
   </div>
+  
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
   name: 'HomeView',
-  components:{
-    Navbar
+  components: {
+    Navbar,
+    FooterComponent
   },
   props: {
     msg: String
@@ -299,7 +282,7 @@ export default {
 @media only screen and (min-width: 1280px) {
   .v-container {
     max-width: 1800px !important;
-}
+  }
 }
 </style>
 
