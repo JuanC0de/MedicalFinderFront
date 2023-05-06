@@ -14,11 +14,13 @@ export default {
 </script>
 
 <template>      
-  <v-container align = "center">
+  <v-container  align = "center">
     <v-row align = "center" justify="space-around">
       <v-col cols="6" order="1">
-        <v-sheet class="pa-2 ma-2">
-          <h2>{{ title }}</h2>
+        <v-sheet class="pa-1 ma-1">
+          <h2 
+        class="text-lg font-custom"
+        >{{ title }}</h2>
           <p>{{ text }}</p>
         </v-sheet>
       </v-col>
