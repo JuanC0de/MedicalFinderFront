@@ -6,11 +6,11 @@ import SupportingParagraph from '@/layouts/SupportingParagraph/SupportingParagra
 
 <template>
     <v-container>
-      <v-row align ="center">
-        <v-col cols="6">
+      <v-row align ="center" >
+        <v-col cols="12" md="6">
                 <SupportingParagraph/>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
             <FormSupport/>
         </v-col>
       </v-row>

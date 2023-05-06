@@ -73,7 +73,7 @@
 
   
         <v-btn
-          class="me-4 mt-3"
+          class="me-4 mt-3 sizebtn"
           color="SecondaryCyan"
           type="submit">
           Enviar
@@ -86,5 +86,8 @@
 <style>
   .title-lg {
     font-size: 30px; /* Cambiar el tamaño de letra */
+  }
+  .sizebtn {
+    width: 200px;
   }
 </style>
