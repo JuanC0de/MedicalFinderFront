@@ -16,7 +16,7 @@ export default {
 <template>      
   <v-container  align = "center">
     <v-row align = "center" justify="space-around">
-      <v-col cols="6" order="1">
+      <v-col cols="12" md="6" order="2">
         <v-sheet class="pa-10 ma-1">
           <h2 class="title-lg">
             {{ title }}
@@ -26,7 +26,7 @@ export default {
           </p>
         </v-sheet>
       </v-col>
-      <v-col  cols="6" order="2">
+      <v-col  cols="12" md="6" order="1">
         <v-sheet class="pa-2 ma-2">
           <v-img
             class="img"

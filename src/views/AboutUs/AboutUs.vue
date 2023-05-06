@@ -105,6 +105,7 @@ export default {
         </v-col>
       </v-row>
     </v-container>
+    
   <FooterComponent/>  
 </template>
 
