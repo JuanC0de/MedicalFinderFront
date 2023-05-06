@@ -30,7 +30,7 @@ export default {
       <v-btn to="/" class="top-items text-white">Inicio</v-btn>
       <v-btn to="/AcercaDeNosotros" class="top-items text-white">Acerca de Nosotros</v-btn>
       <v-btn to="/Soporte" class="top-items text-white">Soporte</v-btn>
-      <v-btn id="menu-activator" color="white" class="top-items">
+      <v-btn id="menu-activator" class="top-items text-white">
         Registrarnos
       </v-btn>
       <v-menu activator="#menu-activator" class="top-items">
