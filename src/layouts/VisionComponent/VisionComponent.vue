@@ -16,21 +16,24 @@ export default {
 <template>
   <v-container align = "center">
     <v-row align = "center" justify="space-around">
-      <v-col cols="6" order="2">
-        <v-sheet class="pa-2 ma-2">
-        <h2 
-        class="text-lg font-custom"
-        >{{ title }}</h2>
-        <p>{{ text }}</p>
+      <v-col cols="12" md="6" order="1">
+        <v-sheet class="pa-10 ma-1">
+          <h2 class="title-lg">
+            {{ title }}
+          </h2>
+          <p class="text-lg">
+            {{ text }}
+          </p>
         </v-sheet>
       </v-col>
-      <v-col cols="6" order="1">
+      <v-col cols="12" md="6" order="2">
         <v-sheet class="pa-2 ma-2">
-        <v-img
-          src="@/assets/images/imgMissionVision/2-vision1.png"
-          :alt="title"
-          width="80%"
-        />
+          <v-img 
+            class="img2"
+            src="@/assets/images/imgMissionVision/2-vision1.png"
+            :alt="title"
+            width="80%"
+          />
         </v-sheet>
       </v-col>
     </v-row>
@@ -38,11 +41,13 @@ export default {
 </template>
 
 <style>
-  .text-lg {
-    font-size: 35px; /* Cambiar el tamaño de letra */
+  @media only screen and (min-width: 1383px) {
+    .img2 {
+      width: 500px;
+      height: 450px;
+    }
   }
-
-  .font-custom {
-    font-family: 'Montserrat', sans-serif; /* Agregar un tipo de letra personalizado */
+  .title-lg {
+    font-size: 35px; /* Cambiar el tamaño de letra */
   }
 </style>

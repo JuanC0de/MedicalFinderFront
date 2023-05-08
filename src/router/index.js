@@ -26,6 +26,11 @@ const routes = [
         name: 'Support',
         component: () => import('@/views/Support/Support.vue'),
       },
+      {
+        path: '/Busqueda',
+        name: 'Buscar Especialista',
+        component: () => import('@/views/Find/MedicalFinder.vue'),
+      },
     ],
   },
   {

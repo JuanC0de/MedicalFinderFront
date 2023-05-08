@@ -2,7 +2,8 @@
 import MissionComponent from '@/layouts/MissionComponent/MissionComponent.vue';
 import VisionComponent from '@/layouts/VisionComponent/VisionComponent.vue';
 import CircularImageCard from '@/layouts/CircularImageCard/CircularImageCard.vue';
-import FormUser from '@/layouts/Doctor/FormUser/FormUser.vue'
+import Navbar from '@/components/Navbar.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
   name: 'Aboutus',
@@ -10,7 +11,8 @@ export default {
     MissionComponent,
     VisionComponent,
     CircularImageCard,
-    FormUser
+    Navbar,
+    FooterComponent
   },
   data() {
     return {
@@ -26,6 +28,7 @@ export default {
 </script>
 
 <template>
+  <Navbar/>
     <MissionComponent
         title="Misión"
         text="Somos una empresa la cual ayuda a los ciudadanos a tener un mejor servicio de salud, en calidad y compromiso. Esta empresa genera elementos los cuales hacen la labor de facilitar a las personas conseguir sus medicamentos y tratamientos a un costo más bajo y barato, esperamos tener el dominio comenzando por el departamento y posteriormente a nivel nacional. Nuestro objetivo principal siempre será ofrecerles a todos nuestros clientes la posibilidad de acceder a servicios con un tiempo de respuesta mucho mas corto, menor precio y con una atención totalmente profesional. Además de esto buscaremos crear una comunidad estable y eficiente afiliando expertos y especialistas que brinden un apoyo constante tanto presencial como a distancia."
@@ -102,4 +105,14 @@ export default {
         </v-col>
       </v-row>
     </v-container>
+    
+  <FooterComponent/>  
 </template>
+
+<style>
+@media only screen and (min-width: 1280px) {
+  .v-container {
+    max-width: 1800px !important;
+  }
+}
+</style>

@@ -42,8 +42,8 @@
 </script>
 
 <template>
-  <v-container class="text-center">
-    <v-text>Soporte</v-text>
+  <v-container class="text-center title-lg">
+    <h2>Soporte</h2>
     <form @submit.prevent="submit" class="pa-6">
         <v-text-field
           v-model="name.value.value"
@@ -73,7 +73,7 @@
 
   
         <v-btn
-          class="me-4 mt-3"
+          class="me-4 mt-3 sizebtn"
           color="SecondaryCyan"
           type="submit">
           Enviar
@@ -82,3 +82,12 @@
     </form>
   </v-container>
 </template>
+
+<style>
+  .title-lg {
+    font-size: 30px; /* Cambiar el tamaño de letra */
+  }
+  .sizebtn {
+    width: 200px;
+  }
+</style>

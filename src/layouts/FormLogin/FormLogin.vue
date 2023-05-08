@@ -35,7 +35,8 @@
 </script>
 
 <template>
-  <v-card title="Iniciar Sesión" class="formContainer pa-4">
+  <v-card class="formContainer pa-4">
+    <h2 class="title-lg">Iniciar Sesión</h2>
     <form @submit.prevent="submit">
       <v-text-field
         v-model="email.value.value"
@@ -99,5 +100,8 @@
         transform: translate(-50%, 20%); 
         width: 80%; 
         max-width: 500px; 
-    } 
+    }
+    .title-lg {
+    font-size: 30px; /* Cambiar el tamaño de letra */
+  }
 </style>

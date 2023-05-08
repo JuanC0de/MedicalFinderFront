@@ -60,7 +60,7 @@ export default {
 </script>
 
 <template>
-  <v-text align-center justify-center>Registrate como paciente</v-text>
+  <h2 align-center justify-center class="title-lg">Registrate como paciente</h2>
   <v-form>
     <v-container>
       <v-row>
@@ -133,3 +133,9 @@ export default {
     </v-container>
   </v-form>
 </template>
+
+<style>
+  .title-lg {
+    font-size: 30px; /* Cambiar el tamaño de letra */
+  }
+</style>

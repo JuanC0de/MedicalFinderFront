@@ -48,7 +48,7 @@
 </script>
 
 <template>
-<v-text align-center justify-center>Pre-inscríbete como médico</v-text>
+<h2 align-center justify-center class="title-lg">Pre-inscríbete como médico</h2>
   <v-form>
     <v-container>
       <v-row>
@@ -130,3 +130,9 @@
     </v-container>
   </v-form>
 </template>
+
+<style>
+  .title-lg {
+    font-size: 30px; /* Cambiar el tamaño de letra */
+  }
+</style>

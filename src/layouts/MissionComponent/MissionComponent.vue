@@ -16,17 +16,20 @@ export default {
 <template>      
   <v-container  align = "center">
     <v-row align = "center" justify="space-around">
-      <v-col cols="6" order="1">
-        <v-sheet class="pa-1 ma-1">
-          <h2 
-        class="text-lg font-custom"
-        >{{ title }}</h2>
-          <p>{{ text }}</p>
+      <v-col cols="12" md="6" order="2">
+        <v-sheet class="pa-10 ma-1">
+          <h2 class="title-lg">
+            {{ title }}
+          </h2>
+          <p class="text-lg">
+            {{ text }}
+          </p>
         </v-sheet>
       </v-col>
-      <v-col  cols="6" order="2">
+      <v-col  cols="12" md="6" order="1">
         <v-sheet class="pa-2 ma-2">
           <v-img
+            class="img"
             src="@/assets/images/imgMissionVision/Mision1.png"
             :alt="title"
             width="100%"
@@ -36,3 +39,15 @@ export default {
     </v-row>
   </v-container>   
 </template>
+
+<style>
+  @media only screen and (min-width: 1383px) {
+    .img {
+      width: 600px;
+      height: 550px;
+    }
+  }
+  .text-lg {
+    font-size: 20px; /* Cambiar el tamaño de letra */
+  }
+</style>
