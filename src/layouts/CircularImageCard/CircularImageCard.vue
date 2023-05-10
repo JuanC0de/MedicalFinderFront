@@ -2,19 +2,19 @@
 export default {
     name: 'CircularImageCard',
     props: {
-      imagen: {
+      imagen1: {
           img: String,
           required: true
         },
-        title: {
+        title1: {
           type: String,
           required: true
         },
-        subtitle: {
+        subtitle1: {
           type: String,
           required: true
         },
-        textCard: {
+        textCard1: {
           type: String,
           required: true
         }
