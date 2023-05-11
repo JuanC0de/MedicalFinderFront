@@ -112,7 +112,7 @@ export default {
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <CardAboutUs
-              imagen=@/assets/images/imgWorkingGroup/JuanAndres.jpg
+              :image-url="imageJuanAndres"
               title="Juan Andrés Bolaño Ospina"
               subtitle="Scrum Master"
               textCard="Facilita el proceso de Scrum y elimina obstáculos para el equipo."
@@ -122,7 +122,7 @@ export default {
         <v-col order="6">
           <v-sheet class="pa-2 ma-2">
             <CardAboutUs
-              imagen=@/assets/images/imgWorkingGroup/Vanessa.jpg
+              :imgCard="imageKarelysVanessa"
               title="Karelys Vanessa Silva Quitian"
               subtitle="Product Owner"
               textCard="Define los requisitos del producto y prioriza el trabajo del equipo."
@@ -132,7 +132,7 @@ export default {
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <CardAboutUs
-              imagen=@/assets/images/imgWorkingGroup/JuanJose.jpg
+              :imgCard="imageJuanJose"
               title="Juan Jose Rojas Guaneme"
               subtitle="Equipo de Desarrollo"
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
@@ -146,7 +146,7 @@ export default {
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <CardAboutUs
-              imagen=@/assets/images/imgWorkingGroup/Luisa.jpg
+              :imgCard="imageLuisaFernanda"
               title="Luisa Fernanda Castiblanco"
               subtitle="Equipo de Desarrollo" 
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
@@ -156,7 +156,7 @@ export default {
         <v-col order="6">
           <v-sheet class="pa-2 ma-2">
             <CardAboutUs
-              imagen=@/assets/images/imgWorkingGroup/JoseLuis.jpg
+              :imgCard="imageJoseLuis"
               title="Jose Luis Ordoñez Calderón "
               subtitle="Equipo de Desarrollo" 
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
@@ -166,7 +166,7 @@ export default {
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <CardAboutUs
-              imagen=@/assets/images/imgWorkingGroup/Majo.jpg
+              :imgCard="imageMariaJose"
               title="Maria Jose Paz García"
               subtitle="Equipo de Desarrollo" 
               textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum." 
