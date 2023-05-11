@@ -1,7 +1,8 @@
 <script>
 import MissionComponent from '@/layouts/MissionComponent/MissionComponent.vue';
 import VisionComponent from '@/layouts/VisionComponent/VisionComponent.vue';
-import CircularImageCard from '@/layouts/CircularImageCard/CircularImageCard.vue';
+// import CircularImageCard from '@/layouts/CircularImageCard/CircularImageCard.vue';
+import CardAboutUs from '@/layouts/CardAboutUs/CardAboutUs.vue'
 import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 
@@ -10,7 +11,7 @@ export default {
   components: {
     MissionComponent,
     VisionComponent,
-    CircularImageCard,
+    CardAboutUs,
     Navbar,
     FooterComponent
   },
@@ -37,7 +38,7 @@ export default {
         title="Visión"
         text="Pretendemos ayudar y Satisfacer de manera eficaz y eficiente las necesidades del cuidado, mejorando cada vez más en diferentes aspectos como la atención que tenga el ciudadano y el ambiente dentro de nuestro sistema, también queremos llegar inicialmente a todo el territorio de nuestro país, y así, esparcirnos a nivel mundial."
     />
-    <v-container align = "center">
+    <!-- <v-container align = "center">
       <v-row>
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
@@ -104,8 +105,76 @@ export default {
           </v-sheet>
         </v-col>
       </v-row>
+    </v-container> -->
+  
+    <v-container align = "center">
+      <v-row>
+        <v-col order="1">
+          <v-sheet class="pa-2 ma-2">
+            <CardAboutUs
+              imagen=@/assets/images/imgWorkingGroup/JuanAndres.jpg
+              title="Juan Andrés Bolaño Ospina"
+              subtitle="Scrum Master"
+              textCard="Facilita el proceso de Scrum y elimina obstáculos para el equipo."
+            />
+          </v-sheet>
+        </v-col>
+        <v-col order="6">
+          <v-sheet class="pa-2 ma-2">
+            <CardAboutUs
+              imagen=@/assets/images/imgWorkingGroup/Vanessa.jpg
+              title="Karelys Vanessa Silva Quitian"
+              subtitle="Product Owner"
+              textCard="Define los requisitos del producto y prioriza el trabajo del equipo."
+            />
+          </v-sheet>
+        </v-col>
+        <v-col order="12">
+          <v-sheet class="pa-2 ma-2">
+            <CardAboutUs
+              imagen=@/assets/images/imgWorkingGroup/JuanJose.jpg
+              title="Juan Jose Rojas Guaneme"
+              subtitle="Equipo de Desarrollo"
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
+            />
+          </v-sheet>
+        </v-col>
+      </v-row>
     </v-container>
-    
+    <v-container align = "center">
+      <v-row>
+        <v-col order="1">
+          <v-sheet class="pa-2 ma-2">
+            <CardAboutUs
+              imagen=@/assets/images/imgWorkingGroup/Luisa.jpg
+              title="Luisa Fernanda Castiblanco"
+              subtitle="Equipo de Desarrollo" 
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
+            />
+          </v-sheet>
+        </v-col>
+        <v-col order="6">
+          <v-sheet class="pa-2 ma-2">
+            <CardAboutUs
+              imagen=@/assets/images/imgWorkingGroup/JoseLuis.jpg
+              title="Jose Luis Ordoñez Calderón "
+              subtitle="Equipo de Desarrollo" 
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum."
+            />
+          </v-sheet>
+        </v-col>
+        <v-col order="12">
+          <v-sheet class="pa-2 ma-2">
+            <CardAboutUs
+              imagen=@/assets/images/imgWorkingGroup/Majo.jpg
+              title="Maria Jose Paz García"
+              subtitle="Equipo de Desarrollo" 
+              textCard="Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum." 
+            />
+          </v-sheet>
+        </v-col>
+      </v-row>
+    </v-container>    
   <FooterComponent/>  
 </template>
 
