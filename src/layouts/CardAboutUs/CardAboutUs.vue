@@ -1,10 +1,7 @@
 <script>
 export default {
     props:{
-        imagen: {
-            type: String,
-            required: true
-        },
+        imageUrl: String,
         title: {
             type: String,
             required: true
@@ -26,11 +23,11 @@ export default {
     border
     class="mb-3 card"
     density="compact"
-    :prepend-avatar="imagen"
+    :prepend-avatar="imageUrl"
     :subtitle="subtitle"  
     :title="title"
   >
-    <v-img src="https://picsum.photos/512/128?image=660" height="128" cover></v-img>
+    <v-img src="@/assets/images/imgCardAboutUs/imgMedicalFinder.jpg" height="128" cover></v-img>
 
     <v-card-text>
       {{ textCard }}
