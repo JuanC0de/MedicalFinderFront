@@ -34,12 +34,12 @@ const routes = [
     ],
   },
   {
-    path: '/registro/medico',
+    path: '/RegistroMedico',
     name: 'Registro Medico',
     component: () => import('@/views/Register/Doctor/RegisterDoctor.vue'),
   },
   {
-    path: '/registro/paciente',
+    path: '/RegistroPaciente',
     name: 'Registro Paciente',
     component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
   },

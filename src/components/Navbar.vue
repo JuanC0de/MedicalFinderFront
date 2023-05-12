@@ -10,9 +10,10 @@ export default {
         { title: 'Configuración', icon: 'mdi-cog' },
         { title: 'Cerrar sesión', icon: 'mdi-logout' },
       ],
+
       registro: [
-        { title: 'Médico',  routerTo:'/registro/medico' },
-        { title: 'Paciente', routerTo:'/registro/paciente' },
+         {title: 'Médico'},
+         {title: 'Paciente'},
       ],
     }
   },
@@ -33,13 +34,31 @@ export default {
       <v-btn id="menu-activator" class="top-items text-white">
         Registrarnos
       </v-btn>
+      
+      <v-menu activator="#menu-activator" class="top-items">
+  <v-list>
+    <router-link to="/RegistroMedico" class="top-items text-Black text-decoration-none" >
+      <v-list-item>
+        <v-list-item-title>Medico</v-list-item-title>
+      </v-list-item>
+    </router-link>
+    <router-link to="/RegistroPaciente"  class="top-items text-black  text-decoration-none">
+      <v-list-item>
+        <v-list-item-title>Paciente</v-list-item-title>
+      </v-list-item>
+    </router-link>
+  </v-list>
+</v-menu>
+      <!--
       <v-menu activator="#menu-activator" class="top-items">
         <v-list>
-          <v-list-item  v-for="(item, index ) in registro" :key="index" :value="index">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item v-for="(item, index ) in registro" :key="index" :value="index" :to="item.route">
+            <v-list-item-title >{{ item.title }}</v-list-item-title>
           </v-list-item>
-        </v-list>
+        </v-list> 
       </v-menu>
+      -->
+        
       <v-btn to="/IniciarSesion" class="top-items text-white">Iniciar Sesión</v-btn>
     </v-app-bar>
 
