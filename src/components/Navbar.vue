@@ -24,9 +24,9 @@ export default {
     <v-app-bar app class="bg-PrincipalCyan">
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="menu"></v-app-bar-nav-icon> -->
       <v-toolbar-title>
-        <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%">
+        <!-- <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%"> -->
       </v-toolbar-title>
-      <v-spacer></v-spacer>
+      <v-spacer></v-spacer> 
       <v-btn to="/" class="top-items text-white">Inicio</v-btn>
       <v-btn to="/AcercaDeNosotros" class="top-items text-white">Acerca de Nosotros</v-btn>
       <v-btn to="/Soporte" class="top-items text-white">Soporte</v-btn>
