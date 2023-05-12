@@ -1,0 +1,1 @@
+<!-- configurar la vista -->
