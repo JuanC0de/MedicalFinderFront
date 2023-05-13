@@ -26,20 +26,15 @@ const routes = [
         name: 'Support',
         component: () => import('@/views/Support/Support.vue'),
       },
-      {
-        path: '/Busqueda',
-        name: 'Buscar Especialista',
-        component: () => import('@/views/Find/MedicalFinder.vue'),
-      },
     ],
   },
   {
-    path: '/RegistroMedico',
+    path: '/registro/medico',
     name: 'Registro Medico',
     component: () => import('@/views/Register/Doctor/RegisterDoctor.vue'),
   },
   {
-    path: '/RegistroPaciente',
+    path: '/registro/paciente',
     name: 'Registro Paciente',
     component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
   },

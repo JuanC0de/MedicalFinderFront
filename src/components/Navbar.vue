@@ -28,7 +28,7 @@ export default {
         <!-- <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%"> -->
       </v-toolbar-title>
       <v-spacer></v-spacer> 
-      <v-btn to="/" class="top-items text-white">Inicio</v-btn>
+      <v-btn to=" " class="top-items text-white">Inicio</v-btn>
       <v-btn to="/AcercaDeNosotros" class="top-items text-white">Acerca de Nosotros</v-btn>
       <v-btn to="/Soporte" class="top-items text-white">Soporte</v-btn>
       <v-btn id="menu-activator" class="top-items text-white">
@@ -37,28 +37,18 @@ export default {
       
       <v-menu activator="#menu-activator" class="top-items">
   <v-list>
-    <router-link to="/RegistroMedico" class="top-items text-Black text-decoration-none" >
+    <router-link to="/registro/medico" class="top-items text-Black text-decoration-none" >
       <v-list-item>
         <v-list-item-title>Medico</v-list-item-title>
       </v-list-item>
     </router-link>
-    <router-link to="/RegistroPaciente"  class="top-items text-black  text-decoration-none">
+    <router-link to="/registro/paciente"  class="top-items text-black  text-decoration-none">
       <v-list-item>
         <v-list-item-title>Paciente</v-list-item-title>
       </v-list-item>
     </router-link>
   </v-list>
-</v-menu>
-      <!--
-      <v-menu activator="#menu-activator" class="top-items">
-        <v-list>
-          <v-list-item v-for="(item, index ) in registro" :key="index" :value="index" :to="item.route">
-            <v-list-item-title >{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list> 
-      </v-menu>
-      -->
-        
+</v-menu>  
       <v-btn to="/IniciarSesion" class="top-items text-white">Iniciar Sesión</v-btn>
     </v-app-bar>
 
