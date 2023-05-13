@@ -47,6 +47,11 @@ const routes = [
     path: '/buscar',
     name: 'Buscar Especialista',
     component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
+  },
+  {
+    path: '/medico/perfil',
+    name: 'Perfil Médico',
+    component: () => import('@/views/Admin/Medical/MedicalProfile/MedicalProfile.vue')
   }
 ]
 
