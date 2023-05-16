@@ -87,7 +87,7 @@ export default {
         </v-col>
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
-            <v-card>
+            <v-card class="card">
               <v-avatar>
                 <img
                   class="imgIconoCard"
@@ -158,7 +158,7 @@ export default {
         </v-col>
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
-            <v-card>
+            <v-card class="card">
               <v-avatar>
                 <img
                   class="imgIconoCard"
