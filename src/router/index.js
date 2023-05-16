@@ -48,6 +48,12 @@ const routes = [
     name: 'Perfil Médico',
     component: () => import('@/views/Admin/Medical/MedicalProfile/MedicalProfile.vue')
   }
+  ,
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('@/views/Admin/AdminView/Base.vue')
+  }
 ]
 
 const router = createRouter({
