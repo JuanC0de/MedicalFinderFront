@@ -88,7 +88,7 @@ export default {
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <v-card class="card">
-              <v-avatar>
+              <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
                   src="@/assets/images/imgWorkingGroup/JuanJose.jpg"
@@ -111,7 +111,6 @@ export default {
     </v-container>
 
     <v-container align = "center"> 
-      <v-row>
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <v-card class="card">
@@ -159,7 +158,7 @@ export default {
         <v-col order="12">
           <v-sheet class="pa-2 ma-2">
             <v-card class="card">
-              <v-avatar>
+              <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
                   src="@/assets/images/imgWorkingGroup/Majo.jpg"
@@ -178,7 +177,6 @@ export default {
             </v-card> 
           </v-sheet>
         </v-col>
-      </v-row>
     </v-container>
   <FooterComponent/>  
 </template>
