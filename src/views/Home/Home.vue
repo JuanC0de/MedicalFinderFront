@@ -6,7 +6,7 @@
     </v-card> -->
 
     <!-- Buscador -->
-    <v-card height="500px">
+    <v-card height="400px" >
       <v-container class="mb-8 w-100" width="100%">
         <v-row>
           <v-col cols="6">
@@ -21,14 +21,10 @@
                 <v-card-text>
                   <v-row justify="center" align="center">
                     <v-col cols="5">
-                      <v-select class="ma-1" label="Select"
-                        :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
-                      </v-select>
+                      <AccordionCities class="ma-1"/>
                     </v-col>
                     <v-col cols="5">
-                      <v-select class="ma-1" label="Select"
-                        :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
-                      </v-select>
+                      <SelectSpecialists class="ma-1"/>
                     </v-col>
                     <v-col cols="2">
                       <v-btn class="ma-1 w-100" variant="outlined">
@@ -149,12 +145,13 @@
       </div>
       <v-card class="" height="500px">
         <v-carousel>
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
+          <v-carousel-item src="https://images.pexels.com/photos/7653310/pexels-photo-7653310.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" cover></v-carousel-item>
 
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
+          <v-carousel-item src="https://images.pexels.com/photos/4492050/pexels-photo-4492050.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" cover></v-carousel-item>
 
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
+          <v-carousel-item src="https://images.pexels.com/photos/7176026/pexels-photo-7176026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" cover></v-carousel-item>
+
+          <v-carousel-item src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" cover></v-carousel-item>
         </v-carousel>
       </v-card>
 
@@ -166,12 +163,16 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
+import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
 
 export default {
   name: 'HomeView',
   components: {
     Navbar,
-    FooterComponent
+    FooterComponent,
+    AccordionCities,
+    SelectSpecialists
   },
   props: {
     msg: String
@@ -194,19 +195,19 @@ export default {
           title: 'New Releases',
           text: `It's New Release Friday`,
           subtext: 'Newly released songs. Updated daily.',
-          img: 'https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3264&q=80',
+          img: 'https://images.pexels.com/photos/3786166/pexels-photo-3786166.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
         {
           title: 'Rock',
           text: 'Greatest Rock Hits',
           subtext: 'Lose yourself in rock tunes.',
-          img: 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+          img: 'https://images.pexels.com/photos/5340274/pexels-photo-5340274.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
         {
           title: 'Mellow Moods',
           text: 'Ambient Bass',
           subtext: 'Chill beats to mellow you out.',
-          img: 'https://images.unsplash.com/photo-1542320868-f4d80389e1c4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3750&q=80',
+          img: 'https://images.pexels.com/photos/3845998/pexels-photo-3845998.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
       ],
       transparent: 'rgba(255, 255, 255, 0)',
@@ -216,6 +217,9 @@ export default {
 </script>
 
 <style>
+.ddd{
+  width: 150px;
+}
 .container {
   /* background: url('../../assets/images/Cyanwallpaper.jpg') no-repeat  center;*/
   background-image: linear-gradient(to right top, #1c565c, #26747d, #31949f, #3bb6c3, #46d8e8);

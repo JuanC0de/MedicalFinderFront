@@ -39,6 +39,7 @@ export default {
         title="Visión"
         text="Pretendemos ayudar y Satisfacer de manera eficaz y eficiente las necesidades del cuidado, mejorando cada vez más en diferentes aspectos como la atención que tenga el ciudadano y el ambiente dentro de nuestro sistema, también queremos llegar inicialmente a todo el territorio de nuestro país, y así, esparcirnos a nivel mundial."
     />
+    <hr class="Design-hr">
     <v-container align = "center"> 
       <v-row>
         <v-col order="1">
@@ -109,8 +110,8 @@ export default {
         </v-col>
       </v-row>
     </v-container>
-
     <v-container align = "center"> 
+      <v-row>
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <v-card class="card">
@@ -177,11 +178,16 @@ export default {
             </v-card> 
           </v-sheet>
         </v-col>
+      </v-row>  
     </v-container>
   <FooterComponent/>  
 </template>
 
 <style>
+.Design-hr{
+  height: 15px;
+  background-color: #3AB4C2;
+}
 .imgIconoCard{
   background-size: cover;
   background-position: relative;
@@ -214,15 +220,15 @@ export default {
   background-color: #3AB4C2;
   transition: all 0.5s;
 }
-.card::before {
+.card::after {
   top: 0;
   right: 0;
   border-radius: 0 5px 0 100%;
 }
-.card::after {
+.card::before{
   bottom: 0;
   left: 0;
-  border-radius: 0 100%  0 5px;
+  border-radius: 0 100%  0 5px ;
 }
 .card:hover::before,
 .card:hover:after {
