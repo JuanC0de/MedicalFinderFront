@@ -260,7 +260,7 @@ export default {
     async cargarEspecialidades() {
 
       let response = await ServiceHome.consultarListaEspecialidades();
-      console.log("Esta es la respuesta",response);
+      console.log("Esta es la respuesta deploy:",response);
       if (response.length > 0) {
         this.especialidades = response.map(objeto => objeto.especialidad)
         console.log("Estas son las especialidades",this.especialidades);
