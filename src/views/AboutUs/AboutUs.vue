@@ -39,7 +39,9 @@ export default {
         title="Visión"
         text="Pretendemos ayudar y Satisfacer de manera eficaz y eficiente las necesidades del cuidado, mejorando cada vez más en diferentes aspectos como la atención que tenga el ciudadano y el ambiente dentro de nuestro sistema, también queremos llegar inicialmente a todo el territorio de nuestro país, y así, esparcirnos a nivel mundial."
     />
-    <hr class="Design-hr">
+    <div class="text-center">
+      <hr class="Design-hr">
+    </div>
     <v-container align = "center"> 
       <v-row>
         <v-col order="1">
@@ -186,6 +188,9 @@ export default {
 <style>
 .Design-hr{
   background-color: #3AB4C2;
+  height: 9px;
+  width: 80%;
+  margin: 0 auto;
 }
 .imgIconoCard{
   background-size: cover;

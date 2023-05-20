@@ -76,6 +76,7 @@ export default {
         <v-col cols="12" sm="6">
           <v-text-field
             label="Documento de identificación"
+            
             type="number"
           ></v-text-field>
         </v-col>
