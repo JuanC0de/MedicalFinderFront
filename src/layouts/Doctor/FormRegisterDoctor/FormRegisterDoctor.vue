@@ -27,22 +27,56 @@
 
             return 'La especialidad ingresado necesita más de 5 caracteres'
           },
+          address (value) {
+            if (value?.length >= 10) return true
+
+            return 'La dirección ingresada necesita más de 10 caracteres'
+          },          
           email (value) {
             if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
 
             return 'Debe ser un correo electrónico válido.'
           },
+          phone(value) {
+            if (value?.length==10){
+            return true;
+            }
+            else{
+              return "Debe ser un número de celular válido.";
+            }
+          },
+          identificationDocument (value) {
+            if (value?.length==10){
+            return true;
+            }
+            else{
+              return "Debe ser una documento de identificación válido.";
+            }
+          },
+          professionalCardNumber (value) {
+            if (value?.length==10){
+            return true;
+            }
+            else{
+              return "Debe ser un número de tarjeta profesional válido.";
+            }
+          }                     
         },
-      })
-      const name = useField('name')
-      const speciality = useField('speciality')
-      const email = useField('email')
+      });
+
+      const name = useField('name');
+      const speciality = useField('speciality');
+      const email = useField('email');
+      const phone = useField('phone');
+      const identificationDocument = useField('identificationDocument');
+      const professionalCardNumber = useField('professionalCardNumber');
+      const address = useField('address');
 
       const submit = handleSubmit(values => {
         alert(JSON.stringify(values, null, 2))
       })
 
-      return { name, speciality, email, submit }
+      return { name, speciality, email, submit, phone, identificationDocument, professionalCardNumber, address}
     },
   }
 </script>
@@ -81,6 +115,8 @@
           sm="6"
         >
          <v-text-field
+          v-model="identificationDocument.value.value"
+          :error-messages="identificationDocument.errorMessage.value"
           label="Documento de identificacion"
           type="number"
         ></v-text-field> 
@@ -91,6 +127,8 @@
           sm="6"
         >
          <v-text-field
+          v-model="professionalCardNumber.value.value"
+          :error-messages="professionalCardNumber.errorMessage.value"         
           label="Número de tarjeta profesional"
           type="number"
         ></v-text-field> 
@@ -101,7 +139,10 @@
           sm="6"
         >
           <v-text-field
-          label="Numero de contacto" type="number"
+          v-model="phone.value.value"
+          :error-messages="phone.errorMessage.value"
+          label="Número de contacto" 
+          type="number"
         ></v-text-field>
         </v-col>
 
@@ -123,8 +164,10 @@
           sm="6"
         >
           <v-text-field
+          v-model="address.value.value"
+          :error-messages="address.errorMessage.value"          
           label="Direccion de consultorio"
-        ></v-text-field>
+          ></v-text-field>
         </v-col>
       </v-row>
     </v-container>

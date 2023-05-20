@@ -1,12 +1,11 @@
 <script setup>
 import FormRegisterDoctor from '@/layouts/Doctor/FormRegisterDoctor/FormRegisterDoctor.vue';
 import CheckBoxPolitica from '@/components/CheckBoxPolitica.vue';
-import Navbar from '@/components/Navbar.vue';
-import FooterComponent from '@/components/FooterComponent.vue';
+// import Navbar from '@/components/Navbar.vue';
+// import FooterComponent from '@/components/FooterComponent.vue';
 </script>
 
 <template>
-    <Navbar/>
         <div class="my-view">
             <v-container class="d-flex align-center" style="height: 100vh">
                 <v-sheet
@@ -21,7 +20,6 @@ import FooterComponent from '@/components/FooterComponent.vue';
                 </v-sheet> 
             </v-container> 
         </div>
-    <FooterComponent/>
 </template>
 <style>
     .my-view {

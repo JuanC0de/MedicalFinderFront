@@ -6,10 +6,10 @@
     </v-card> -->
 
     <!-- Buscador -->
-    <v-card height="400px" >
+    <v-card height="600px" >
       <v-container class="mb-8 w-100" width="100%">
         <v-row>
-          <v-col cols="6">
+          <v-col cols="7"  lg="6" md="5" sm="12">
             <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
 
             <v-row>
@@ -45,8 +45,8 @@
 
           </v-col>
 
-          <v-col>
-
+          <v-col cols="5" lg="6" md="5" sm="12">
+            <v-img src="@/assets/images/imgHome/imgMain/médico.png" alt="Médico"/>
           </v-col>
         </v-row>
       </v-container>
