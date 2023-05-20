@@ -46,7 +46,7 @@
             }
           },
           identificationDocument (value) {
-            if (value?.length==10){
+            if (value?.length>=8){
             return true;
             }
             else{
