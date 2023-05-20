@@ -39,9 +39,7 @@ export default {
         title="Visión"
         text="Pretendemos ayudar y Satisfacer de manera eficaz y eficiente las necesidades del cuidado, mejorando cada vez más en diferentes aspectos como la atención que tenga el ciudadano y el ambiente dentro de nuestro sistema, también queremos llegar inicialmente a todo el territorio de nuestro país, y así, esparcirnos a nivel mundial."
     />
-    <div class="text-center">
-      <hr class="Design-hr">
-    </div>
+
     <v-container align = "center"> 
       <v-row>
         <v-col order="1">
@@ -56,7 +54,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Juan Andrés Bolaño Ospina
+                    Juan Andrés Bolaño 
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Scrum Master</p>
@@ -78,7 +76,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Karelys Vanessa Silva Quitian
+                    Karelys Vanessa Silva 
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Product Owner</p>
@@ -100,7 +98,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Juan Jose Rojas Guaneme
+                    Juan Jose Rojas 
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</p>
@@ -126,7 +124,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Luisa Fernanda Castiblanco
+                    Luisa Fernanda  
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</p>
@@ -148,7 +146,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Jose Luis Ordoñez Calderón
+                    Jose Luis Ordoñez 
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</P>
@@ -170,7 +168,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Maria Jose Paz García
+                    Maria Jose Paz 
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</p>
@@ -186,12 +184,6 @@ export default {
 </template>
 
 <style>
-.Design-hr{
-  background-color: #3AB4C2;
-  height: 9px;
-  width: 80%;
-  margin: 0 auto;
-}
 .imgIconoCard{
   background-size: cover;
   background-position: relative;

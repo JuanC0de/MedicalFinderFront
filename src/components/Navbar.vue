@@ -37,9 +37,9 @@ export default {
       
       <v-menu activator="#menu-activator" class="top-items">
   <v-list>
-    <router-link to="/registro/medico" class="top-items text-Black text-decoration-none" >
+    <router-link to="/registro/medico" class="top-items text-black text-decoration-none" >
       <v-list-item>
-        <v-list-item-title>Medico</v-list-item-title>
+        <v-list-item-title>Médico</v-list-item-title>
       </v-list-item>
     </router-link>
     <router-link to="/registro/paciente"  class="top-items text-black  text-decoration-none">
@@ -52,7 +52,7 @@ export default {
       <v-btn to="/IniciarSesion" class="top-items text-white">Iniciar Sesión</v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" app>
+    <!-- <v-navigation-drawer v-model="drawer" app>
       <v-list>
         <v-list-item v-for="item in items" :key="item.title" link>
           <v-list-item-icon >
@@ -61,7 +61,7 @@ export default {
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <v-content>
       <!-- Contenido de la aplicación -->
