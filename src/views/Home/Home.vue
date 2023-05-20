@@ -165,6 +165,7 @@ import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
 import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
+import ServiceHome from '@/views/Home/ServiceHome';
 
 export default {
   name: 'HomeView',
@@ -210,9 +211,27 @@ export default {
           img: 'https://images.pexels.com/photos/3845998/pexels-photo-3845998.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
       ],
-      transparent: 'rgba(255, 255, 255, 0)',
+    transparent: 'rgba(255, 255, 255, 0)',
+    especialidades:[]
   }
   ),
+  /********* Ciclo de vida *********/
+  async created() {
+    await this.cargarEspecialidades();
+  },
+  methods:{
+    async cargarEspecialidades() {
+
+      let response = await ServiceHome.consultarListaEspecialidades();
+      console.log("Esta es la respuesta",response);
+      if (response.status == 200) {
+        this.especialidades = response.data;
+      }
+      else{
+        console.log("Ocurrió un error",response)
+      }
+    },
+  }
 }
 </script>
 
