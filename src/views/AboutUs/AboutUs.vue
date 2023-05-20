@@ -185,7 +185,6 @@ export default {
 
 <style>
 .Design-hr{
-  height: 15px;
   background-color: #3AB4C2;
 }
 .imgIconoCard{
