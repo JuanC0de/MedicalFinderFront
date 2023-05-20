@@ -183,10 +183,11 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
-import AccordionCities from "@/components/AccordionCities/AccordionCities.vue";
-import SelectSpecialists from "@/components/SelectSpecialists/SelectSpecialists.vue";
+import Navbar from '@/components/Navbar.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
+import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
+import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
+import ServiceHome from '@/views/Home/ServiceHome';
 
 export default {
   name: "HomeView",
