@@ -13,19 +13,19 @@ export default {
 </script>
 
 <template>
-    <Navbar/>
-  <div class="my-view">
+  
     <FormLogin />
-  </div>
+  
   <FooterComponent/>
 </template>
 
 <style>
 .my-view {
-  background-image: url("@/assets/images/pacienteMedico.png");
+  background-image: url("");
   background-size: cover;
   background-position: relative;
-  min-height: 100vh;
-  margin: 30px;
+  height: 100%;
+  width: 100%;
+  margin: 8px
 }
 </style>

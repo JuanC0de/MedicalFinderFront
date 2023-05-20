@@ -35,57 +35,77 @@
 </script>
 
 <template>
-  <v-card class="formContainer pa-4">
-    <h2 class="title-lg">Iniciar Sesión</h2>
-    <form @submit.prevent="submit">
-      <v-text-field
-        v-model="email.value.value"
-        :error-messages="email.errorMessage.value"
-        label="Correo electrónico"
-      ></v-text-field>
 
-      <v-text-field
-              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
-              :rules="[rules.required, rules.min]"
-              :type="show2 ? 'text' : 'password'"
-              name="input-10-2"
-              label="Contraseña"
-              hint="Al menos 8 caracteres"
-              class="input-group--focused"
-              @click:append="show2 = !show2"
+<v-card  height="100%">
+  <v-container>
+    <!-- Fila -->
+    <v-row>
+      <!-- Primera columna pc col6 tablet col6 movil 12 -->
+      <v-col cols="6">
+        <v-card class="formContainer pa-4">
+          <h2 class="title-lg">Iniciar Sesión</h2>
+          <form @submit.prevent="submit">
+            <v-text-field
+              v-model="email.value.value"
+              :error-messages="email.errorMessage.value"
+              label="Correo electrónico"
+            ></v-text-field>
+
+            <v-text-field
+          :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+          :rules="[rules.required, rules.min]"
+          :type="show2 ? 'text' : 'password'"
+          name="input-10-2"
+          label="Contraseña"
+          hint="Al menos 8 caracteres"
+          class="input-group--focused"
+          @click:append="show2 = !show2"
         ></v-text-field>
-      <v-container>
-        <v-row justify="center">
-          <v-col>        
-            <v-text>
-              <a href="#" class="ColorAncla">
-                ¿Olvidaste tu contraseña?
-              </a>  
-            </v-text>
-          </v-col>
-        </v-row>
-        <v-row justify="center">
-          <v-col>
-            <v-btn 
-              type="submit" 
-              variant="outlined" 
-              color="PrincipalCyan" 
-              block class="mt-2"
-            >
-              Enviar
-            </v-btn>
-          </v-col>
-        </v-row>
-        <v-row justify="center">
-          <v-col>
-            <v-text>
-              ¿No tiene una cuenta? <a href="#" class="ColorAncla">Cree una.</a>
-            </v-text>
-          </v-col>
-        </v-row>
-      </v-container>
-    </form>
-  </v-card>
+
+        <v-container>
+          <v-row justify="center">
+            <v-col>
+              <v-text>
+                <a href="#" class="ColorAncla">
+                  ¿Olvidaste tu contraseña?
+                </a>
+              </v-text>
+            </v-col>
+          </v-row>
+          <v-row justify="center">
+            <v-col>
+              <v-btn
+                type="submit"
+                variant="outlined"
+                color="PrincipalCyan"
+                block
+                class="mt-2"
+              >
+                Enviar
+              </v-btn>
+            </v-col>
+          </v-row>
+          <v-row justify="center">
+            <v-col>
+              <v-text>
+                ¿No tiene una cuenta?
+                <a href="#" class="ColorAncla">Cree una.</a>
+              </v-text>
+            </v-col>
+          </v-row>
+        </v-container>
+      </form>
+    </v-card>
+  </v-col>
+  <!-- Segunda Columna col6 tablet col6 movil 12 -->
+  <v-col cols="6">
+    <img src="/CODE/MedicalFinderFront/src/assets/LogoMedicalfinder.png">
+  </v-col>
+  <!-- Fin de la segunda columna -->
+</v-row>
+<!-- Fin de la fila -->
+</v-container>
+</v-card>
 </template>
 
 <style>
