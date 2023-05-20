@@ -103,10 +103,7 @@
 </script>
 
 <template>
-        <v-col
-          cols="12"
-          sm="6"
-        >     
+        <v-col>     
           <v-autocomplete
             v-model="model"
             :items="states"
