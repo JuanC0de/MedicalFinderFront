@@ -2,31 +2,17 @@ import Global from "@/Global";
 // import axios from "axios";
 class ServiceHome {
   async consultarListaEspecialidades() {
-    // let request = "especialidad/apiespecialidad/Especialidad/";
-    // let url = Global.API_URL + request;
-    // try {
-    //   const response = await axios.get(url,{
-    //     headers: {
-    //       Accept: "application/json",
-    //       ContentType: "application/json"
-    //     }
-    //   });
-    //   return response.data;
-    // } catch (error) {
-    //   throw new Error('Error en la petición: ' + error.message);
-    // }
+    let request = "especialidad/apiespecialidad/Especialidad/";
+    let url = Global.API_URL + request;
     try {
-      let request = "especialidad/apiespecialidad/Especialidad/";
-      let url = Global.API_URL + request;
       const response = await fetch(url);
-      const result = await response.text();
+      const data = await response.json();
 
-      console.log("Este es el result",result);
-      return result;
+      console.log("Esta es la data", data);
+      return data;
     } catch (error) {
-      console.log('error', error);
+      console.log('Error:', error);
     }
-
   }
 }
-  export default new ServiceHome();
+export default new ServiceHome();

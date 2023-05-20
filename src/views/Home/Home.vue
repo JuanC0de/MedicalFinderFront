@@ -5,9 +5,9 @@
     </v-card> -->
 
     <!-- Buscador -->
-    <v-card height="600px" >
-      <v-container class="mb-8 w-100" width="100%">
-        <v-row>
+    <v-card height="400px" >
+      <v-container class=" ml-8 w-100" width="100%">
+        <v-row justify="center">
           <v-col cols="7"  lg="6" md="5" sm="12">
             <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
 
@@ -26,8 +26,8 @@
                       <!-- <SelectSpecialists class="ma-1"/> -->
                       <v-col>
                         <v-autocomplete
-                          v-model="this.especialidades.especialidad"
-                          :items="this.especialidades.especialidad"
+                          v-model="especialidad"
+                          :items="this.especialidades"
                           label="Especialidades"
                           persistent-hint
                         >
@@ -59,7 +59,7 @@
           </v-col>
 
           <v-col cols="5" lg="6" md="5" sm="12">
-            <v-img src="@/assets/images/imgHome/imgMain/médico.png" alt="Médico"/>
+            <v-img src="@/assets/images/imgHome/imgMain/médico.png" alt="Médico" class="imgHome"/>
           </v-col>
         </v-row>
       </v-container>
@@ -262,7 +262,7 @@ export default {
       let response = await ServiceHome.consultarListaEspecialidades();
       console.log("Esta es la respuesta",response);
       if (response.length > 0) {
-        this.especialidades = response;
+        this.especialidades = response.map(objeto => objeto.especialidad)
         console.log("Estas son las especialidades",this.especialidades);
       }
       else{
@@ -298,6 +298,11 @@ export default {
 .backTransparent {
   background-color: transparent;
 }
+
+.imgHome{
+  height: 60%;
+}
+
 
 @media only screen and (min-width: 1280px) {
   .v-container {
