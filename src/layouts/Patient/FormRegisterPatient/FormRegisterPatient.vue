@@ -43,18 +43,27 @@ export default {
           else{
             return "Debe ser un número de celular válido.";
           }
-        }
-      },
+        },
+          identificationDocument (value) {
+            if (value?.length>=8){
+            return true;
+            }
+            else{
+              return "Debe ser una documento de identificación válido.";
+            }
+          }        
+      }
     });
     const name = useField("name");
     const email = useField("email");
     const phone = useField("phone");
+    const identificationDocument = useField('identificationDocument');
 
     const submit = handleSubmit((values) => {
       alert(JSON.stringify(values, null, 2));
     });
 
-    return { name, email, phone, submit };
+    return { name, email, phone, identificationDocument, submit };
   },
 };
 </script>
@@ -75,8 +84,9 @@ export default {
 
         <v-col cols="12" sm="6">
           <v-text-field
+            v-model="identificationDocument.value.value"
+            :error-messages="identificationDocument.errorMessage.value"
             label="Documento de identificación"
-            
             type="number"
           ></v-text-field>
         </v-col>
