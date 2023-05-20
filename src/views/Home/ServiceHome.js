@@ -1,4 +1,4 @@
-// import Global from "@/Global";
+import Global from "@/Global";
 // import axios from "axios";
 class ServiceHome {
   async consultarListaEspecialidades() {
@@ -16,10 +16,13 @@ class ServiceHome {
     //   throw new Error('Error en la petición: ' + error.message);
     // }
     try {
-      console.log("entre")
-      const response = await fetch("https://drfsimplecrud-j1t7.onrender.com/especialidad/apiespecialidad/Especialidad/");
+      let request = "especialidad/apiespecialidad/Especialidad/";
+      let url = Global.API_URL + request;
+      const response = await fetch(url);
       const result = await response.text();
+
       console.log("Este es el result",result);
+      return result;
     } catch (error) {
       console.log('error', error);
     }

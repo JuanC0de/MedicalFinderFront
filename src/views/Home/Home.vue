@@ -24,7 +24,22 @@
                       <AccordionCities class="ma-1"/>
                     </v-col>
                     <v-col cols="5">
-                      <SelectSpecialists class="ma-1"/>
+                      <!-- <SelectSpecialists class="ma-1"/> -->
+                      <v-col>
+                        <v-autocomplete
+                          v-model="this.especialidades.especialidad"
+                          :items="this.especialidades.especialidad"
+                          label="Especialidades"
+                          persistent-hint
+                        >
+                          <template v-slot:append-outer>
+                            <v-slide-x-reverse-transition
+                              mode="out-in"
+                            >
+                            </v-slide-x-reverse-transition>
+                          </template>
+                        </v-autocomplete>
+                      </v-col>
                     </v-col>
                     <v-col cols="2">
                       <v-btn class="ma-1 w-100" variant="outlined">
@@ -164,7 +179,7 @@
 import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
-import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
+// import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
 import ServiceHome from '@/views/Home/ServiceHome';
 
 export default {
@@ -173,7 +188,7 @@ export default {
     Navbar,
     FooterComponent,
     AccordionCities,
-    SelectSpecialists
+    // SelectSpecialists
   },
   props: {
     msg: String
@@ -224,8 +239,9 @@ export default {
 
       let response = await ServiceHome.consultarListaEspecialidades();
       console.log("Esta es la respuesta",response);
-      if (response.status == 200) {
-        this.especialidades = response.data;
+      if (response.length > 0) {
+        this.especialidades = response;
+        console.log("Estas son las especialidades",this.especialidades);
       }
       else{
         console.log("Ocurrió un error",response)
