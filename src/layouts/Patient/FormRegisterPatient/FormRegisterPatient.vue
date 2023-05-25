@@ -1,10 +1,13 @@
 <script>
 import { useField, useForm } from "vee-validate";
 import AccordionCities from "@/components/AccordionCities/AccordionCities.vue";
+import ServicePatient from "@/views/Register/Patient/ServicePatient.js";
 
 export default {
   data: () => ({
     show2: false,
+    valid: true,
+    checkbox: false,
     password: "Password",
     rules: [
       (value) => !!value || "Requerido",
@@ -12,17 +15,17 @@ export default {
         (value && value.length >= 3) ||
         "Debe escribir un mensaje de minimo 3 caracteres.",
     ],
+    contraseñaPaciente:"",
+    FechaNacimiento:""
     // rules: {
     //     required: value => !!value || 'Requerido.',
     //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
     //     emailMatch: () => (`El correo electrónico y la contraseña introducidos no coinciden`),
     //   },
   }),
-
   components: {
     AccordionCities,
   },
-
   setup() {
     const { handleSubmit } = useForm({
       validationSchema: {
@@ -65,6 +68,25 @@ export default {
 
     return { name, email, phone, identificationDocument, submit };
   },
+  methods:{
+    async insertarPacienteNuevo() {
+      console.log("Entre a la funcion");
+      console.log("Ced",this.identificationDocument.value.value);
+      console.log("name",this.name.value.value);
+      console.log("phone",this.phone.value.value);
+      console.log("email",this.email.value.value);
+      console.log("FechaNacimiento",this.FechaNacimiento);
+      let response = await ServicePatient.insertarPaciente(5,this.identificationDocument.value.value,this.name.value.value,this.phone.value.value,this.email.value.value,"Armenia",this.FechaNacimiento,"Armenia");
+      console.log("Esta es la respuesta deploy:",response);
+      if (response.length > 0) {
+        this.especialidades = response.map(objeto => objeto.especialidad)
+        console.log("Estas son las especialidades",this.especialidades);
+      }
+      else{
+        console.log("Ocurrió un error",response)
+      }
+    },
+  }
 };
 </script>
 
@@ -100,7 +122,7 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field type="date" label="Fecha de nacimiento"> </v-text-field>
+          <v-text-field type="date" label="Fecha de nacimiento" v-model="this.FechaNacimiento"> </v-text-field>
           
         </v-col>
 
@@ -124,6 +146,7 @@ export default {
             label="Contraseña"
             hint="Al menos 8 caracteres"
             class="input-group--focused"
+            :models="this.contraseñaPaciente"
             @click:append="show2 = !show2"
           ></v-text-field>
         </v-col>
@@ -141,6 +164,13 @@ export default {
           ></v-text-field>
         </v-col>
       </v-row>
+      <v-checkbox
+        v-model="checkbox"
+        :rules="[v => !!v || 'Para continuar debes aceptar']"
+        label="He leído y acepto la Politica de privacidad y los terminos y condiciones"
+        required
+      ></v-checkbox>
+      <v-btn class="mt-2 sizebtn" color="SecondaryCyan" @click="insertarPacienteNuevo()">Enviar</v-btn>
     </v-container>
   </v-form>
 </template>
@@ -148,5 +178,8 @@ export default {
 <style>
   .title-lg {
     font-size: 30px; /* Cambiar el tamaño de letra */
+  }
+  .sizebtn {
+    width: 200px;
   }
 </style>
