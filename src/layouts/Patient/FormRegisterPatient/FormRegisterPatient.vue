@@ -76,11 +76,13 @@ export default {
       console.log("phone",this.phone.value.value);
       console.log("email",this.email.value.value);
       console.log("FechaNacimiento",this.FechaNacimiento);
-      let response = await ServicePatient.insertarPaciente(5,this.identificationDocument.value.value,this.name.value.value,this.phone.value.value,this.email.value.value,"Armenia",this.FechaNacimiento,"Armenia");
+      let response = await ServicePatient.insertarPaciente(6,this.identificationDocument.value.value,this.name.value.value,this.phone.value.value,this.email.value.value,"Armenia",this.FechaNacimiento,"Armenia");
       console.log("Esta es la respuesta deploy:",response);
-      if (response.length > 0) {
-        this.especialidades = response.map(objeto => objeto.especialidad)
-        console.log("Estas son las especialidades",this.especialidades);
+      if (response.status == 201) {
+        console.log("YA AGREGAMOSSSS")
+
+        //Mostrar el inicio de sesiòn y una alerta
+        //Sweetalert
       }
       else{
         console.log("Ocurrió un error",response)
