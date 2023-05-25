@@ -4,6 +4,8 @@
 
   export default {
     data: () => ({
+      valid: true,
+      checkbox: false,      
       rules: {
           required: value => !!value || 'Requerido.',
           min: v => v.length >= 8 || 'Mínimo 8 caracteres',
@@ -74,11 +76,36 @@
 
       const submit = handleSubmit(values => {
         alert(JSON.stringify(values, null, 2))
-      })
+      });
 
       return { name, speciality, email, submit, phone, identificationDocument, professionalCardNumber, address}
     },
+    methods:{
+    async insertarMedicoNuevo() {
+      console.log("Entre a la funcion");
+      console.log("name",this.name.value.value);
+      console.log("speciality",this.speciality.value.value);
+      console.log("email",this.email.value.value);
+      console.log("phone",this.phone.value.value);
+      console.log("Ced",this.identificationDocument.value.value);
+      console.log("professionalCardNumber",this.professionalCardNumber.value.value);
+      console.log("address",this.address.value.value);
+
+      let response = await ServicePatient.insertarPaciente(6,this.identificationDocument.value.value,this.name.value.value,this.speciality.value.value,this.email.value.value,this.phone.value.value,this.professionalCardNumber.value.value,this.address.value.value);
+
+      console.log("Esta es la respuesta deploy:",response);
+      if (response.status == 201) {
+        console.log("YA AGREGAMOSSSS")
+
+        //Mostrar el inicio de sesiòn y una alerta
+        //Sweetalert
+      }
+      else{
+        console.log("Ocurrió un error",response)
+      }
+    },
   }
+  };
 </script>
 
 <template>
@@ -170,6 +197,13 @@
           ></v-text-field>
         </v-col>
       </v-row>
+      <v-checkbox
+        v-model="checkbox"
+        :rules="[v => !!v || 'Para continuar debes aceptar']"
+        label="He leído y acepto la Politica de privacidad y los terminos y condiciones"
+        required
+      ></v-checkbox>
+      <v-btn class="mt-2 sizebtn" color="SecondaryCyan" @click="insertarMedicoNuevo()">Enviar</v-btn>      
     </v-container>
   </v-form>
 </template>
@@ -177,5 +211,8 @@
 <style>
   .title-lg {
     font-size: 30px; /* Cambiar el tamaño de letra */
+  }
+  .sizebtn {
+    width: 200px;
   }
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 import FormRegisterDoctor from '@/layouts/Doctor/FormRegisterDoctor/FormRegisterDoctor.vue';
-import CheckBoxPolitica from '@/components/CheckBoxPolitica.vue';
+// import CheckBoxPolitica from '@/components/CheckBoxPolitica.vue';
 // import Navbar from '@/components/Navbar.vue';
 // import FooterComponent from '@/components/FooterComponent.vue';
 </script>
@@ -16,7 +16,6 @@ import CheckBoxPolitica from '@/components/CheckBoxPolitica.vue';
                 class="pa-4 text-center mx-auto"
                 >
                     <FormRegisterDoctor/>
-                    <CheckBoxPolitica/>
                 </v-sheet> 
             </v-container> 
         </div>
