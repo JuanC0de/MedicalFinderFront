@@ -35,7 +35,7 @@ export default {
           return "El nombre ingresado necesita más de 2 caracteres.";
         },
         email(value) {
-          if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true;
+          if (/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value)) return true;
 
           return "Debe ser un correo electrónico válido.";
         },
@@ -76,7 +76,7 @@ export default {
       console.log("phone",this.phone.value.value);
       console.log("email",this.email.value.value);
       console.log("FechaNacimiento",this.FechaNacimiento);
-      let response = await ServicePatient.insertarPaciente(6,this.identificationDocument.value.value,this.name.value.value,this.phone.value.value,this.email.value.value,"Armenia",this.FechaNacimiento,"Armenia");
+      let response = await ServicePatient.insertarPaciente(7,this.identificationDocument.value.value,this.name.value.value,this.phone.value.value,this.email.value.value,"Armenia",this.FechaNacimiento,"Armenia");
       console.log("Esta es la respuesta deploy:",response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS")

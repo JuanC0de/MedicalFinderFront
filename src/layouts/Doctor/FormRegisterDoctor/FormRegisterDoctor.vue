@@ -35,7 +35,7 @@
             return 'La dirección ingresada necesita más de 10 caracteres'
           },          
           email (value) {
-            if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
+            if (/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value)) return true
 
             return 'Debe ser un correo electrónico válido.'
           },
@@ -91,7 +91,7 @@
       console.log("professionalCardNumber",this.professionalCardNumber.value.value);
       console.log("address",this.address.value.value);
 
-      let response = await ServicePatient.insertarPaciente(6,this.identificationDocument.value.value,this.name.value.value,this.speciality.value.value,this.email.value.value,this.phone.value.value,this.professionalCardNumber.value.value,this.address.value.value);
+      let response = await ServicePatient.insertarPaciente(7,this.identificationDocument.value.value,this.name.value.value,this.speciality.value.value,this.email.value.value,this.phone.value.value,this.professionalCardNumber.value.value,this.address.value.value);
 
       console.log("Esta es la respuesta deploy:",response);
       if (response.status == 201) {
