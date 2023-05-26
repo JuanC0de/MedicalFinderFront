@@ -5,6 +5,8 @@ import ServicePatient from "@/views/Register/Patient/ServicePatient.js";
 
 export default {
   data: () => ({
+    showAlert: false,
+    alertMessage: '',
     show2: false,
     valid: true,
     checkbox: false,
@@ -15,8 +17,8 @@ export default {
         (value && value.length >= 3) ||
         "Debe escribir un mensaje de minimo 3 caracteres.",
     ],
-    contraseñaPaciente:"",
-    FechaNacimiento:""
+    contraseñaPaciente: "",
+    FechaNacimiento: ""
     // rules: {
     //     required: value => !!value || 'Requerido.',
     //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
@@ -40,21 +42,21 @@ export default {
           return "Debe ser un correo electrónico válido.";
         },
         phone(value) {
-          if (value?.length==10){
-           return true;
+          if (value?.length == 10) {
+            return true;
           }
-          else{
+          else {
             return "Debe ser un número de celular válido.";
           }
         },
-          identificationDocument (value) {
-            if (value?.length>=8){
+        identificationDocument(value) {
+          if (value?.length >= 8) {
             return true;
-            }
-            else{
-              return "Debe ser una documento de identificación válido.";
-            }
-          }        
+          }
+          else {
+            return "Debe ser una documento de identificación válido.";
+          }
+        }
       }
     });
     const name = useField("name");
@@ -68,24 +70,28 @@ export default {
 
     return { name, email, phone, identificationDocument, submit };
   },
-  methods:{
+  methods: {
+    showCustomAlert(message) {
+          this.alertMessage = message;
+          this.showAlert = true;
+        },
     async insertarPacienteNuevo() {
       console.log("Entre a la funcion");
-      console.log("Ced",this.identificationDocument.value.value);
-      console.log("name",this.name.value.value);
-      console.log("phone",this.phone.value.value);
-      console.log("email",this.email.value.value);
-      console.log("FechaNacimiento",this.FechaNacimiento);
-      let response = await ServicePatient.insertarPaciente(7,this.identificationDocument.value.value,this.name.value.value,this.phone.value.value,this.email.value.value,"Armenia",this.FechaNacimiento,"Armenia");
-      console.log("Esta es la respuesta deploy:",response);
+      console.log("Ced", this.identificationDocument.value.value);
+      console.log("name", this.name.value.value);
+      console.log("phone", this.phone.value.value);
+      console.log("email", this.email.value.value);
+      console.log("FechaNacimiento", this.FechaNacimiento);
+      let response = await ServicePatient.insertarPaciente(9, this.identificationDocument.value.value, this.name.value.value, this.phone.value.value, this.email.value.value, "Armenia", this.FechaNacimiento, "Armenia");
+      console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS")
-
+        this.showCustomAlert('¡Esto es una alerta!');
         //Mostrar el inicio de sesiòn y una alerta
         //Sweetalert
       }
-      else{
-        console.log("Ocurrió un error",response)
+      else {
+        console.log("Ocurrió un error", response)
       }
     },
   }
@@ -98,90 +104,62 @@ export default {
     <v-container>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="name.value.value"
-            :counter="40"
-            :error-messages="name.errorMessage.value"
-            label="Nombre Completo"
-          ></v-text-field>
+          <v-text-field v-model="name.value.value" :counter="40" :error-messages="name.errorMessage.value"
+            label="Nombre Completo"></v-text-field>
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="identificationDocument.value.value"
-            :error-messages="identificationDocument.errorMessage.value"
-            label="Documento de identificación"
-            type="number"
-          ></v-text-field>
+          <v-text-field v-model="identificationDocument.value.value"
+            :error-messages="identificationDocument.errorMessage.value" label="Documento de identificación"
+            type="number"></v-text-field>
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="email.value.value"
-            :error-messages="email.errorMessage.value"
-            label="Correo electrónico"
-          ></v-text-field>
+          <v-text-field v-model="email.value.value" :error-messages="email.errorMessage.value"
+            label="Correo electrónico"></v-text-field>
         </v-col>
 
         <v-col cols="12" sm="6">
           <v-text-field type="date" label="Fecha de nacimiento" v-model="this.FechaNacimiento"> </v-text-field>
-          
+
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="phone.value.value"
-            :error-messages="phone.errorMessage.value"
-            label="Celular"
-            type="number"
-          ></v-text-field>
+          <v-text-field v-model="phone.value.value" :error-messages="phone.errorMessage.value" label="Celular"
+            type="number"></v-text-field>
         </v-col>
 
         <AccordionCities />
 
         <v-col cols="12" sm="6">
-          <v-text-field
-            :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
-            :rules="[rules.required, rules.min]"
-            :type="show2 ? 'text' : 'password'"
-            name="input-10-2"
-            label="Contraseña"
-            hint="Al menos 8 caracteres"
-            class="input-group--focused"
-            :models="this.contraseñaPaciente"
-            @click:append="show2 = !show2"
-          ></v-text-field>
+          <v-text-field :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
+            :type="show2 ? 'text' : 'password'" name="input-10-2" label="Contraseña" hint="Al menos 8 caracteres"
+            class="input-group--focused" :models="this.contraseñaPaciente" @click:append="show2 = !show2"></v-text-field>
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field
-            :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
-            :rules="[rules.required, rules.min]"
-            :type="show2 ? 'text' : 'password'"
-            name="input-10-2"
-            label="Confirmar contraseña"
-            hint="Al menos 8 caracteres"
-            class="input-group--focused"
-            @click:append="show2 = !show2"
-          ></v-text-field>
+          <v-text-field :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
+            :type="show2 ? 'text' : 'password'" name="input-10-2" label="Confirmar contraseña"
+            hint="Al menos 8 caracteres" class="input-group--focused" @click:append="show2 = !show2"></v-text-field>
         </v-col>
       </v-row>
-      <v-checkbox
-        v-model="checkbox"
-        :rules="[v => !!v || 'Para continuar debes aceptar']"
-        label="He leído y acepto la Politica de privacidad y los terminos y condiciones"
-        required
-      ></v-checkbox>
+      <v-checkbox v-model="checkbox" :rules="[v => !!v || 'Para continuar debes aceptar']"
+        label="He leído y acepto la Politica de privacidad y los terminos y condiciones" required></v-checkbox>
       <v-btn class="mt-2 sizebtn" color="SecondaryCyan" @click="insertarPacienteNuevo()">Enviar</v-btn>
     </v-container>
   </v-form>
+  <v-alert v-model="showAlert" dismissible>
+      {{ alertMessage }}
+  </v-alert>
 </template>
 
 <style>
-  .title-lg {
-    font-size: 30px; /* Cambiar el tamaño de letra */
-  }
-  .sizebtn {
-    width: 200px;
-  }
+.title-lg {
+  font-size: 30px;
+  /* Cambiar el tamaño de letra */
+}
+
+.sizebtn {
+  width: 200px;
+}
 </style>
