@@ -20,7 +20,22 @@
                 <v-card-text>
                   <v-row justify="center" align="center">
                     <v-col cols="5">
-                      <AccordionCities class="ma-1" />
+                      <!-- <AccordionCities class="ma-1" /> -->
+                      <v-col>
+                        <v-autocomplete
+                          v-model="city"
+                          :items="this.ciudades"
+                          label="Ciudades"
+                          persistent-hint
+                        >
+                          <template v-slot:append-outer>
+                            <v-slide-x-reverse-transition
+                              mode="out-in"
+                            >
+                            </v-slide-x-reverse-transition>
+                          </template>
+                        </v-autocomplete>
+                      </v-col>                      
                     </v-col>
                     <v-col cols="5">
                       <!-- <SelectSpecialists class="ma-1"/> -->
@@ -200,7 +215,7 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
-import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
+// import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
 // import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
 import ServiceHome from '@/views/Home/ServiceHome';
 
@@ -209,7 +224,7 @@ export default {
   components: {
     Navbar,
     FooterComponent,
-    AccordionCities,
+    //AccordionCities,
     // SelectSpecialists
   },
   props: {
@@ -249,12 +264,14 @@ export default {
         },
       ],
     transparent: 'rgba(255, 255, 255, 0)',
+    ciudades:[],
     especialidades:[]
   }
   ),
   /********* Ciclo de vida *********/
   async created() {
     await this.cargarEspecialidades();
+    await this.cargarCiudades();
   },
   methods:{
     async cargarEspecialidades() {
@@ -269,6 +286,18 @@ export default {
         console.log("Ocurrió un error",response)
       }
     },
+    async cargarCiudades() {
+
+      let response = await ServiceHome.consultarListaCiudades();
+      console.log("Esta es la respuesta deploy - ciudad:",response);
+      if (response.length > 0) {
+        this.ciudades = response.map(objeto => objeto.city)
+        console.log("Estas son las ciudades",this.ciudades);
+      }
+      else{
+        console.log("Ocurrió un error",response)
+      }
+    },    
   }
 }
 </script>
