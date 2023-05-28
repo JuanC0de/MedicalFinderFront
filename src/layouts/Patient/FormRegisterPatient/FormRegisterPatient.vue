@@ -2,11 +2,10 @@
 import { useField, useForm } from "vee-validate";
 import AccordionCities from "@/components/AccordionCities/AccordionCities.vue";
 import ServicePatient from "@/views/Register/Patient/ServicePatient.js";
+import swal from 'sweetalert';
 
 export default {
   data: () => ({
-    showAlert: false,
-    alertMessage: '',
     show2: false,
     valid: true,
     checkbox: false,
@@ -71,10 +70,6 @@ export default {
     return { name, email, phone, identificationDocument, submit };
   },
   methods: {
-    showCustomAlert(message) {
-          this.alertMessage = message;
-          this.showAlert = true;
-        },
     async insertarPacienteNuevo() {
       console.log("Entre a la funcion");
       console.log("Ced", this.identificationDocument.value.value);
@@ -82,11 +77,14 @@ export default {
       console.log("phone", this.phone.value.value);
       console.log("email", this.email.value.value);
       console.log("FechaNacimiento", this.FechaNacimiento);
-      let response = await ServicePatient.insertarPaciente(11, this.identificationDocument.value.value, this.name.value.value, this.phone.value.value, this.email.value.value, "Armenia", this.FechaNacimiento, "Armenia");
+      let response = await ServicePatient.insertarPaciente(13, this.identificationDocument.value.value, this.name.value.value, this.phone.value.value, this.email.value.value, "Armenia", this.FechaNacimiento, "Armenia");
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS")
-        this.$swal("REGISTRADO CON ÉXITO")
+       swal({
+        title: 'Has sido registrado exitosamente',
+        text: 'Ya puedes iniciar sesion'
+       });
         //Mostrar el inicio de sesiòn y una alerta
         //Sweetalert
       }
@@ -148,9 +146,6 @@ export default {
       <v-btn class="mt-2 sizebtn" color="SecondaryCyan" @click="insertarPacienteNuevo()">Enviar</v-btn>
     </v-container>
   </v-form>
-  <v-alert v-model="showAlert" dismissible>
-      {{ alertMessage }}
-  </v-alert>
 </template>
 
 <style>
