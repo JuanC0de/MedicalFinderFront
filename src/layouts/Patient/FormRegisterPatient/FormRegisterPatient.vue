@@ -3,6 +3,7 @@ import { useField, useForm } from "vee-validate";
 import AccordionCities from "@/components/AccordionCities/AccordionCities.vue";
 import ServicePatient from "@/views/Register/Patient/ServicePatient.js";
 import swal from 'sweetalert';
+import router from '@/router';
 
 export default {
   data: () => ({
@@ -83,7 +84,11 @@ export default {
         console.log("YA AGREGAMOSSSS")
        swal({
         title: 'Has sido registrado exitosamente',
-        text: 'Ya puedes iniciar sesion'
+        text: 'Ya puedes iniciar sesion',
+        button: 'Aceptar',
+       }).then(() => {
+        //redireccion a inicio sesion
+        router.push('/IniciarSesion');
        });
         //Mostrar el inicio de sesiòn y una alerta
         //Sweetalert
