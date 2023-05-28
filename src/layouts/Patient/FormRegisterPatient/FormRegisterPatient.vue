@@ -7,6 +7,7 @@ import router from '@/router';
 
 export default {
   data: () => ({
+    show1: false,
     show2: false,
     valid: true,
     checkbox: false,
@@ -135,9 +136,9 @@ export default {
         <AccordionCities />
 
         <v-col cols="12" sm="6">
-          <v-text-field :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
-            :type="show2 ? 'text' : 'password'" name="input-10-2" label="Contraseña" hint="Al menos 8 caracteres"
-            class="input-group--focused" :models="this.contraseñaPaciente" @click:append="show2 = !show2"></v-text-field>
+          <v-text-field :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
+            :type="show1 ? 'text' : 'password'" name="input-10-2" label="Contraseña" hint="Al menos 8 caracteres"
+            class="input-group--focused" :models="this.contraseñaPaciente" @click:append="show1 = !show1"></v-text-field>
         </v-col>
 
         <v-col cols="12" sm="6">
