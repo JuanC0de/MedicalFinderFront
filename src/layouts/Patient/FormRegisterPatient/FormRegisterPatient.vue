@@ -82,11 +82,11 @@ export default {
       console.log("phone", this.phone.value.value);
       console.log("email", this.email.value.value);
       console.log("FechaNacimiento", this.FechaNacimiento);
-      let response = await ServicePatient.insertarPaciente(9, this.identificationDocument.value.value, this.name.value.value, this.phone.value.value, this.email.value.value, "Armenia", this.FechaNacimiento, "Armenia");
+      let response = await ServicePatient.insertarPaciente(11, this.identificationDocument.value.value, this.name.value.value, this.phone.value.value, this.email.value.value, "Armenia", this.FechaNacimiento, "Armenia");
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS")
-        this.showCustomAlert('¡Esto es una alerta!');
+        this.$swal("REGISTRADO CON ÉXITO")
         //Mostrar el inicio de sesiòn y una alerta
         //Sweetalert
       }
