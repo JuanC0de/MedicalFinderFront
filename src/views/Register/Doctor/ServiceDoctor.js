@@ -1,19 +1,16 @@
 import Global from "@/Global";
 // import axios from "axios";
 class ServiceHome {
-  async insertarMedico(idPaciente,cedulaPac,NombreCompletoPac,telefonoPac,correoPac,direccionPac,FechaNacimientoPac,ciudadPac) {
+  async insertarMedico(cedulaMed, NombreCompletoMed, telefonoMed, correoMed, NumeroTarjetaMed) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarMedico");
     const raw = JSON.stringify({
-      "idPaciente": idPaciente,
-      "cedulaPac": cedulaPac,
-      "NombreCompletoPac": NombreCompletoPac,
-      "telefonoPac": telefonoPac,
-      "correoPac": correoPac,
-      "direccionPac": direccionPac,
-      "FechaNacimientoPac": FechaNacimientoPac,
-      "ciudadPac": ciudadPac
+      "cedulaMed": cedulaMed,
+      "NombreCompletoMed": NombreCompletoMed,
+      "telefonoMed": telefonoMed,
+      "correoMed": correoMed,
+      "NumeroTarjetaMed": NumeroTarjetaMed
     });
 
     console.log("raw",raw)
@@ -24,12 +21,12 @@ class ServiceHome {
         redirect: 'follow'
       };
     
-    let request = "paciente/apipac/Paciente/";
+    let request = "models/apiModels/Medico/";
     let url = Global.API_URL + request;
 
     try {
       const response = await fetch(url,requestOptions);
-      console.log("Esta es la respuesta",response);
+      console.log("Esta es la respuesta - Médico",response);
       return response
       
     } catch (error) {
