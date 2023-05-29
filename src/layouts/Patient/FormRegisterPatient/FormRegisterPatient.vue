@@ -11,7 +11,8 @@ export default {
     show2: false,
     valid: true,
     checkbox: false,
-    password: "Password",
+    password1: "",
+    password2: "",
     rules: [
       (value) => !!value || "Requerido",
       (value) =>
@@ -71,6 +72,14 @@ export default {
 
     return { name, email, phone, identificationDocument, submit };
   },
+  computed: {
+    passwordsMatch() {
+      return this.password1 === this.password2;
+    },
+    canSubmitForm() {
+      return this.passwordsMatch && this.password1 !== '' && this.password2 !== ''+ "las contraseñas son diferentes";
+    }
+  },
   methods: {
     async insertarPacienteNuevo() {
       console.log("Entre a la funcion");
@@ -83,14 +92,14 @@ export default {
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS")
-       swal({
-        title: 'Has sido registrado exitosamente',
-        text: 'Ya puedes iniciar sesion',
-        button: 'Aceptar',
-       }).then(() => {
-        //redireccion a inicio sesion
-        router.push('/IniciarSesion');
-       });
+        swal({
+          title: 'Has sido registrado exitosamente',
+          text: 'Ya puedes iniciar sesion',
+          button: 'Aceptar',
+        }).then(() => {
+          //redireccion a inicio sesion
+          router.push('/IniciarSesion');
+        });
         //Mostrar el inicio de sesiòn y una alerta
         //Sweetalert
       }
@@ -136,20 +145,22 @@ export default {
         <AccordionCities />
 
         <v-col cols="12" sm="6">
-          <v-text-field :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
-            :type="show1 ? 'text' : 'password'" name="input-10-2" label="Contraseña" hint="Al menos 8 caracteres"
-            class="input-group--focused" :models="this.contraseñaPaciente" @click:append="show1 = !show1"></v-text-field>
+          <v-text-field v-model="password1" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-2" label="Contraseña"
+            hint="Al menos 8 caracteres" class="input-group--focused" :models="this.contraseñaPaciente"
+            @click:append="show1 = !show1"></v-text-field>
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
-            :type="show2 ? 'text' : 'password'" name="input-10-2" label="Confirmar contraseña"
-            hint="Al menos 8 caracteres" class="input-group--focused" @click:append="show2 = !show2"></v-text-field>
+          <v-text-field v-model="password2" :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]" :type="show2 ? 'text' : 'password'" name="input-10-2"
+            label="Confirmar contraseña" hint="Al menos 8 caracteres" class="input-group--focused"
+            @click:append="show2 = !show2"></v-text-field>
         </v-col>
       </v-row>
       <v-checkbox v-model="checkbox" :rules="[v => !!v || 'Para continuar debes aceptar']"
         label="He leído y acepto la Politica de privacidad y los terminos y condiciones" required></v-checkbox>
-      <v-btn class="mt-2 sizebtn" color="SecondaryCyan" @click="insertarPacienteNuevo()">Enviar</v-btn>
+      <v-btn :disabled="!canSubmitForm" class="mt-2 sizebtn" color="SecondaryCyan" @click="insertarPacienteNuevo()">Enviar</v-btn>
     </v-container>
   </v-form>
 </template>
