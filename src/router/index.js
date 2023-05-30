@@ -41,13 +41,13 @@ const routes = [
   {
     path: '/buscar',
     name: 'Buscar Especialista',
-    component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
+    component: () => import('@/views/Find/MedicalFinder.vue'),
   },
   {
     path: '/medico/perfil',
     name: 'Perfil Médico',
     component: () => import('@/views/Admin/Medical/MedicalProfile/MedicalProfile.vue')
-  }
+  },
 ]
 
 const router = createRouter({
