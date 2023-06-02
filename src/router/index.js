@@ -47,7 +47,7 @@ const routes = [
     path: '/medico/perfil',
     name: 'Perfil Médico',
     component: () => import('@/views/Admin/Medical/MedicalProfile/MedicalProfile.vue')
-  }
+  },
 ]
 
 const router = createRouter({
