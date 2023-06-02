@@ -26,6 +26,11 @@ const routes = [
         name: 'Support',
         component: () => import('@/views/Support/Support.vue'),
       },
+      {
+        path: '/buscar',
+        name: 'Buscar Especialista',
+        component: () => import('@/views/Find/MedicalFinder.vue'),
+      },
     ],
   },
   {
@@ -36,11 +41,6 @@ const routes = [
   {
     path: '/registro/paciente',
     name: 'Registro Paciente',
-    component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
-  },
-  {
-    path: '/buscar',
-    name: 'Buscar Especialista',
     component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
   },
   {
