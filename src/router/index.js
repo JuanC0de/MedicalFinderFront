@@ -48,6 +48,11 @@ const routes = [
     name: 'Perfil Médico',
     component: () => import('@/views/Admin/Medical/MedicalProfile/MedicalProfile.vue')
   },
+  {
+    path: '/buscar/agendarCita',
+    name: 'Agendar Cita',
+    component: () => import('@/views/Find/MedicalAppointments/MedicalAppointments.vue')
+  },
 ]
 
 const router = createRouter({
