@@ -1,60 +1,69 @@
 <template>
   <Navbar />
-  <div class="container justify-center">
-
-    <!-- <v-card class="transparent" height="500" >
-    </v-card> -->
+  <div class="justify-center">
 
     <!-- Buscador -->
-    <v-card height="500px">
-      <v-container class="mb-8 w-100" width="100%">
-        <v-row>
-          <v-col cols="6">
-            <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
-
+    <div height="300px">
+      <v-container class=" w-100" width="100%">
+        <v-row justify="center">
+          <v-col cols="12">
             <v-row>
-              <v-card class="w-100 elevation-10">
+              <v-col cols="12" align="center">
+              <p class="buscadorTittle text-PrincipalCyan mt-3 mb-3">Buscador de especialistas</p> 
+              </v-col>
+            </v-row>
+            <v-row>
                 <template v-slot:title>
                   Selecciona la ciudad y la especialidad
                 </template>
-
-                <v-card-text>
-                  <v-row justify="center" align="center">
+                <v-row justify="center" align="center">
                     <v-col cols="5">
-                      <v-select class="ma-1" label="Select"
-                        :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
-                      </v-select>
+                      <!-- <AccordionCities class="ma-1" /> -->
+                      <v-col>
+                        <v-autocomplete
+                          v-model="city"
+                          :items="this.ciudades"
+                          label="Ciudades"
+                          persistent-hint
+                        >
+                          <template v-slot:append-outer>
+                            <v-slide-x-reverse-transition
+                              mode="out-in"
+                            >
+                            </v-slide-x-reverse-transition>
+                          </template>
+                        </v-autocomplete>
+                      </v-col>                      
                     </v-col>
                     <v-col cols="5">
-                      <v-select class="ma-1" label="Select"
-                        :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']">
-                      </v-select>
+                      <!-- <SelectSpecialists class="ma-1"/> -->
+                      <v-col>
+                        <v-autocomplete
+                          v-model="especialidad"
+                          :items="this.especialidades"
+                          label="Especialidades"
+                          persistent-hint
+                        >
+                          <template v-slot:append-outer>
+                            <v-slide-x-reverse-transition
+                              mode="out-in"
+                            >
+                            </v-slide-x-reverse-transition>
+                          </template>
+                        </v-autocomplete>
+                      </v-col>
                     </v-col>
                     <v-col cols="2">
-                      <v-btn class="ma-1 w-100" variant="outlined">
+                      <v-btn class="text-White ma-1 w-100 bg-PrincipalCyan" variant="text">
                         Buscar
                       </v-btn>
                     </v-col>
-                  </v-row>
-                  <!-- <v-row  justify="end">
-                  <v-col  cols="2">
-                    <v-btn class="ma-2 w-100" variant="outlined">
-                        Buscar
-                    </v-btn>
-                  </v-col>
-                </v-row> -->
-                </v-card-text>
-              </v-card>
+                </v-row>
             </v-row>
-
-          </v-col>
-
-          <v-col>
-
           </v-col>
         </v-row>
       </v-container>
-    </v-card>
+    </div>
     <!-- Fin de Buscador  -->
 
     <v-card class="bg-white elevation-10">
@@ -90,74 +99,6 @@
           </template>
         </v-row>
       </v-container>
-      <div class="mt-4" height="800px">
-        <v-container class="mb-8">
-          <v-row class="mb-8">
-            <v-col cols="12 justify-end align-center">
-              <div class="text-h4 text-MediumCyan" justify="center" align="center">
-                ¡La Mejor Plataforma de Medicina Particular en Línea!
-              </div>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio mollitia cupiditate hic! Recusandae rem,
-              veritatis sequi perspiciatis omnis mollitia repellendus aliquid quos consectetur optio quasi explicabo
-              numquam dolores eos quaerat! <br>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptates dolorem voluptate enim quisquam.
-              Libero, veniam. Optio quae, esse tempore magni quis non omnis necessitatibus dolore cum deleniti debitis
-              eligendi!
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam cum, praesentium accusamus nostrum nam, in
-              hic temporibus repudiandae, commodi ratione fugiat est deleniti esse veniam provident ipsam nisi assumenda.
-              Recusandae. <br>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis culpa aliquid sit consectetur. Voluptatum
-              fugiat, laboriosam vero odio, ea ipsa nam hic pariatur vel sapiente ab cupiditate voluptates magni
-              suscipit.<br><br>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum saepe et unde consequuntur laboriosam.
-              Voluptatem nihil quia laboriosam consectetur deleniti nam a exercitationem porro natus! Totam nisi dolore
-              adipisci voluptatem!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, rem quod hic necessitatibus earum debitis ut
-              omnis dolorem, qui libero numquam, ipsam maxime a deserunt id expedita alias ad! Architecto.
-            </v-col>
-            <v-col cols="4">
-              <v-row justify="center">
-                <v-col cols="12" sm="7" md="6" lg="5">
-                  <v-sheet elevation="10" rounded="xl">
-                    <v-sheet class="pa-3 bg-primary text-right" rounded="t-xl">
-                      <v-btn icon>
-                        <v-icon>mdi-content-save-cog-outline</v-icon>
-                      </v-btn>
-
-                      <v-btn class="ms-2" icon>
-                        <v-icon>mdi-check-bold</v-icon>
-                      </v-btn>
-                    </v-sheet>
-
-                    <div class="pa-4">
-                      <v-chip-group selected-class="text-primary" column>
-                        <v-chip v-for="tag in tags" :key="tag">
-                          {{ tag }}
-                        </v-chip>
-                      </v-chip-group>
-                    </div>
-                  </v-sheet>
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-container>
-      </div>
-      <v-card class="" height="500px">
-        <v-carousel>
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
-
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
-
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
-          <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
-        </v-carousel>
-      </v-card>
-
     </v-card>
     <FooterComponent />
   </div>
@@ -166,52 +107,86 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import ServiceMedicalFinder from '@/views/Find/ServiceMedicalFinder.js'
 
 export default {
-  name: 'BusquedaView',
+  name: "MedicalFinder",
   components: {
     Navbar,
     FooterComponent
   },
   props: {
-    msg: String
+    msg: String,
   },
   data: () => ({
     tags: [
-      'Work',
-      'Home Improvement',
-      'Vacation',
-      'Food',
-      'Drawers',
-      'Shopping',
-      'Art',
-      'Tech',
-      'Creative Writing',
+      'Salud',
+      'Red de médicos',
+      'Bienestar',
+      'Terapia',
+      'Alimentación balanceada',
+      'Salud mental',
+      'Diagnóstico',
+      'Prevención de enfermedades',
+      'Cuidado personal',
     ],
     icons: ['mdi-rewind', 'mdi-play', 'mdi-fast-forward'],
-      items: [
+    items: [
         {
-          title: 'New Releases',
-          text: `It's New Release Friday`,
-          subtext: 'Newly released songs. Updated daily.',
-          img: 'https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3264&q=80',
+          title: 'ENCUENTRA TU MÉDICO',
+          text: `Búscalo filtrando por ciudad y especialidad`,
+          subtext: 'Navega entre diferentes perfiles de profesionales en la salud hasta encontrar el ideal para ti',
+          img: 'https://images.pexels.com/photos/3786166/pexels-photo-3786166.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
         {
-          title: 'Rock',
-          text: 'Greatest Rock Hits',
-          subtext: 'Lose yourself in rock tunes.',
-          img: 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+          title: 'AGENDA TU CITA',
+          text: 'No pierdas tiempo en llamadas o en transporte, ¡Hazlo online!',
+          subtext: 'Elige la hora y fecha y agéndate',
+          img: 'https://images.pexels.com/photos/5340274/pexels-photo-5340274.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
         {
-          title: 'Mellow Moods',
-          text: 'Ambient Bass',
-          subtext: 'Chill beats to mellow you out.',
-          img: 'https://images.unsplash.com/photo-1542320868-f4d80389e1c4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3750&q=80',
+          title: 'CUIDA TU SALUD',
+          text: 'Sigue una dieta saludable',
+          subtext: 'No te descuides y asiste a controles regulares',
+          img: 'https://images.pexels.com/photos/3845998/pexels-photo-3845998.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
       ],
-      transparent: 'rgba(255, 255, 255, 0)',
+    transparent: 'rgba(255, 255, 255, 0)',
+    ciudades:[],
+    especialidades:[]
   }
   ),
+  /********* Ciclo de vida *********/
+  async created() {
+    await this.cargarEspecialidades();
+    await this.cargarCiudades();
+  },
+  methods:{
+    async cargarEspecialidades() {
+
+      let response = await ServiceMedicalFinder.consultarListaEspecialidades();
+      console.log("Esta es la respuesta deploy:",response);
+      if (response.length > 0) {
+        this.especialidades = response.map(objeto => objeto.especialidad)
+        console.log("Estas son las especialidades",this.especialidades);
+      }
+      else{
+        console.log("Ocurrió un error",response)
+      }
+    },
+    async cargarCiudades() {
+
+      let response = await ServiceMedicalFinder.consultarListaCiudades();
+      console.log("Esta es la respuesta deploy - ciudad:",response);
+      if (response.length > 0) {
+        this.ciudades = response.map(objeto => objeto.city)
+        console.log("Estas son las ciudades",this.ciudades);
+      }
+      else{
+        console.log("Ocurrió un error",response)
+      }
+    },    
+  }
 }
 </script>
 
@@ -229,6 +204,11 @@ export default {
 
 .backTransparent {
   background-color: transparent;
+}
+.buscadorTittle{
+  text-transform: uppercase;
+  font-size:2rem;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 1280px) {

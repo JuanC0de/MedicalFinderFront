@@ -26,6 +26,11 @@ const routes = [
         name: 'Support',
         component: () => import('@/views/Support/Support.vue'),
       },
+      {
+        path: '/buscar',
+        name: 'Buscar Especialista',
+        component: () => import('@/views/Find/MedicalFinder.vue'),
+      },
     ],
   },
   {
@@ -39,14 +44,14 @@ const routes = [
     component: () => import('@/views/Register/Patient/RegisterPatient.vue'),
   },
   {
-    path: '/buscar',
-    name: 'Buscar Especialista',
-    component: () => import('@/views/Find/MedicalFinder.vue'),
-  },
-  {
     path: '/medico/perfil',
     name: 'Perfil Médico',
     component: () => import('@/views/Admin/Medical/MedicalProfile/MedicalProfile.vue')
+  },
+  {
+    path: '/buscar/agendarCita',
+    name: 'Agendar Cita',
+    component: () => import('@/views/Find/MedicalAppointments/MedicalAppointments.vue')
   },
 ]
 
