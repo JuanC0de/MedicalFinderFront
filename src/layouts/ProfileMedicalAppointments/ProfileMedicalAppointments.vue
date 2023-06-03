@@ -1,7 +1,7 @@
 <template>
         <v-sheet class="pa-2 ma-2 text-center">
         <v-card>
-            <v-avatar size=150 >
+            <v-avatar size=150 class="mt-6">
             <img
                 class="imgIconoCard"
                 src="@/assets/images/imgWorkingGroup/JuanAndres.jpg"
