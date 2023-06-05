@@ -38,9 +38,9 @@ export default {
   <v-card class="bg-white">
     <v-container>
       <!-- Fila -->
-      <v-row>
+      <v-row align="center">
         <!-- Primera columna pc col6 tablet col6 movil 12 -->
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card class="formContainer pa-5 elevation-20">
             <h2 class="title-lg">Iniciar Sesión</h2>
             <form @submit.prevent="submit">
@@ -81,7 +81,7 @@ export default {
           </v-card>
         </v-col>
         <!-- Segunda Columna col6 tablet col6 movil 12 -->
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <img class="Img_Log  elevation-20 " src="https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg">
         </v-col>
         <!-- Fin de la segunda columna -->
