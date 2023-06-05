@@ -13,9 +13,9 @@ export default {
 </script>
 
 <template>
-  
+  <Navbar/>
     <FormLogin />
-  
+
   <FooterComponent/>
 </template>
 
