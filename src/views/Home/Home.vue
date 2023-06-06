@@ -9,7 +9,7 @@
       <v-container class=" ml-8 w-100" width="100%">
         <v-row justify="center">
           <v-col cols="7"  lg="6" md="5" sm="12">
-            <div class="text-h4 text-white mb-10">¡Encuentra el especialista que necesitas!</div>
+            <div class="text-h4 text-PrincipalCyan mb-10">¡Encuentra el especialista que necesitas!</div>
 
             <v-row>
               <v-card class="w-100 elevation-10">
