@@ -21,9 +21,9 @@ export default defineComponent({
   data() {
     return {
       slides: [
-        'https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=350&h=1750&dpr=1',
-        'https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&w=350&h=1750&dpr=1',
-        'https://images.pexels.com/photos/8413346/pexels-photo-8413346.jpeg?auto=compress&cs=tinysrgb&w=350&h=1750&dpr=1',
+        'https://img.freepik.com/foto-gratis/centro-recuperacion-covid-doctora-sosteniendo-manos-paciente-mayor_23-2148847832.jpg?w=440&t=st=1686238010~exp=1686238610~hmac=49c7afe5fb521b85c4d7f2e667ab445507c5aadba7326918da3fa07c584e6f7c',
+        'https://img.freepik.com/foto-gratis/joven-doctora-usando-estetoscopio-escuchar-latidos-corazon-paciente-toma-doctora-dandole-chequeo-paciente-varon_657921-875.jpg?w=440&t=st=1686238594~exp=1686239194~hmac=d34aeebbfcc285b7aefe0e5be586eae0fbe215505519e4178a7023adecd31231',
+        'https://img.freepik.com/foto-gratis/examen-medico_1098-16897.jpg?w=440&t=st=1686238767~exp=1686239367~hmac=8d550a58e786fbde9ce7924588372d3c5d301066db6a4e5088d9238eee7afc0d',
       ],
     }
   },  
@@ -34,7 +34,7 @@ export default defineComponent({
     <Navbar/>
         <Carousel :autoplay="2000" :wrap-around="true" class="mt-3">
             <Slide v-for="(slide, index) in slides" :key="index">
-                <img :src="slide" alt="Imagen" class="carousel__item" />
+                <img :src="slide" alt="Imagen" class="carousel__item imgCa" />
             </Slide>
 
             <template #addons>
@@ -53,3 +53,11 @@ export default defineComponent({
         </v-container>
     <FooterComponent/>
 </template>
+
+<style>
+    .imgCa {
+      border-radius: 2%;
+      width: 1000px;
+      height: 240px;
+    }
+</style>
