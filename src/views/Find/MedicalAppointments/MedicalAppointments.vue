@@ -32,7 +32,7 @@ export default defineComponent({
 
 <template>
     <Navbar/>
-        <Carousel :autoplay="2000" :wrap-around="true" class="mt-3">
+        <Carousel :autoplay="2000" :wrap-around="true" class="mt-3 carouselBackground">
             <Slide v-for="(slide, index) in slides" :key="index">
                 <img :src="slide" alt="Imagen" class="carousel__item imgCa" />
             </Slide>
@@ -55,9 +55,12 @@ export default defineComponent({
 </template>
 
 <style>
-    .imgCa {
-      border-radius: 2%;
-      width: 1000px;
-      height: 240px;
-    }
+  .imgCa {
+    border-radius: 2%;
+    width: 650px;
+    height: 250px;
+  }
+  .carouselBackground{
+    background-image: url('@/assets/images/imgCarousel/manchas.png');
+  }
 </style>
