@@ -133,7 +133,7 @@ export default {
       console.log("phone", this.phone.value.value);
       console.log("email", this.email.value.value);
       console.log("professionalCardNumber", this.professionalCardNumber.value.value);
-      console.log("city", this.IdCiudad.value.value);
+      // console.log("city", this.IdCiudad.value.value);
       // console.log("speciality",this.speciality.value.value);
       // console.log("address",this.address.value.value);
 
@@ -142,7 +142,9 @@ export default {
         this.name.value.value,
         this.phone.value.value,
         this.email.value.value,
-        this.professionalCardNumber.value.value
+        this.professionalCardNumber.value.value,
+        "bogota",
+        "primer"
       );
 
       console.log("Esta es la respuesta deploy: Medico", response);

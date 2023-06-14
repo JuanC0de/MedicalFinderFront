@@ -1,4 +1,6 @@
 <script>
+import ServiceMedicalAppointments from "@/views/Find/MedicalAppointments/ServiceMedicalAppointments"
+import { useField } from "vee-validate";
 export default {
   data: () => ({
     fecha: "",
@@ -7,7 +9,41 @@ export default {
       value => !!value || 'Requerido',
       value => (value && value.length >= 3) || 'Debe escribir un mensaje de minimo 3 caracteres.',
     ],
-  })
+  }),
+  setup() {
+    const fecha = useField("fecha");
+    const motivo = useField("motivo");
+    const hora = useField("hora");
+
+    return {
+      fecha,
+      motivo,
+      hora
+    };
+  },
+  methods: {
+    async insertarCitaNueva() {
+      console.log("Entre a la funcion");
+      console.log("fecha", this.fecha.value.value);
+      console.log("motivo", this.motivo.value.value);
+      console.log("hora", this.hora.value.value);
+
+      let response = await ServiceDoctor.insertarCita(
+        this.fecha.value.value,
+        this.motivo.value.value,
+        this.hora.value.value,
+        "presencial",
+        "primero",
+        3
+      );
+      console.log("Esta es la respuesta deploy: Medico", response);
+      if (response.status == 201) {
+        console.log("YA AGREGAMOSSSS");
+      } else {
+        console.log("Ocurrió un error", response);
+      }
+    },
+  },
 };
 </script>
 <template>
@@ -23,7 +59,7 @@ export default {
           <v-text-field v-model="hora" type="time" label="Hora"></v-text-field>
         </v-col>
       </v-row>
-      <v-textarea label="Motivo de la cita" :rules="rules" hide-details="auto"></v-textarea>
+      <v-textarea v-model="motivo" label="Motivo de la cita" :rules="rules" hide-details="auto"></v-textarea>
       <v-select class="mt-5" label="Tipo de consulta" :items="['Presencial', 'Virtual']"></v-select>
       <v-btn class="me-4 mt-3 sizebtn" color="SecondaryCyan" type="submit">
         Agendar

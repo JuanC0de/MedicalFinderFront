@@ -1,7 +1,7 @@
 import Global from "@/Global";
 // import axios from "axios";
 class ServiceDoctor {
-  async insertarMedico(cedulaMed, NombreCompletoMed, telefonoMed, correoMed, NumeroTarjetaMed, ciudadMed) {
+  async insertarMedico(cedulaMed, NombreCompletoMed, telefonoMed, correoMed, NumeroTarjetaMed, ciudadMed, IdCiudad) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarMedico");
@@ -11,7 +11,8 @@ class ServiceDoctor {
       "telefonoMed": telefonoMed,
       "correoMed": correoMed,
       "NumeroTarjetaMed": NumeroTarjetaMed,
-      "ciudadMed" : ciudadMed
+      "ciudadMed" : ciudadMed,
+      "IdCiudad" : IdCiudad
     });
 
     console.log("raw",raw)
