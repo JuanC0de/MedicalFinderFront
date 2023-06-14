@@ -217,8 +217,7 @@ export default {
         class="mt-2 sizebtn"
         color="SecondaryCyan"
         @click="insertarPacienteNuevo()"
-        >Enviar</v-btn
-      >
+        >Enviar</v-btn>
     </v-container>
   </v-form>
 </template>

@@ -28,5 +28,18 @@ class ServiceMedicalFinder{
       console.log('Error:', error);
     }
   }
+  async consultarEspecialistas() {
+    let request = "models/apiModels/Medico/";
+    let url = Global.API_URL + request;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      console.log("Esta es la data de los medicos", data);
+      return data;
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  }
 }
 export default new ServiceMedicalFinder();
