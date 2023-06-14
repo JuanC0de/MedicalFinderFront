@@ -59,7 +59,7 @@ export default {
           <v-text-field v-model="hora" type="time" label="Hora"></v-text-field>
         </v-col>
       </v-row>
-      <v-textarea v-model="motivo" label="Motivo de la cita" :rules="rules" hide-details="auto"></v-textarea>
+      <v-textarea label="Motivo de la cita" :rules="rules" hide-details="auto"></v-textarea>
       <v-select class="mt-5" label="Tipo de consulta" :items="['Presencial', 'Virtual']"></v-select>
       <v-btn class="me-4 mt-3 sizebtn" color="SecondaryCyan" type="submit">
         Agendar
