@@ -5,18 +5,24 @@ import 'vue3-carousel/dist/carousel.css'
 import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import FormMedicalAppointments from '@/layouts/FormMedicalAppointments/FormMedicalAppointments.vue';
-import ProfileMedicalAppointments from '@/layouts/ProfileMedicalAppointments/ProfileMedicalAppointments.vue';
+// import ProfileMedicalAppointments from '@/layouts/ProfileMedicalAppointments/ProfileMedicalAppointments.vue';
+import ServiceMedicalFinder from '../ServiceMedicalFinder';
 
 export default defineComponent({
   name: 'MedicalAppointments',
+  props: {
+  idEspecialista: {
+    type: Number,
+    required: true
+  }
+},
   components: {
     Carousel,
     Slide,
     Pagination,
     Navbar,
     FooterComponent,
-    FormMedicalAppointments,
-    ProfileMedicalAppointments
+    FormMedicalAppointments
   },
   data() {
     return {
@@ -25,8 +31,26 @@ export default defineComponent({
         'https://img.freepik.com/foto-gratis/joven-doctora-usando-estetoscopio-escuchar-latidos-corazon-paciente-toma-doctora-dandole-chequeo-paciente-varon_657921-875.jpg?w=440&t=st=1686238594~exp=1686239194~hmac=d34aeebbfcc285b7aefe0e5be586eae0fbe215505519e4178a7023adecd31231',
         'https://img.freepik.com/foto-gratis/examen-medico_1098-16897.jpg?w=440&t=st=1686238767~exp=1686239367~hmac=8d550a58e786fbde9ce7924588372d3c5d301066db6a4e5088d9238eee7afc0d',
       ],
+      especialistaId: this.idEspecialista,
+      especialista:{}
     }
-  },  
+  },
+  async created() {
+    await this.listarEspecialista();
+  },
+  methods:{
+    async listarEspecialista() {
+      let response = await ServiceMedicalFinder.consultarEspecialistas();
+      console.log("Esta es la respuesta deploy - especialistas:", response);
+      if (response.length > 0) {
+        this.especialista = response.filter(especialista=> {return especialista.idMedico==this.especialistaId})
+        console.log("Estas son los especialistas", this.especialista);
+      }
+      else {
+        console.log("Ocurrió un error", response)
+      }
+    }
+  }
 })
 </script>
 
@@ -40,14 +64,31 @@ export default defineComponent({
             <template #addons>
             <Pagination />
             </template>
-        </Carousel>    
+        </Carousel>
         <v-container>
             <v-row align="center">
                 <v-col cols="12" md="6">
                     <FormMedicalAppointments />
                 </v-col>
                 <v-col cols="12" md="6">
-                    <ProfileMedicalAppointments />
+                  <v-sheet class="pa-2 ma-2 text-center">
+                    <v-card>
+                        <v-avatar size=150 class="mt-6">
+                        <img
+                            class="imgIconoCard"
+                            src="@/assets/images/imgWorkingGroup/JuanAndres.jpg"
+                            alt="icono-grupo"
+                        />
+                        </v-avatar>
+                        <v-container>
+                            <h2>{{this.especialista.NombreCompletoMed}}</h2>
+                            <v-card-text>
+                            <h3>Especialidad</h3>
+                            <p class="mt-6">Descripcion del perfil profesional del médico</p>
+                            </v-card-text>
+                        </v-container>
+                    </v-card>
+                    </v-sheet>
                 </v-col>
             </v-row>
         </v-container>
@@ -62,5 +103,10 @@ export default defineComponent({
   }
   .carouselBackground{
     background-image: url('@/assets/images/imgCarousel/manchas.png');
+  }
+  .imgIconoCard{
+    background-size: cover;
+    background-position: relative;
+    width: 150px;
   }
 </style>

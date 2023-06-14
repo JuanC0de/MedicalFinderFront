@@ -1,6 +1,7 @@
 <script>
 // import MedicalSearchCard from '@/layouts/MedicalSearchCard/MedicalSearchCard.vue'
 import ServiceMedicalFinder from './ServiceMedicalFinder';
+import router from '@/router/index';
 
 export default {
   name: "MedicalFinder",
@@ -13,6 +14,7 @@ export default {
   data: () => ({
     IdCiudad: "",
     IdEspecialidad: "",
+    IdEspecialista:"",
     ciudades: [],
     especialidades: [],
     especialistas:[]
@@ -60,6 +62,18 @@ export default {
     },
     filtrarEspecialistas(){
       this.especialistas = this.especialistas.filter()
+    },
+    Especialistas() {
+      if (Object.keys(this.IdCiudad).length > 0 && Object.keys(this.IdEspecialidad).length > 0) {
+        console.log("Ya entre a la función porque no estan vacíos los campos.");
+        router.push({ path: '/buscar', params: { IdCiudad: this.IdCiudad, IdEspecialidad:this.IdEspecialidad} });
+      }
+      else {
+        console.log("Hay algún campo vacío o ocurrió un error.");
+      }
+    },
+    agendar(idMedico){
+      router.push({ path: '/buscar/agendarCita', params: { IdEspecialista:idMedico} });
     }
   }
 }
@@ -109,7 +123,7 @@ export default {
                   </v-col>
                 </v-col>
                 <v-col cols="2">
-                  <v-btn class="text-White ma-1 w-100 bg-PrincipalCyan" variant="text">
+                  <v-btn class="text-White ma-1 w-100 bg-PrincipalCyan" variant="text" @click="Especialistas()">
                     Buscar
                   </v-btn>
                 </v-col>
@@ -136,7 +150,7 @@ export default {
                 <p>{{ medico.correoMed }}</p>
                 <p>Ciudad: {{ medico.ciudad }}</p>
               </v-container>
-              <v-btn class="me-4 mt-3 mb-5 sizebtn" color="MediumCyan" type="submit">
+              <v-btn class="me-4 mt-3 mb-5 sizebtn" @click="agendar(medico.idMedico)" color="MediumCyan" type="submit">
                 Agendar
               </v-btn>
             </v-card>

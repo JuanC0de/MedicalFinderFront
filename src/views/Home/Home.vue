@@ -33,7 +33,7 @@
                     <v-col cols="5">
                       <!-- <SelectSpecialists class="ma-1"/> -->
                       <v-col>
-                        <v-autocomplete v-model="IdEspecialidad" :items="especialidadesOptions" item-text="text"
+                        <v-autocomplete v-model="IdEspecialidad" :items="this.especialidades" item-text="text"
                           item-value="value" label="Especialidades" persistent-hint>
                           <template v-slot:append-outer>
                             <v-slide-x-reverse-transition mode="out-in"></v-slide-x-reverse-transition>
@@ -186,7 +186,7 @@ import FooterComponent from '@/components/FooterComponent.vue';
 // import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
 // import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
 import ServiceHome from '@/views/Home/ServiceHome';
-
+import router from '@/router/index';
 export default {
   name: "HomeView",
   components: {
@@ -238,14 +238,6 @@ export default {
     especialidades: []
   }
   ),
-  computed: {
-    especialidadesOptions() {
-      return this.especialidades.map(especialidad => ({ text: especialidad[1], value: especialidad[0] }));
-    },
-    formatEspecialidadText() {
-      return item => item.text;
-    }
-  },
   /********* Ciclo de vida *********/
   async created() {
     await this.cargarEspecialidades();
@@ -256,7 +248,7 @@ export default {
       let response = await ServiceHome.consultarListaEspecialidades();
       console.log("Esta es la respuesta deploy:", response);
       if (response.length > 0) {
-        this.especialidades = response.map(objeto => ({ value: objeto.codEspecialidad, text: objeto.especialidad }));
+        this.especialidades = response.map(objeto => objeto.especialidad);
         console.log("Estas son las especialidades", this.especialidades);
       } else {
         console.log("Ocurrió un error", response);
@@ -277,6 +269,7 @@ export default {
     listarEspecialistas() {
       if (Object.keys(this.IdCiudad).length > 0 && Object.keys(this.IdEspecialidad).length > 0) {
         console.log("Ya entre a la función porque no estan vacíos los campos.");
+        router.push({ path: '/buscar', params: { Ciudad: this.IdCiudad, Especialidad:this.IdEspecialidad} });
       }
       else {
         console.log("Hay algún campo vacío o ocurrió un error.");

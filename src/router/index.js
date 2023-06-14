@@ -28,12 +28,12 @@ const routes = [
       },
       {
         path: '/buscar',
-        name: 'Buscar Especialista',
+        name: 'BuscarEspecialista',
         component: () => import('@/views/Find/MedicalFinder.vue'),
       },
       {
         path: '/buscar/agendarCita',
-        name: 'Agendar Cita',
+        name: 'AgendarCita',
         component: () => import('@/views/Find/MedicalAppointments/MedicalAppointments.vue')
       },
     ],
