@@ -1,7 +1,7 @@
 import Global from "@/Global";
 // import axios from "axios";
-class ServiceHome {
-  async insertarMedico(cedulaMed, NombreCompletoMed, telefonoMed, correoMed, NumeroTarjetaMed) {
+class ServiceDoctor {
+  async insertarMedico(cedulaMed, NombreCompletoMed, telefonoMed, correoMed, NumeroTarjetaMed, ciudadMed) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarMedico");
@@ -10,7 +10,8 @@ class ServiceHome {
       "NombreCompletoMed": NombreCompletoMed,
       "telefonoMed": telefonoMed,
       "correoMed": correoMed,
-      "NumeroTarjetaMed": NumeroTarjetaMed
+      "NumeroTarjetaMed": NumeroTarjetaMed,
+      "ciudadMed" : ciudadMed
     });
 
     console.log("raw",raw)
@@ -33,5 +34,19 @@ class ServiceHome {
       console.log('Error:', error);
     }
   }
+
+  async consultarListaCiudades() {
+    let request = "ciudades/apiciu/Ciudad/";
+    let url = Global.API_URL + request;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      console.log("Esta es la data", data);
+      return data;
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  }
 }
-export default new ServiceHome();
+export default new ServiceDoctor();
