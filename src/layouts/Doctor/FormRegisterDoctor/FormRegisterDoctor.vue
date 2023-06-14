@@ -14,7 +14,9 @@ export default {
       min: (v) => v.length >= 8 || "Mínimo 8 caracteres",
     },
     IdCiudad: "",
+    IdEspecialidad: "",
     ciudades: [],
+    especialidades: [],
   }),
 
   components: {
@@ -94,7 +96,33 @@ export default {
       city
     };
   },
+  /********* Ciclo de vida *********/
+  async created() {
+    await this.cargarEspecialidades();
+    await this.cargarCiudades();
+  },
   methods: {
+    async cargarEspecialidades() {
+      let response = await ServiceDoctor.consultarListaEspecialidades();
+      console.log("Esta es la respuesta deploy:", response);
+      if (response.length > 0) {
+        this.especialidades = response.map(objeto => objeto.especialidad);
+        console.log("Estas son las especialidades", this.especialidades);
+      } else {
+        console.log("Ocurrió un error", response);
+      }
+    },
+    async cargarCiudades() {
+      let response = await ServiceDoctor.consultarListaCiudades();
+      console.log("Esta es la respuesta deploy - ciudad:", response);
+      if (response.length > 0) {
+        this.ciudades = response.map(objeto => objeto.city)
+        console.log("Estas son las ciudades", this.ciudades);
+      }
+      else {
+        console.log("Ocurrió un error", response)
+      }
+    },
     async insertarMedicoNuevo() {
       console.log("Entre a la funcion");
       console.log(
@@ -134,17 +162,6 @@ export default {
         console.log("Ocurrió un error", response);
       }
     },
-    async cargarCiudades() {
-      let response = await ServiceDoctor.consultarListaCiudades();
-      console.log("Esta es la respuesta deploy - ciudad:", response);
-      if (response.length > 0) {
-        this.ciudades = response.map(objeto => objeto.city)
-        console.log("Estas son las ciudades", this.ciudades);
-      }
-      else {
-        console.log("Ocurrió un error", response)
-      }
-    },
   },
 };
 </script>
@@ -162,8 +179,13 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-text-field v-model="speciality.value.value" :counter="20" :error-messages="speciality.errorMessage.value"
-            label="Especialidad"></v-text-field>
+          <v-autocomplete v-model="this.IdEspecialidad" :items="this.especialidades" label="Especialidades"
+            persistent-hint>
+            <template v-slot:append-outer>
+              <v-slide-x-reverse-transition mode="out-in">
+              </v-slide-x-reverse-transition>
+            </template>
+          </v-autocomplete>
         </v-col>
 
         <v-col cols="12" sm="6">

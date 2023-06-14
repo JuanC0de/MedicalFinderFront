@@ -15,7 +15,7 @@ export default {
     IdEspecialidad: "",
     ciudades: [],
     especialidades: [],
-    especialistas:[]
+    especialistas: []
   }
   ),
   /********* Ciclo de vida *********/
@@ -58,7 +58,7 @@ export default {
         console.log("Ocurrió un error", response)
       }
     },
-    filtrarEspecialistas(){
+    filtrarEspecialistas() {
       this.especialistas = this.especialistas.filter()
     }
   }
@@ -128,7 +128,8 @@ export default {
           <v-sheet class="pa-2 ma-2 text-center cardStyles">
             <v-card class="elevation-10">
               <v-avatar size="150" class="mt-6">
-                <img class="imgIconoCard" :src="`@/assets/images/imgWorkingGroup/${medico.NombreCompletoMed}.jpg`" alt="icono-grupo" />
+                <img class="imgIconoCard" :src="`@/assets/images/imgWorkingGroup/${medico.NombreCompletoMed}.jpg`"
+                  alt="icono-grupo" />
               </v-avatar>
               <v-container>
                 <h2 class="text-color-h2">{{ medico.NombreCompletoMed }}</h2>
@@ -184,6 +185,7 @@ export default {
 .sizebtn {
   width: 200px;
 }
+
 .imgIconoCard {
   background-size: cover;
   background-position: relative;
@@ -198,10 +200,11 @@ export default {
 .cardStyles {
   transition: background-color 0.5s;
 }
+
 .text-color-h2 {
   color: #2F919C;
 }
+
 .text-color-h4 {
   color: #3AB4C2;
-}
-</style>
+}</style>
