@@ -108,6 +108,7 @@ export default {
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS");
+        // Ingresar api de registro login
         swal({
           title: "Has sido registrado exitosamente",
           text: "Ya puedes iniciar sesion",
