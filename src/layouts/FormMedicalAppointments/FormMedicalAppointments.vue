@@ -69,16 +69,30 @@ export default {
           <v-text-field type="date" v-model="fecha" @input="validarFecha"></v-text-field>
           <p class="errorText" v-if="fechaInvalida">La fecha ingresada es inválida o anterior a la fecha actual.</p>
         </v-col>
-
-        <v-col cols="12" sm="6">
-          <v-text-field v-model="hora" type="time" label="Hora"></v-text-field>
-        </v-col>
       </v-row>
+      <v-row>
+  
+        <v-col cols="12" sm="3">
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 11:00 </v-btn>
+        </v-col>
+
+        <v-col cols="12" sm="3">
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 12:00 </v-btn>
+        </v-col>
+
+        <v-col cols="12" sm="3">
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 13:00 </v-btn>
+        </v-col>
+
+        <v-col cols="12" sm="3">
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 14:00 </v-btn>
+        </v-col>
+        </v-row>
 
 
-      <v-btn class="me-4 mt-3 sizebtn" color="SecondaryCyan" type="submit">
-        Agendar
-      </v-btn>
+        <v-btn class="me-4 mt-7 agendarbtn" color="SecondaryCyan" type="submit">
+          Agendar
+        </v-btn>
     </v-form>
   </v-container>
 </template>
@@ -89,10 +103,11 @@ export default {
   /* Cambiar el tamaño de letra */
 }
 
-.sizebtn {
+.agendarbtn {
   width: 200px;
 }
-.errorText{
+
+.errorText {
   color: red;
   font-size: 15px;
 }
