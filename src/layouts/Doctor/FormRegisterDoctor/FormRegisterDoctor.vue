@@ -1,6 +1,5 @@
 <script>
 import { useField, useForm } from "vee-validate";
-import AccordionCities from "@/components/AccordionCities/AccordionCities.vue";
 import ServiceDoctor from "@/views/Register/Doctor/ServiceDoctor.js";
 import swal from "sweetalert";
 import router from "@/router";
@@ -18,10 +17,6 @@ export default {
     ciudades: [],
     especialidades: [],
   }),
-
-  components: {
-    AccordionCities,
-  },
 
   setup() {
     const { handleSubmit } = useForm({

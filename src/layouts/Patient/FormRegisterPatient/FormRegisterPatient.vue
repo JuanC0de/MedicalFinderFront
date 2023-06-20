@@ -1,6 +1,5 @@
 <script>
 import { useField, useForm } from "vee-validate";
-import AccordionCities from "@/components/AccordionCities/AccordionCities.vue";
 import ServicePatient from "@/views/Register/Patient/ServicePatient.js";
 import swal from "sweetalert";
 import router from "@/router";
@@ -19,17 +18,15 @@ export default {
         (value && value.length >= 3) ||
         "Debe escribir un mensaje de minimo 3 caracteres.",
     ],
-    contraseñaPaciente: "",
+    //contraseñaPaciente: "",
     FechaNacimiento: "",
+    ciudades: [],
     // rules: {
     //     required: value => !!value || 'Requerido.',
     //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
     //     emailMatch: () => (`El correo electrónico y la contraseña introducidos no coinciden`),
     //   },
   }),
-  components: {
-    AccordionCities,
-  },
   setup() {
     const { handleSubmit } = useForm({
       validationSchema: {
@@ -87,7 +84,22 @@ export default {
       );
     },
   },
+  /********* Ciclo de vida *********/
+  async created() {
+    await this.cargarCiudades();
+  },  
   methods: {
+    async cargarCiudades() {
+      let response = await ServicePatient.consultarListaCiudades();
+      console.log("Esta es la respuesta deploy - ciudad:", response);
+      if (response.length > 0) {
+        this.ciudades = response.map(objeto => objeto.city)
+        console.log("Estas son las ciudades", this.ciudades);
+      }
+      else {
+        console.log("Ocurrió un error", response)
+      }
+    },    
     async insertarPacienteNuevo() {
       console.log("Entre a la funcion");
       console.log("Ced", this.identificationDocument.value.value);
@@ -176,7 +188,14 @@ export default {
           ></v-text-field>
         </v-col>
 
-        <AccordionCities />
+        <v-col cols="12" sm="6">
+          <v-autocomplete v-model="this.IdCiudad" :items="this.ciudades" label="Ciudades" persistent-hint>
+            <template v-slot:append-outer>
+              <v-slide-x-reverse-transition mode="out-in">
+              </v-slide-x-reverse-transition>
+            </template>
+          </v-autocomplete>
+        </v-col>
 
         <v-col cols="12" sm="6">
           <v-text-field
