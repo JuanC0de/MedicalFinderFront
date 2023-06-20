@@ -67,8 +67,7 @@ export default {
       <v-row>
         <v-col cols="12" sm="6">
           <v-text-field type="date" v-model="fecha" @input="validarFecha"></v-text-field>
-          <p v-if="fechaInvalida">La fecha ingresada es inválida o anterior a la fecha actual.</p>
-          <p v-else>La fecha ingresada es válida.</p>
+          <p class="errorText" v-if="fechaInvalida">La fecha ingresada es inválida o anterior a la fecha actual.</p>
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -92,5 +91,9 @@ export default {
 
 .sizebtn {
   width: 200px;
+}
+.errorText{
+  color: red;
+  font-size: 15px;
 }
 </style>
