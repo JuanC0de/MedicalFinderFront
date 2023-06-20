@@ -64,12 +64,10 @@ export default {
     <v-form>
       <v-select class="mt-5" label="Tipo de consulta" :items="['Presencial', 'Virtual']"></v-select>
       <v-textarea class="mb-5" label="Motivo de la cita" :rules="rules" hide-details="auto"></v-textarea>
-      <v-row>
-        <v-col cols="12" sm="6">
+      
           <v-text-field type="date" v-model="fecha" @input="validarFecha"></v-text-field>
           <p class="errorText" v-if="fechaInvalida">La fecha ingresada es inválida o anterior a la fecha actual.</p>
-        </v-col>
-      </v-row>
+       
       <v-row>
   
         <v-col cols="12" sm="3">
@@ -90,7 +88,7 @@ export default {
         </v-row>
 
 
-        <v-btn class="me-4 mt-7 agendarbtn" color="SecondaryCyan" type="submit">
+        <v-btn class="me-4 mt-10 agendarbtn" color="SecondaryCyan" type="submit">
           Agendar
         </v-btn>
     </v-form>
