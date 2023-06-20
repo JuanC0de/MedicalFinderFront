@@ -19,8 +19,8 @@ export default {
         "Debe escribir un mensaje de minimo 3 caracteres.",
     ],
     //contraseñaPaciente: "",
-    FechaNacimiento: "",
     ciudades: [],
+    fechaNacimiento: null
     // rules: {
     //     required: value => !!value || 'Requerido.',
     //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
@@ -83,6 +83,38 @@ export default {
         this.password2 !== "" + "las contraseñas son diferentes"
       );
     },
+    validarEdad() {
+      return (value) => {
+        if (value) {
+          const fechaNacimiento = new Date(value);
+          const edadMinima = 18;
+          const fechaActual = new Date();
+          const anioNacimiento = fechaNacimiento.getFullYear();
+          const mesNacimiento = fechaNacimiento.getMonth();
+          const diaNacimiento = fechaNacimiento.getDate();
+          const anioActual = fechaActual.getFullYear();
+          const mesActual = fechaActual.getMonth();
+          const diaActual = fechaActual.getDate();
+          let edad = anioActual - anioNacimiento;
+
+          // Verificar si el mes de nacimiento es mayor al mes actual
+          // o si el mes de nacimiento es igual al mes actual pero el día de nacimiento es mayor al día actual
+          if (
+            mesNacimiento > mesActual ||
+            (mesNacimiento === mesActual && diaNacimiento > diaActual)
+          ) {
+            edad--;
+          }
+
+          // Verificar si la persona es mayor de edad
+          if (edad < edadMinima) {
+            return "Debes ser mayor de edad para ingresar.";
+          }
+
+        }
+        return true;
+      };
+    }
   },
   /********* Ciclo de vida *********/
   async created() {
@@ -174,7 +206,8 @@ export default {
           <v-text-field
             type="date"
             label="Fecha de nacimiento"
-            v-model="this.FechaNacimiento"
+            v-model="fechaNacimiento"
+            :rules="[validarEdad]"
           >
           </v-text-field>
         </v-col>
