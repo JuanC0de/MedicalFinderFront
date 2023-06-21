@@ -1,6 +1,5 @@
 <script>
 import { useField, useForm } from "vee-validate";
-import AccordionCities from "@/components/AccordionCities/AccordionCities.vue";
 import ServicePatient from "@/views/Register/Patient/ServicePatient.js";
 import swal from "sweetalert";
 import router from "@/router";
@@ -19,17 +18,15 @@ export default {
         (value && value.length >= 3) ||
         "Debe escribir un mensaje de minimo 3 caracteres.",
     ],
-    contraseñaPaciente: "",
-    FechaNacimiento: "",
+    //contraseñaPaciente: "",
+    ciudades: [],
+    fechaNacimiento: null
     // rules: {
     //     required: value => !!value || 'Requerido.',
     //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
     //     emailMatch: () => (`El correo electrónico y la contraseña introducidos no coinciden`),
     //   },
   }),
-  components: {
-    AccordionCities,
-  },
   setup() {
     const { handleSubmit } = useForm({
       validationSchema: {
@@ -86,8 +83,55 @@ export default {
         this.password2 !== "" + "las contraseñas son diferentes"
       );
     },
+    validarEdad() {
+      return (value) => {
+        if (value) {
+          const fechaNacimiento = new Date(value);
+          const edadMinima = 18;
+          const fechaActual = new Date();
+          const anioNacimiento = fechaNacimiento.getFullYear();
+          const mesNacimiento = fechaNacimiento.getMonth();
+          const diaNacimiento = fechaNacimiento.getDate();
+          const anioActual = fechaActual.getFullYear();
+          const mesActual = fechaActual.getMonth();
+          const diaActual = fechaActual.getDate();
+          let edad = anioActual - anioNacimiento;
+
+          // Verificar si el mes de nacimiento es mayor al mes actual
+          // o si el mes de nacimiento es igual al mes actual pero el día de nacimiento es mayor al día actual
+          if (
+            mesNacimiento > mesActual ||
+            (mesNacimiento === mesActual && diaNacimiento > diaActual)
+          ) {
+            edad--;
+          }
+
+          // Verificar si la persona es mayor de edad
+          if (edad < edadMinima) {
+            return "Debes ser mayor de edad para ingresar.";
+          }
+
+        }
+        return true;
+      };
+    }
   },
+  /********* Ciclo de vida *********/
+  async created() {
+    await this.cargarCiudades();
+  },  
   methods: {
+    async cargarCiudades() {
+      let response = await ServicePatient.consultarListaCiudades();
+      console.log("Esta es la respuesta deploy - ciudad:", response);
+      if (response.length > 0) {
+        this.ciudades = response.map(objeto => objeto.city)
+        console.log("Estas son las ciudades", this.ciudades);
+      }
+      else {
+        console.log("Ocurrió un error", response)
+      }
+    },    
     async insertarPacienteNuevo() {
       console.log("Entre a la funcion");
       console.log("Ced", this.identificationDocument.value.value);
@@ -162,7 +206,8 @@ export default {
           <v-text-field
             type="date"
             label="Fecha de nacimiento"
-            v-model="this.FechaNacimiento"
+            v-model="fechaNacimiento"
+            :rules="[validarEdad]"
           >
           </v-text-field>
         </v-col>
@@ -176,7 +221,14 @@ export default {
           ></v-text-field>
         </v-col>
 
-        <AccordionCities />
+        <v-col cols="12" sm="6">
+          <v-autocomplete v-model="this.IdCiudad" :items="this.ciudades" label="Ciudades" persistent-hint>
+            <template v-slot:append-outer>
+              <v-slide-x-reverse-transition mode="out-in">
+              </v-slide-x-reverse-transition>
+            </template>
+          </v-autocomplete>
+        </v-col>
 
         <v-col cols="12" sm="6">
           <v-text-field

@@ -1,7 +1,7 @@
 import Global from "@/Global";
 // import axios from "axios";
-class ServiceHome {
-  async insertarPaciente(idPaciente,cedulaPac,NombreCompletoPac,telefonoPac,correoPac,direccionPac,FechaNacimientoPac,ciudadPac) {
+class ServicePatient {
+  async insertarPaciente(idPaciente,cedulaPac,NombreCompletoPac,telefonoPac,correoPac,FechaNacimientoPac) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarPaciente");
@@ -11,9 +11,7 @@ class ServiceHome {
       "NombreCompletoPac": NombreCompletoPac,
       "telefonoPac": telefonoPac,
       "correoPac": correoPac,
-      "direccionPac": direccionPac,
-      "FechaNacimientoPac": FechaNacimientoPac,
-      "ciudadPac": ciudadPac
+      "FechaNacimientoPac": FechaNacimientoPac
     });
 
     console.log("raw",raw)
@@ -36,5 +34,19 @@ class ServiceHome {
       console.log('Error:', error);
     }
   }
+
+  async consultarListaCiudades() {
+    let request = "ciudades/apiciu/Ciudad/";
+    let url = Global.API_URL + request;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      console.log("Esta es la data", data);
+      return data;
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  }
 }
-export default new ServiceHome();
+export default new ServicePatient();
