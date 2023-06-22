@@ -20,7 +20,8 @@ export default {
     ],
     //contraseñaPaciente: "",
     ciudades: [],
-    fechaNacimiento: null
+    fechaNacimiento: null,
+    IdCiudad: null
     // rules: {
     //     required: value => !!value || 'Requerido.',
     //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
@@ -138,16 +139,15 @@ export default {
       console.log("name", this.name.value.value);
       console.log("phone", this.phone.value.value);
       console.log("email", this.email.value.value);
-      console.log("FechaNacimiento", this.FechaNacimiento);
+      console.log("IdCiudad", this.IdCiudad); 
+      console.log("fechaNacimiento", this.fechaNacimiento);
       let response = await ServicePatient.insertarPaciente(
-        13,
         this.identificationDocument.value.value,
         this.name.value.value,
         this.phone.value.value,
         this.email.value.value,
-        "Armenia",
-        this.FechaNacimiento,
-        "Armenia"
+        this.IdCiudad,
+        this.fechaNacimiento,
       );
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
