@@ -1,16 +1,16 @@
 import Global from "@/Global";
 // import axios from "axios";
 class ServicePatient {
-  async insertarPaciente(idPaciente,cedulaPac,NombreCompletoPac,telefonoPac,correoPac,FechaNacimientoPac) {
+  async insertarPaciente(CedulaPac,NombreCompletoPac,TelefonoPac,CorreoPac,CiudadPac, FechaNacimientoPac) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarPaciente");
     const raw = JSON.stringify({
-      "idPaciente": idPaciente,
-      "cedulaPac": cedulaPac,
+      "CedulaPac": CedulaPac,
       "NombreCompletoPac": NombreCompletoPac,
-      "telefonoPac": telefonoPac,
-      "correoPac": correoPac,
+      "TelefonoPac": TelefonoPac,
+      "CorreoPac": CorreoPac,
+      "CiudadPac": CiudadPac,
       "FechaNacimientoPac": FechaNacimientoPac
     });
 
