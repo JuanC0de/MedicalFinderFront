@@ -36,11 +36,11 @@ export default {
     const email = useField('email');
     const message = useField('message');
 
-    const submit = handleSubmit(values => {
+    const submit = handleSubmit((values) => {
       alert(JSON.stringify(values, null, 2))
-    })
+    });
 
-    return { name, lastName, email, submit, message }
+    return { name, lastName, email, submit, message };
   },
   methods: {
     async insertarDatosSoporteNuevo() {
@@ -48,7 +48,7 @@ export default {
       console.log("name", this.name.value.value);
       console.log("lastName", this.lastName.value.value);
       console.log("email", this.email.value.value);
-      console.log("message", this.message.value.value)
+      console.log("message", this.message.value.value);
       let response = await ServiceSupport.insertarDatosSoporte(
         this.name.value.value,
         this.lastName.value.value,
@@ -71,9 +71,9 @@ export default {
       } else {
         console.log("Ocurrió un error", response);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <template>
