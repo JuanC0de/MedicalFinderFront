@@ -24,7 +24,7 @@ export default {
   <div>
     <v-app-bar app class="bg-PrincipalCyan">
       <div v-bind:style="{ backgroundColor: 'white' }">
-      <img src="@/assets/logoMedicalFinder2.png" alt="Logo" class="logoMedicalFinder">
+      <img src="@/assets/logoMedicalFinder.png" alt="Logo" class="logoMedicalFinder">
     </div>
     <v-spacer></v-spacer>
       <v-btn to=" " class="top-items text-white">Inicio</v-btn>
