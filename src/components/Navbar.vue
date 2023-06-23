@@ -23,11 +23,10 @@ export default {
 <template>
   <div>
     <v-app-bar app class="bg-PrincipalCyan">
-      <div>
-      <img src="@/assets/logoMedicalFinder3.jpg" alt="Logo" class="logoMedicalFinder">
-      <v-spacer></v-spacer>
+      <div v-bind:style="{ backgroundColor: 'white' }">
+      <img src="@/assets/logoMedicalFinder2.png" alt="Logo" class="logoMedicalFinder">
     </div>
-    <div>
+    <v-spacer></v-spacer>
       <v-btn to=" " class="top-items text-white">Inicio</v-btn>
       <v-btn to="/AcercaDeNosotros" class="top-items text-white">Acerca de Nosotros</v-btn>
       <v-btn to="/Soporte" class="top-items text-white">Soporte</v-btn>
@@ -50,7 +49,6 @@ export default {
         </v-list>
       </v-menu>
       <v-btn to="/IniciarSesion" class="top-items text-white">Iniciar Sesión</v-btn>
-    </div>
     </v-app-bar>
 
     <!-- <v-navigation-drawer v-model="drawer" app>
