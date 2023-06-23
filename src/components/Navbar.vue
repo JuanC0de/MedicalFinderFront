@@ -12,8 +12,8 @@ export default {
       ],
 
       registro: [
-         {title: 'Médico'},
-         {title: 'Paciente'},
+        { title: 'Médico' },
+        { title: 'Paciente' },
       ],
     }
   },
@@ -21,35 +21,36 @@ export default {
 </script>
 
 <template>
-<div>
+  <div>
     <v-app-bar app class="bg-PrincipalCyan">
-      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="menu"></v-app-bar-nav-icon> -->
-      <v-toolbar-title>
-        <!-- <img src="@/assets/LogoMedicalFinder.png" alt="" width="30%"> -->
-      </v-toolbar-title>
-      <v-spacer></v-spacer> 
+      <div>
+      <img src="@/assets/logoMedicalFinder3.jpg" alt="Logo" class="logoMedicalFinder">
+      <v-spacer></v-spacer>
+    </div>
+    <div>
       <v-btn to=" " class="top-items text-white">Inicio</v-btn>
       <v-btn to="/AcercaDeNosotros" class="top-items text-white">Acerca de Nosotros</v-btn>
       <v-btn to="/Soporte" class="top-items text-white">Soporte</v-btn>
       <v-btn id="menu-activator" class="top-items text-white">
         Registrarnos
       </v-btn>
-      
+
       <v-menu activator="#menu-activator" class="top-items">
-  <v-list>
-    <router-link to="/registro/medico" class="top-items text-black text-decoration-none" >
-      <v-list-item>
-        <v-list-item-title>Médico</v-list-item-title>
-      </v-list-item>
-    </router-link>
-    <router-link to="/registro/paciente"  class="top-items text-black  text-decoration-none">
-      <v-list-item>
-        <v-list-item-title>Paciente</v-list-item-title>
-      </v-list-item>
-    </router-link>
-  </v-list>
-</v-menu>  
+        <v-list>
+          <router-link to="/registro/medico" class="top-items text-black text-decoration-none">
+            <v-list-item>
+              <v-list-item-title>Médico</v-list-item-title>
+            </v-list-item>
+          </router-link>
+          <router-link to="/registro/paciente" class="top-items text-black  text-decoration-none">
+            <v-list-item>
+              <v-list-item-title>Paciente</v-list-item-title>
+            </v-list-item>
+          </router-link>
+        </v-list>
+      </v-menu>
       <v-btn to="/IniciarSesion" class="top-items text-white">Iniciar Sesión</v-btn>
+    </div>
     </v-app-bar>
 
     <!-- <v-navigation-drawer v-model="drawer" app>
@@ -70,27 +71,37 @@ export default {
 </template>
 
 <style>
-.v-navigation-drawer__content {
+.logoMedicalFinder{
+  width: 250px;
+  height: 90px;
+}
+/* .v-navigation-drawer__content {
   max-width: 256px;
 }
-.v-app-bar-nav-icon{
+
+.v-app-bar-nav-icon {
   display: none;
 }
-.v-navigation-drawer{
+
+.v-navigation-drawer {
   display: none;
 }
+
 @media only screen and (max-width: 750px) {
   .v-navigation-drawer__content {
     max-width: calc(100% - 56px);
   }
-  .v-app-bar-nav-icon{
+
+  .v-app-bar-nav-icon {
     display: block;
   }
-  .top-items{
-    display:none;
+
+  .top-items {
+    display: none;
   }
-  .v-navigation-drawer{
+
+  .v-navigation-drawer {
     display: block;
-  } 
-}
+  }
+} */
 </style>
