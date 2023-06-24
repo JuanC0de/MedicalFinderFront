@@ -197,6 +197,7 @@ input:focus {
 /* buttons  */
 .btnLogin {
   margin: 7% auto;
+  color: white;
 }
 /*     Sign Up button  */
 .btnRegister {
