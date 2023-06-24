@@ -37,7 +37,7 @@ export default {
     const message = useField('message');
 
     const submit = handleSubmit((values) => {
-      alert(JSON.stringify(values, null, 2))
+      
     });
 
     return { name, lastName, email, submit, message };
@@ -59,15 +59,17 @@ export default {
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS");
         swal({
-          title: "Gracias por tu mensaje fue enviada con exito",
-          text: "El equipo de soporte leera tu respuesta y le dara solucion ",
+          title: "Gracias por tu mensaje, fué enviado con éxito",
+          text: "El equipo de soporte leerá tu respuesta y le dará solución ",
           button: "Aceptar",
         }).then(() => {
           //redireccion a inicio sesion
           router.push("/Soporte");
+          this.name= "";
+          this.lastName = "";
+          this.email="";
+          this.message="";
         });
-        //Mostrar el inicio de sesiòn y una alerta
-        //Sweetalert        
       } else {
         console.log("Ocurrió un error", response);
       }
