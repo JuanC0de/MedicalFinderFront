@@ -21,7 +21,7 @@ export default {
     //contraseñaPaciente: "",
     ciudades: [],
     fechaNacimiento: null,
-    IdCiudad: null
+    city: null
     // rules: {
     //     required: value => !!value || 'Requerido.',
     //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
@@ -66,12 +66,14 @@ export default {
     const name = useField("name");
     const phone = useField("phone");
     const email = useField("email");
+    const city = useField("city");
+    const fechaNacimiento = useField("fechaNacimiento");
     
     const submit = handleSubmit((values) => {
       alert(JSON.stringify(values, null, 2));
     });
 
-    return { name, email, phone, identificationDocument, submit};
+    return { name, email, phone, identificationDocument, submit, city, fechaNacimiento};
   },
   computed: {
     passwordsMatch() {
@@ -139,30 +141,26 @@ export default {
       console.log("name", this.name.value.value);
       console.log("phone", this.phone.value.value);
       console.log("email", this.email.value.value);
-      console.log("IdCiudad", this.IdCiudad); 
-      console.log("fechaNacimiento", this.fechaNacimiento);
+      console.log("city", this.city.value.value); 
+      console.log("fechaNacimiento", this.fechaNacimiento.value.value);
       let response = await ServicePatient.insertarPaciente(
         this.identificationDocument.value.value,
         this.name.value.value,
         this.phone.value.value,
         this.email.value.value,
-        this.IdCiudad,
-        this.fechaNacimiento,
+        this.city.value.value,
+        this.fechaNacimiento.value.value,
       );
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS");
-        // Ingresar api de registro login
         swal({
           title: "Has sido registrado exitosamente",
           text: "Ya puedes iniciar sesion",
           button: "Aceptar",
         }).then(() => {
-          //redireccion a inicio sesion
           router.push("/IniciarSesion");
         });
-        //Mostrar el inicio de sesiòn y una alerta
-        //Sweetalert
       } else {
         console.log("Ocurrió un error", response);
       }
@@ -206,7 +204,7 @@ export default {
           <v-text-field
             type="date"
             label="Fecha de nacimiento"
-            v-model="fechaNacimiento"
+            v-model="fechaNacimiento.value.value"
             :rules="[validarEdad]"
           >
           </v-text-field>
@@ -222,7 +220,7 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-autocomplete v-model="this.IdCiudad" :items="this.ciudades" label="Ciudades" persistent-hint>
+          <v-autocomplete v-model="city.value.value" :items="this.ciudades" label="Ciudades" persistent-hint>
             <template v-slot:append-outer>
               <v-slide-x-reverse-transition mode="out-in">
               </v-slide-x-reverse-transition>
