@@ -151,8 +151,9 @@ export default {
       );
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
-        console.log("YA AGREGAMOSSSS");
-        // Ingresar api de registro login
+        console.log("YA AGREGAMOSSSS ");
+        console.log("Datos usuario",this.email.value.value,'-',this.password1);
+        let responseCreateUser = await ServicePatient.insertarUsuarioPaciente(this.email.value.value,this.password1)
         swal({
           title: "Has sido registrado exitosamente",
           text: "Ya puedes iniciar sesion",
