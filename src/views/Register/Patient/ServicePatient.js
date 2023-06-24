@@ -22,7 +22,7 @@ class ServicePatient {
         redirect: 'follow'
       };
     
-    let request = "paciente/apipac/Paciente/";
+    let request = "paciente/api/PacienteM/";
     let url = Global.API_URL + request;
 
     try {

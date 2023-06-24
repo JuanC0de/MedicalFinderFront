@@ -1,18 +1,19 @@
 import Global from "@/Global";
 // import axios from "axios";
 class ServiceDoctor {
-  async insertarMedico(cedulaMed, NombreCompletoMed, telefonoMed, correoMed, NumeroTarjetaMed, ciudadMed, IdCiudad) {
+  async insertarMedico(NombreCompletoMed, NumeroTarjetaMed, CedulaMed, CorreoMed, TelefonoMed, CiudadMed, Especialidad, DireccionConsultorio) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarMedico");
     const raw = JSON.stringify({
-      "cedulaMed": cedulaMed,
       "NombreCompletoMed": NombreCompletoMed,
-      "telefonoMed": telefonoMed,
-      "correoMed": correoMed,
       "NumeroTarjetaMed": NumeroTarjetaMed,
-      "ciudadMed" : ciudadMed,
-      "IdCiudad" : IdCiudad
+      "CedulaMed": CedulaMed, 
+      "CorreoMed": CorreoMed,
+      "TelefonoMed": TelefonoMed,
+      "CiudadMed" : CiudadMed,
+      "Especialidad": Especialidad,
+      "DireccionConsultorio" : DireccionConsultorio
     });
 
     console.log("raw",raw)
@@ -23,7 +24,7 @@ class ServiceDoctor {
         redirect: 'follow'
       };
     
-    let request = "models/apiModels/Medico/";
+    let request = "medico/apiMedico/MedicoM/";
     let url = Global.API_URL + request;
 
     try {

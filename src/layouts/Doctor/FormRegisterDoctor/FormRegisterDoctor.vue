@@ -12,12 +12,11 @@ export default {
       required: (value) => !!value || "Requerido.",
       min: (v) => v.length >= 8 || "Mínimo 8 caracteres",
     },
-    IdCiudad: "",
-    IdEspecialidad: "",
     ciudades: [],
     especialidades: [],
+    speciality: null,
+    city: null
   }),
-
   setup() {
     const { handleSubmit } = useForm({
       validationSchema: {
@@ -120,26 +119,25 @@ export default {
     },
     async insertarMedicoNuevo() {
       console.log("Entre a la funcion");
-      console.log(
-        "identificationDocument",
-        this.identificationDocument.value.value
-      );
+      
       console.log("name", this.name.value.value);
-      console.log("phone", this.phone.value.value);
-      console.log("email", this.email.value.value);
       console.log("professionalCardNumber", this.professionalCardNumber.value.value);
-      // console.log("city", this.IdCiudad.value.value);
-      // console.log("speciality",this.speciality.value.value);
-      // console.log("address",this.address.value.value);
+      console.log("identificationDocument", this.identificationDocument.value.value);
+      console.log("email", this.email.value.value);
+      console.log("phone", this.phone.value.value);
+      console.log("city", this.city);
+      console.log("speciality",this.speciality);
+      console.log("address",this.address.value.value);
 
       let response = await ServiceDoctor.insertarMedico(
-        this.identificationDocument.value.value,
         this.name.value.value,
-        this.phone.value.value,
-        this.email.value.value,
         this.professionalCardNumber.value.value,
-        "bogota",
-        "primer"
+        this.identificationDocument.value.value,
+        this.email.value.value,
+        this.phone.value.value,
+        this.city,
+        this.speciality,
+        this.address.value.value
       );
 
       console.log("Esta es la respuesta deploy: Medico", response);
@@ -176,7 +174,7 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-autocomplete v-model="this.IdEspecialidad" :items="this.especialidades" label="Especialidades"
+          <v-autocomplete v-model="this.speciality" :items="this.especialidades" label="Especialidades"
             persistent-hint>
             <template v-slot:append-outer>
               <v-slide-x-reverse-transition mode="out-in">
@@ -208,7 +206,7 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-autocomplete v-model="this.IdCiudad" :items="this.ciudades" label="Ciudades" persistent-hint>
+          <v-autocomplete v-model="this.city" :items="this.ciudades" label="Ciudades" persistent-hint>
             <template v-slot:append-outer>
               <v-slide-x-reverse-transition mode="out-in">
               </v-slide-x-reverse-transition>
