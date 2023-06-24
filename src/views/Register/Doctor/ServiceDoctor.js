@@ -30,7 +30,7 @@ class ServiceDoctor {
     try {
       const response = await fetch(url,requestOptions);
       console.log("Esta es la respuesta - Médico",response);
-      return response
+      return response;
       
     } catch (error) {
       console.log('Error:', error);

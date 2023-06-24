@@ -66,11 +66,14 @@ export default {
     });
 
     const name = useField("name");
+    const professionalCardNumber = useField("professionalCardNumber");
+    const identificationDocument = useField("identificationDocument");
     const email = useField("email");
     const phone = useField("phone");
-    const identificationDocument = useField("identificationDocument");
-    const professionalCardNumber = useField("professionalCardNumber");
+    const city = useField("city");
+    const speciality = useField("speciality");
     const address = useField("address");
+    
     const submit = handleSubmit((values) => {
       alert(JSON.stringify(values, null, 2));
     });
@@ -82,6 +85,8 @@ export default {
       phone,
       identificationDocument,
       professionalCardNumber,
+      city,
+      speciality,
       address,
     };
   },
@@ -120,8 +125,8 @@ export default {
       console.log("identificationDocument", this.identificationDocument.value.value);
       console.log("email", this.email.value.value);
       console.log("phone", this.phone.value.value);
-      console.log("city", this.city);
-      console.log("speciality",this.speciality);
+      console.log("city", this.city.value.value);
+      console.log("speciality",this.speciality.value.value);
       console.log("address",this.address.value.value);
 
       let response = await ServiceDoctor.insertarMedico(
@@ -130,8 +135,8 @@ export default {
         this.identificationDocument.value.value,
         this.email.value.value,
         this.phone.value.value,
-        this.city,
-        this.speciality,
+        this.city.value.value,
+        this.speciality.value.value,
         this.address.value.value
       );
 
@@ -169,7 +174,7 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-autocomplete v-model="this.speciality" :items="this.especialidades" label="Especialidades"
+          <v-autocomplete v-model="speciality.value.value" :items="this.especialidades" label="Especialidades"
             persistent-hint>
             <template v-slot:append-outer>
               <v-slide-x-reverse-transition mode="out-in">
@@ -201,7 +206,7 @@ export default {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-autocomplete v-model="this.city" :items="this.ciudades" label="Ciudades" persistent-hint>
+          <v-autocomplete v-model="city.value.value" :items="this.ciudades" label="Ciudades" persistent-hint>
             <template v-slot:append-outer>
               <v-slide-x-reverse-transition mode="out-in">
               </v-slide-x-reverse-transition>

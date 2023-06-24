@@ -6,11 +6,11 @@ class ServicePatient {
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarPaciente");
     const raw = JSON.stringify({
-      "CedulaPac": CedulaPac,
+      "cedulaPac": CedulaPac,
       "NombreCompletoPac": NombreCompletoPac,
-      "TelefonoPac": TelefonoPac,
-      "CorreoPac": CorreoPac,
-      "CiudadPac": CiudadPac,
+      "telefonoPac": TelefonoPac,
+      "correoPac": CorreoPac,
+      "ciudadPac": CiudadPac,
       "FechaNacimientoPac": FechaNacimientoPac
     });
 
