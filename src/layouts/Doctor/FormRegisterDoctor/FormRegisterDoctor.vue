@@ -66,28 +66,23 @@ export default {
     });
 
     const name = useField("name");
-    const speciality = useField("speciality");
     const email = useField("email");
     const phone = useField("phone");
     const identificationDocument = useField("identificationDocument");
     const professionalCardNumber = useField("professionalCardNumber");
     const address = useField("address");
-    const city = useField("city");
-
     const submit = handleSubmit((values) => {
       alert(JSON.stringify(values, null, 2));
     });
 
     return {
-      name,
-      speciality,
+      name, 
       email,
       submit,
       phone,
       identificationDocument,
       professionalCardNumber,
       address,
-      city
     };
   },
   /********* Ciclo de vida *********/

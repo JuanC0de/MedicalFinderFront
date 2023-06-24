@@ -62,16 +62,16 @@ export default {
         },
       },
     });
-    const name = useField("name");
-    const email = useField("email");
-    const phone = useField("phone");
     const identificationDocument = useField("identificationDocument");
-
+    const name = useField("name");
+    const phone = useField("phone");
+    const email = useField("email");
+    
     const submit = handleSubmit((values) => {
       alert(JSON.stringify(values, null, 2));
     });
 
-    return { name, email, phone, identificationDocument, submit };
+    return { name, email, phone, identificationDocument, submit};
   },
   computed: {
     passwordsMatch() {
@@ -135,7 +135,7 @@ export default {
     },    
     async insertarPacienteNuevo() {
       console.log("Entre a la funcion");
-      console.log("Ced", this.identificationDocument.value.value);
+      console.log("identificationDocument", this.identificationDocument.value.value);
       console.log("name", this.name.value.value);
       console.log("phone", this.phone.value.value);
       console.log("email", this.email.value.value);

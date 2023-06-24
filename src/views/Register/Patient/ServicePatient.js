@@ -28,7 +28,7 @@ class ServicePatient {
     try {
       const response = await fetch(url,requestOptions);
       console.log("Esta es la respuesta",response);
-      return response
+      return response;
       
     } catch (error) {
       console.log('Error:', error);
