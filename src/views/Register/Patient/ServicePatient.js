@@ -49,6 +49,7 @@ class ServicePatient {
     }
   }
   async insertarUsuarioPaciente(user,password) {
+    console.log("Entrada usuario al insertar user:");
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarUsuarioPaciente");
@@ -57,7 +58,7 @@ class ServicePatient {
       "password": password,
     });
 
-    console.log("raw",raw)
+    console.log("raw de insertar usuario",raw)
     let requestOptions = {
         method: 'POST',
         headers: myHeaders,

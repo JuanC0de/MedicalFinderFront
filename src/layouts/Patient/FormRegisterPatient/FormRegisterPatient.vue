@@ -156,13 +156,25 @@ export default {
         console.log("YA AGREGAMOSSSS ");
         console.log("Datos usuario",this.email.value.value,'-',this.password1);
         let responseCreateUser = await ServicePatient.insertarUsuarioPaciente(this.email.value.value,this.password1)
-        swal({
+        if(responseCreateUser.status==200){
+            swal({
           title: "Has sido registrado exitosamente",
           text: "Ya puedes iniciar sesion",
           button: "Aceptar",
         }).then(() => {
+            router.push("/IniciarSesion");
+            });
+        }
+        else{
+          swal({
+          title: "El usuario no se ha creado",
+          text: `Error: ${responseCreateUser.response}, vuelva a intentarlo`,
+          button: "Aceptar",
+          }).then(() => {
           router.push("/IniciarSesion");
-        });
+          });
+        }
+        
       } else {
         console.log("Ocurrió un error", response);
       }
