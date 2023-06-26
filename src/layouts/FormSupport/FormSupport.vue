@@ -87,7 +87,13 @@ export default {
           
         });
       } else {
-        console.log("Ocurrió un error", response);
+        swal({
+          title: "Ocurrió un error",
+          text: response,
+          button: "Aceptar",
+        }).then(() => {
+          console.log("Ocurrió un error", response);
+        })
       }
     },
   },

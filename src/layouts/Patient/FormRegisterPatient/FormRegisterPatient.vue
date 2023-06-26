@@ -1,92 +1,55 @@
 <script>
-import { useField, useForm } from "vee-validate";
 import ServicePatient from "@/views/Register/Patient/ServicePatient.js";
 import swal from "sweetalert";
 import router from "@/router";
 
 export default {
+  created() {
+    this.cargarCiudades();
+  },
   data: () => ({
+    form: false,
+    loading: false,
     show1: false,
     show2: false,
-    valid: true,
     checkbox: false,
+    name: null,
+    identificationDocument: null,
+    email: null,
+    birthdate: null,
+    phone: null,
+    ciudades: [],
+    city: null,
     password1: "",
     password2: "",
-    rules: [
-      (value) => !!value || "Requerido",
-      (value) =>
-        (value && value.length >= 3) ||
-        "Debe escribir un mensaje de minimo 3 caracteres.",
-    ],
-    //contraseñaPaciente: "",
-    ciudades: [],
-    fechaNacimiento: null,
-    city: null
-    // rules: {
-    //     required: value => !!value || 'Requerido.',
-    //     min: v => v.length >= 8 || 'Mínimo 8 caracteres',
-    //     emailMatch: () => (`El correo electrónico y la contraseña introducidos no coinciden`),
-    //   },
+    passwordError1: '',
+    passwordError2: '',
+    errorSnackbar: false,
+    passwordError: '',
+    snackbarColor: 'error'
   }),
-  setup() {
-    const { handleSubmit } = useForm({
-      validationSchema: {
-        name(value) {
-          if (value?.length >= 2) return true;
-
-          return "El nombre ingresado necesita más de 2 caracteres.";
-        },
-        email(value) {
-          if (
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-              value
-            )
-          )
-            return true;
-
-          return "Debe ser un correo electrónico válido.";
-        },
-        phone(value) {
-          if (value?.length == 10) {
-            return true;
-          } else {
-            return "Debe ser un número de celular válido.";
-          }
-        },
-        identificationDocument(value) {
-          if (value?.length >= 8) {
-            return true;
-          } else {
-            return "Debe ser una documento de identificación válido.";
-          }
-        },
-      },
-    });
-    const identificationDocument = useField("identificationDocument");
-    const name = useField("name");
-    const phone = useField("phone");
-    const email = useField("email");
-    const city = useField("city");
-    const fechaNacimiento = useField("fechaNacimiento");
-    
-    const submit = handleSubmit((values) => {
-      alert(JSON.stringify(values, null, 2));
-    });
-
-    return { name, email, phone, identificationDocument, submit, city, fechaNacimiento};
-  },
   computed: {
-    passwordsMatch() {
-      return this.password1 === this.password2;
-    },
     canSubmitForm() {
+      if (this.password1 !== this.password2) {
+        this.passwordError = 'Las contraseñas no coinciden';
+        this.errorSnackbar = true;
+      } else {
+        this.passwordError = '';
+      }
+
       return (
-        this.passwordsMatch &&
-        this.password1 !== "" &&
-        this.password2 !== "" + "las contraseñas son diferentes"
+        this.password1 !== '' &&
+        this.password2 !== '' &&
+        this.passwordError === ''
       );
     },
-    validarEdad() {
+    handleSnackbarInput(value) {
+      if (!value) {
+        // Snackbar se cerró, restablecer el color
+        this.snackbarColor = 'error';
+      }
+    },
+    birthdateValid() {
       return (value) => {
         if (value) {
           const fechaNacimiento = new Date(value);
@@ -113,17 +76,83 @@ export default {
           if (edad < edadMinima) {
             return "Debes ser mayor de edad para ingresar.";
           }
-
         }
         return true;
-      };
+      }
     }
   },
-  /********* Ciclo de vida *********/
-  async created() {
-    await this.cargarCiudades();
-  },  
   methods: {
+    onSubmit() {
+      if (!this.form) return;
+
+      this.loading = true
+
+      setTimeout(() => (this.loading = false), 2000)
+
+    },
+    required(v) {
+      return !!v || 'Este campo es requerido'
+    },
+    nameValid(value) {
+      if (value?.length >= 2) {
+        return true;
+      } else {
+        return 'El nombre ingresado necesita más de 2 caracteres.';
+      }
+    },
+    identificationValid(value) {
+      if (value?.length >= 8) {
+        return true;
+      } else {
+        return "Debe ser una documento de identificación válido.";
+      }
+    },
+    emailValid(value) {
+      if (!value) {
+        return 'El campo de correo electrónico es requerido.';
+      } else if (
+        !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          value
+        )
+      ) {
+        return 'Debe ingresar un correo electrónico válido.';
+      } else {
+        return true; // El valor es un correo electrónico válido.
+      }
+    },
+    phoneValid(value) {
+      if (value?.length == 10) {
+        return true;
+      } else {
+        return "Debe ser un número de celular válido.";
+      }
+    },
+    passwordValid1() {
+      if (this.password1.length < 8) {
+        this.passwordError1 = 'La contraseña debe tener al menos 8 caracteres';
+      } else if (!/[a-z]/.test(this.password1)) {
+        this.passwordError1 = 'La contraseña debe contener al menos una letra minúscula';
+      } else if (!/[A-Z]/.test(this.password1)) {
+        this.passwordError1 = 'La contraseña debe contener al menos una letra mayúscula';
+      } else if (!/\d/.test(this.password1)) {
+        this.passwordError1 = 'La contraseña debe contener al menos un número';
+      } else {
+        this.passwordError1 = '';
+      }
+    },
+    passwordValid2() {
+      if (this.password2.length < 8) {
+        this.passwordError2 = 'La contraseña debe tener al menos 8 caracteres';
+      } else if (!/[a-z]/.test(this.password2)) {
+        this.passwordError2 = 'La contraseña debe contener al menos una letra minúscula';
+      } else if (!/[A-Z]/.test(this.password2)) {
+        this.passwordError2 = 'La contraseña debe contener al menos una letra mayúscula';
+      } else if (!/\d/.test(this.password2)) {
+        this.passwordError2 = 'La contraseña debe contener al menos un número';
+      } else {
+        this.passwordError2 = '';
+      }
+    },
     async cargarCiudades() {
       let response = await ServicePatient.consultarListaCiudades();
       console.log("Esta es la respuesta deploy - ciudad:", response);
@@ -132,158 +161,137 @@ export default {
         console.log("Estas son las ciudades", this.ciudades);
       }
       else {
-        console.log("Ocurrió un error", response)
+        swal({
+          title: "Ocurrió un error",
+          text: response,
+          button: "Aceptar",
+        }).then(() => {
+          console.log("Ocurrió un error", response);
+        });
       }
-    },    
+    },
     async insertarPacienteNuevo() {
       console.log("Entre a la funcion");
-      console.log("identificationDocument", this.identificationDocument.value.value);
-      console.log("name", this.name.value.value);
-      console.log("phone", this.phone.value.value);
-      console.log("email", this.email.value.value);
-      console.log("city", this.city.value.value); 
-      console.log("fechaNacimiento", this.fechaNacimiento.value.value);
+      console.log("identificationDocument", this.identificationDocument);
+      console.log("name", this.name);
+      console.log("phone", this.phone);
+      console.log("email", this.email);
+      console.log("city", this.city);
+      console.log("fechaNacimiento", this.birthdate);
       let response = await ServicePatient.insertarPaciente(
-        this.identificationDocument.value.value,
-        this.name.value.value,
-        this.phone.value.value,
-        this.email.value.value,
-        this.city.value.value,
-        this.fechaNacimiento.value.value,
+        this.identificationDocument,
+        this.name,
+        this.phone,
+        this.email,
+        this.city,
+        this.birthdate,
       );
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS ");
-        console.log("Datos usuario",this.email.value.value,'-',this.password1);
-        let responseCreateUser = await ServicePatient.insertarUsuarioPaciente(this.email.value.value,this.password1)
-        if(responseCreateUser.status==200){
-            swal({
-          title: "Has sido registrado exitosamente",
-          text: "Ya puedes iniciar sesion",
-          button: "Aceptar",
-        }).then(() => {
-            router.push("/IniciarSesion");
-            });
-        }
-        else{
+        console.log("Datos usuario", this.email, '-', this.password1);
+        let responseCreateUser = await ServicePatient.insertarUsuarioPaciente(this.email, this.password1)
+        if (responseCreateUser.status == 200) {
           swal({
-          title: "El usuario no se ha creado",
-          text: `Error: ${responseCreateUser.response}, vuelva a intentarlo`,
-          button: "Aceptar",
+            title: "Has sido registrado exitosamente",
+            text: "Ya puedes iniciar sesion",
+            button: "Aceptar",
           }).then(() => {
-          router.push("/IniciarSesion");
+            this.$refs.formPatient.reset(); // Reiniciar el formulario
+            router.push("/IniciarSesion");
           });
         }
-        
+        else {
+          swal({
+            title: "El usuario no se ha creado",
+            text: `Error: ${responseCreateUser.response}, vuelva a intentarlo`,
+            button: "Aceptar",
+          }).then(() => {
+            router.push("/IniciarSesion");
+          });
+        }
+
       } else {
-        console.log("Ocurrió un error", response);
+        swal({
+          title: "Ocurrió un error",
+          text: response,
+          button: "Aceptar",
+        }).then(() => {
+          console.log("Ocurrió un error", response);
+        })
       }
-    },
+    }
   },
 };
 </script>
 
 <template>
   <h2 align-center justify-center class="title-lg">Registrate como paciente</h2>
-  <v-form>
-    <v-container>
-      <v-row>
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="name.value.value"
-            :counter="40"
-            :error-messages="name.errorMessage.value"
-            label="Nombre Completo"
-          ></v-text-field>
-        </v-col>
+  <v-form ref="formPatient" v-model="form" @submit.prevent="onSubmit">
+    <v-row>
 
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="identificationDocument.value.value"
-            :error-messages="identificationDocument.errorMessage.value"
-            label="Documento de identificación"
-            type="number"
-          ></v-text-field>
-        </v-col>
+      <v-col cols="12" sm="6">
+        <v-text-field v-model="name" :readonly="loading" :rules="[required, nameValid]" clearable
+          label="Nombre Completo"></v-text-field>
+      </v-col>
 
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="email.value.value"
-            :error-messages="email.errorMessage.value"
-            label="Correo electrónico"
-          ></v-text-field>
-        </v-col>
+      <v-col cols="12" sm="6">
+        <v-text-field v-model="identificationDocument" :readonly="loading" :rules="[required, identificationValid]"
+          clearable label="Documento de identificación" type="number"></v-text-field>
+      </v-col>
 
-        <v-col cols="12" sm="6">
-          <v-text-field
-            type="date"
-            label="Fecha de nacimiento"
-            v-model="fechaNacimiento.value.value"
-            :rules="[validarEdad]"
-          >
-          </v-text-field>
-        </v-col>
+      <v-col cols="12" sm="6">
+        <v-text-field v-model="email" :readonly="loading" :rules="[required, emailValid]" clearable
+          label="Correo electrónico"></v-text-field>
+      </v-col>
 
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="phone.value.value"
-            :error-messages="phone.errorMessage.value"
-            label="Celular"
-            type="number"
-          ></v-text-field>
-        </v-col>
+      <v-col cols="12" sm="6">
+        <v-text-field v-model="birthdate" :readonly="loading" :rules="[required, birthdateValid]" clearable
+          label="Fecha de nacimiento" type="date"></v-text-field>
+      </v-col>
 
-        <v-col cols="12" sm="6">
-          <v-autocomplete v-model="city.value.value" :items="this.ciudades" label="Ciudades" persistent-hint>
-            <template v-slot:append-outer>
-              <v-slide-x-reverse-transition mode="out-in">
-              </v-slide-x-reverse-transition>
-            </template>
-          </v-autocomplete>
-        </v-col>
+      <v-col cols="12" sm="6">
+        <v-text-field v-model="phone" :readonly="loading" :rules="[required, phoneValid]" clearable label="Celular"
+          type="number"></v-text-field>
+      </v-col>
 
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="password1"
-            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-            :rules="[rules.required, rules.min]"
-            :type="show1 ? 'text' : 'password'"
-            name="input-10-2"
-            label="Contraseña"
-            hint="Al menos 8 caracteres"
-            class="input-group--focused"
-            :models="this.contraseñaPaciente"
-            @click:append="show1 = !show1"
-          ></v-text-field>
-        </v-col>
+      <v-col cols="12" sm="6">
 
-        <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="password2"
-            :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
-            :rules="[rules.required, rules.min]"
-            :type="show2 ? 'text' : 'password'"
-            name="input-10-2"
-            label="Confirmar contraseña"
-            hint="Al menos 8 caracteres"
-            class="input-group--focused"
-            @click:append="show2 = !show2"
-          ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-checkbox
-        v-model="checkbox"
-        :rules="[(v) => !!v || 'Para continuar debes aceptar']"
-        label="He leído y acepto la Politica de privacidad y los terminos y condiciones"
-        required
-      ></v-checkbox>
-      <v-btn
-        :disabled="!canSubmitForm"
-        class="mt-2 sizebtn"
-        color="SecondaryCyan"
-        @click="insertarPacienteNuevo()"
-        >Enviar</v-btn>
-    </v-container>
+        <v-autocomplete v-model="city" :readonly="loading" :rules="[required]" :items="this.ciudades" label="Ciudad"
+          persistent-hint clearable>
+
+          <template v-slot:append-outer>
+            <v-slide-x-reverse-transition mode="out-in">
+            </v-slide-x-reverse-transition>
+          </template>
+
+        </v-autocomplete>
+
+      </v-col>
+
+      <v-col cols="12" sm="6">
+        <v-text-field v-model="password1" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :readonly="loading"
+          :rules="[passwordValid1]" :error-messages="passwordError1" :type="show1 ? 'text' : 'password'" clearable
+          label="Contraseña" @click:append="show1 = !show1"></v-text-field>
+      </v-col>
+
+      <v-col cols="12" sm="6">
+        <div>
+        <v-text-field v-model="password2" :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :readonly="loading"
+          :rules="[passwordValid2]" :error-messages="passwordError2" :type="show2 ? 'text' : 'password'"
+          label="Confirmar contraseña" @click:append="show2 = !show2"></v-text-field>
+        <v-snackbar v-model="errorSnackbar" :color="snackbarColor" top  @input="handleSnackbarInput">
+          {{ passwordError }}
+        </v-snackbar>
+      </div>
+      </v-col>
+    </v-row>
+
+    <v-checkbox v-model="checkbox" :readonly="loading" :rules="[required]" clearable
+      label="He leído y acepto la Politica de privacidad y los terminos y condiciones"></v-checkbox>
+
+    <v-btn :disabled="!canSubmitForm || !form" :loading="loading" class="mt-2 sizebtn" color="SecondaryCyan" type="submit"
+      @click="insertarPacienteNuevo()">Enviar</v-btn>
   </v-form>
 </template>
 
