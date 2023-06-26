@@ -6,19 +6,20 @@ import router from "@/router";
 
 export default {
   data: () => ({
-    rules: [
+    form: false,
+    name: null,
+    lastName: null,
+    email: null,
+    message: null,
+    loading: false
+    /* rules: [
       value => !!value || 'Requerido',
       value => (value && value.length >= 3) || 'Debe escribir un mensaje de minimo 3 caracteres.',
-    ],
+    ], */
   }),
-  setup() {
+  /* setup() {
     const { handleSubmit } = useForm({
       validationSchema: {
-        name(value) {
-          if (value?.length >= 2) return true
-
-          return 'El nombre ingresado necesita más de 2 caracteres.'
-        },
         lastName(value) {
           if (value?.length >= 2) return true
 
@@ -41,19 +42,64 @@ export default {
     });
 
     return { name, lastName, email, submit, message };
-  },
+   }, */
   methods: {
+    onSubmit() {
+      if (!this.form) return
+
+      this.loading = true
+
+      setTimeout(() => (this.loading = false), 2000)
+    },
+    required(v) {
+      return !!v || 'Este campo es requerido'
+    },
+    nameValid(value) {
+      if (value?.length >= 2) {
+        return true;
+      } else {
+        return 'El nombre ingresado necesita más de 2 caracteres.';
+      }
+    },
+    lastNameValid(value) {
+      if (value?.length >= 2) {
+        return true;
+      } else {
+        return 'El apellido ingresado necesita más de 2 caracteres';
+      }
+    },
+    emailValid(value) {
+      if (!value) {
+        return 'El campo de correo electrónico es requerido.';
+      } else if (
+        !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          value
+        )
+      ) {
+        return 'Debe ingresar un correo electrónico válido.';
+      } else {
+        return true; // El valor es un correo electrónico válido.
+      }
+    },
+    messageValid(value) {
+      if (value?.length >= 3) {
+        return true;
+      } else {
+        return 'Debe escribir un mensaje de minimo 3 caracteres.';
+      }
+    },
+
     async insertarDatosSoporteNuevo() {
       console.log("Entre a la funcion");
-      console.log("name", this.name.value.value);
-      console.log("lastName", this.lastName.value.value);
-      console.log("email", this.email.value.value);
-      console.log("message", this.message.value.value);
+      console.log("name", this.name);
+      console.log("lastName", this.lastName);
+      console.log("email", this.email);
+      console.log("message", this.message);
       let response = await ServiceSupport.insertarDatosSoporte(
-        this.name.value.value,
-        this.lastName.value.value,
-        this.email.value.value,
-        this.message.value.value
+        this.name,
+        this.lastName,
+        this.email,
+        this.message
       );
       console.log("Esta es la respuesta deploy:", response);
       if (response.status == 201) {
@@ -65,10 +111,10 @@ export default {
         }).then(() => {
           //redireccion a inicio sesion
           router.push("/Soporte");
-          this.name= "";
+          this.name = "";
           this.lastName = "";
-          this.email="";
-          this.message="";
+          this.email = "";
+          this.message = "";
         });
       } else {
         console.log("Ocurrió un error", response);
@@ -81,24 +127,26 @@ export default {
 <template>
   <v-container class="text-center title-lg">
     <h2>Soporte</h2>
-    <form @submit.prevent="submit" class="pa-6">
-      <v-text-field v-model="name.value.value" :counter="25" :error-messages="name.errorMessage.value"
+    <v-form v-model="form" @submit.prevent="onSubmit" class="pa-6">
+      <v-text-field v-model="name" :readonly="loading" :rules="[required, nameValid]" clearable
         label="Nombre"></v-text-field>
 
-      <v-text-field v-model="lastName.value.value" :counter="25" :error-messages="lastName.errorMessage.value"
+      <v-text-field v-model="lastName" :readonly="loading" :rules="[required, lastNameValid]" clearable
         label="Apellido"></v-text-field>
 
-      <v-text-field v-model="email.value.value" :error-messages="email.errorMessage.value"
+      <v-text-field v-model="email" :readonly="loading" :rules="[required, emailValid]" clearable
         label="Correo electrónico"></v-text-field>
 
-      <v-textarea v-model="message.value.value" label="Mensaje" :rules="rules" hide-details="auto"></v-textarea>
+      <v-textarea v-model="message" :readonly="loading" :rules="[required, messageValid]" clearable label="Mensaje"
+        hide-details="auto"></v-textarea>
 
 
-      <v-btn class="me-4 mt-3 sizebtn" color="SecondaryCyan" type="submit" @click="insertarDatosSoporteNuevo()">  
+      <v-btn :disabled="!form" :loading="loading" class="me-4 mt-3 sizebtn" color="SecondaryCyan" type="submit"
+        @click="insertarDatosSoporteNuevo()">
         Enviar
       </v-btn>
 
-    </form>
+    </v-form>
   </v-container>
 </template>
 
