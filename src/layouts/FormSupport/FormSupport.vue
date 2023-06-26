@@ -1,5 +1,4 @@
 <script>
-import { useField, useForm } from 'vee-validate'
 import ServiceSupport from "@/views/Support/ServiceSupport.js";
 import swal from "sweetalert";
 import router from "@/router";
@@ -12,37 +11,7 @@ export default {
     email: null,
     message: null,
     loading: false
-    /* rules: [
-      value => !!value || 'Requerido',
-      value => (value && value.length >= 3) || 'Debe escribir un mensaje de minimo 3 caracteres.',
-    ], */
   }),
-  /* setup() {
-    const { handleSubmit } = useForm({
-      validationSchema: {
-        lastName(value) {
-          if (value?.length >= 2) return true
-
-          return 'El apellido ingresado necesita más de 2 caracteres'
-        },
-        email(value) {
-          if (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)) return true
-
-          return 'Debe ser un correo electrónico válido.'
-        },
-      },
-    })
-    const name = useField('name');
-    const lastName = useField('lastName');
-    const email = useField('email');
-    const message = useField('message');
-
-    const submit = handleSubmit((values) => {
-      
-    });
-
-    return { name, lastName, email, submit, message };
-   }, */
   methods: {
     onSubmit() {
       if (!this.form) return
@@ -50,6 +19,9 @@ export default {
       this.loading = true
 
       setTimeout(() => (this.loading = false), 2000)
+
+      this.$refs.formSupport.reset(); // Reiniciar el formulario
+
     },
     required(v) {
       return !!v || 'Este campo es requerido'
@@ -105,16 +77,14 @@ export default {
       if (response.status == 201) {
         console.log("YA AGREGAMOSSSS");
         swal({
-          title: "Gracias por tu mensaje, fué enviado con éxito",
+          title: "Gracias por tu mensaje",
           text: "El equipo de soporte leerá tu respuesta y le dará solución ",
           button: "Aceptar",
         }).then(() => {
+          this.$refs.formSupport.reset(); // Reiniciar el formulario
           //redireccion a inicio sesion
           router.push("/Soporte");
-          this.name = "";
-          this.lastName = "";
-          this.email = "";
-          this.message = "";
+          
         });
       } else {
         console.log("Ocurrió un error", response);
@@ -127,7 +97,7 @@ export default {
 <template>
   <v-container class="text-center title-lg">
     <h2>Soporte</h2>
-    <v-form v-model="form" @submit.prevent="onSubmit" class="pa-6">
+    <v-form ref="formSupport" v-model="form" @submit.prevent="onSubmit" class="pa-6">
       <v-text-field v-model="name" :readonly="loading" :rules="[required, nameValid]" clearable
         label="Nombre"></v-text-field>
 
