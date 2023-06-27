@@ -42,7 +42,7 @@
                       </v-col>
                     </v-col>
                     <v-col cols="2">
-                      <v-btn class="ma-1 w-100" variant="outlined" @click="listarEspecialistas()">
+                      <v-btn class="ma-1 w-100" variant="outlined" @click="Especialistas()">
                         Buscar
                       </v-btn>
                     </v-col>
@@ -183,8 +183,6 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
-// import AccordionCities from '@/components/AccordionCities/AccordionCities.vue';
-// import SelectSpecialists from '@/components/SelectSpecialists/SelectSpecialists.vue';
 import ServiceHome from '@/views/Home/ServiceHome';
 import router from '@/router/index';
 export default {
@@ -192,8 +190,6 @@ export default {
   components: {
     Navbar,
     FooterComponent,
-    //AccordionCities,
-    // SelectSpecialists
   },
   props: {
     msg: String,
@@ -273,6 +269,19 @@ export default {
       }
       else {
         console.log("Hay algún campo vacío o ocurrió un error.");
+      }
+    },
+    Especialistas() {
+      if (this.IdCiudad && this.IdEspecialidad) {
+        router.push({
+          path: '/buscar',
+          query: {
+            IdCiudad: this.IdCiudad,
+            IdEspecialidad: this.IdEspecialidad
+          }
+        });
+      } else {
+        console.log('Hay algún campo vacío o ocurrió un error.');
       }
     }
   }

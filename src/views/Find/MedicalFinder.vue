@@ -21,6 +21,10 @@ export default {
     especialistas: [],
   }),
   /********* Ciclo de vida *********/
+  created() {
+    this.IdCiudad = this.$route.query.IdCiudad || '';
+    this.IdEspecialidad = this.$route.query.IdEspecialidad || '';
+  },
   async created() {
     await this.cargarEspecialidades();
     await this.cargarCiudades();
