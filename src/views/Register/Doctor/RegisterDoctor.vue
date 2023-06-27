@@ -1,13 +1,17 @@
 <script setup>
 import FormRegisterDoctor from '@/layouts/Doctor/FormRegisterDoctor/FormRegisterDoctor.vue';
-// import CheckBoxPolitica from '@/components/CheckBoxPolitica.vue';
-// import Navbar from '@/components/Navbar.vue';
-// import FooterComponent from '@/components/FooterComponent.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function redireccionarInicio() {
+  router.push('/');
+}
 </script>
 
 <template>
     <div class="my-view">
-        <v-btn fab dark class="box ml-3" style="height: 8vh">
+        <v-btn fab dark class="box ml-3" style="height: 8vh" @click="redireccionarInicio()">
             <div class="arrow right"></div>
             <div class="text">Regresar al inicio</div>
         </v-btn>
