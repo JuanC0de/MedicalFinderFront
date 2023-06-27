@@ -191,7 +191,7 @@ export default {
         console.log("YA AGREGAMOSSSS ");
         console.log("Datos usuario", this.email, '-', this.password1);
         let responseCreateUser = await ServicePatient.insertarUsuarioPaciente(this.email, this.password1)
-        if (responseCreateUser.status == 201) {
+        if (responseCreateUser.status == 200) {
           swal({
             title: "Has sido registrado exitosamente",
             text: "Ya puedes iniciar sesion",
