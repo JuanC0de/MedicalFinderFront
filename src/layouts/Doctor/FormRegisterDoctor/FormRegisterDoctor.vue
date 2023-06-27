@@ -22,7 +22,9 @@ export default {
     especialidades: [],
     speciality: null,
     city: null,
-    state: true
+    state: true,
+    horaInicio: "2023-06-29T09:00:00Z",
+    horaFinal: "2023-06-29T16:00:00Z"
   }),
   methods: {
     onSubmit() {
@@ -136,6 +138,8 @@ export default {
         this.city,
         this.speciality,
         this.address,
+        this.horaInicio,
+        this.horaFinal,
         this.state
       );
 
