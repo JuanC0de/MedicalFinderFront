@@ -104,7 +104,7 @@ export default {
       if (value?.length >= 8) {
         return true;
       } else {
-        return "Debe ser una documento de identificación válido.";
+        return "Debe ser un documento de identificación válido.";
       }
     },
     emailValid(value) {
