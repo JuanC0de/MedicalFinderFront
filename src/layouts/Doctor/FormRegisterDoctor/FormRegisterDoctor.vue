@@ -15,7 +15,8 @@ export default {
     ciudades: [],
     especialidades: [],
     speciality: null,
-    city: null
+    city: null,
+    state: true
   }),
   setup() {
     const { handleSubmit } = useForm({
@@ -137,7 +138,8 @@ export default {
         this.phone.value.value,
         this.city.value.value,
         this.speciality.value.value,
-        this.address.value.value
+        this.address.value.value,
+        this.state
       );
 
       console.log("Esta es la respuesta deploy: Medico", response);
