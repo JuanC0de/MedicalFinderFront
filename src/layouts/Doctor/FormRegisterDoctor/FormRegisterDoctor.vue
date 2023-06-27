@@ -149,7 +149,7 @@ export default {
         }).then(() => {
           this.$refs.formPatient.reset(); // Reiniciar el formulario
           //redireccion a inicio sesion
-          router.push("/");
+          this.$router.push('/');
         });
         //Mostrar el inicio de sesiòn y una alerta
         //Sweetalert

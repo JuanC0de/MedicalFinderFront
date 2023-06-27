@@ -198,16 +198,16 @@ export default {
             button: "Aceptar",
           }).then(() => {
             this.$refs.formPatient.reset(); // Reiniciar el formulario
-            router.push("/IniciarSesion");
+            this.$router.push('/IniciarSesion');
           });
         }
         else {
           swal({
-            title: "El usuario no se ha creado",
-            text: `Error: ${responseCreateUser.response.json()}, vuelva a intentarlo`,
-            button: "Aceptar",
+          title: "El usuario no se ha creado",
+          text: `Error: ${responseCreateUser.response}, vuelva a intentarlo`,
+          button: "Aceptar",
           }).then(() => {
-            router.push("/IniciarSesion");
+            this.$router.push('/IniciarSesion');
           });
         }
 
