@@ -1,5 +1,4 @@
 <script>
-import { useField, useForm } from "vee-validate";
 import ServiceDoctor from "@/views/Register/Doctor/ServiceDoctor.js";
 import swal from "sweetalert";
 import router from "@/router";
@@ -25,79 +24,6 @@ export default {
     city: null,
     state: true
   }),
-  /* setup() {
-    const { handleSubmit } = useForm({
-      validationSchema: {
-        name(value) {
-          if (value?.length >= 2) return true;
-
-          return "El nombre ingresado necesita más de 2 caracteres.";
-        },
-        speciality(value) {
-          if (value?.length >= 5) return true;
-
-          return "La especialidad ingresado necesita más de 5 caracteres";
-        },
-        address(value) {
-          if (value?.length >= 10) return true;
-
-          return "La dirección ingresada necesita más de 10 caracteres";
-        },
-        email(value) {
-          if (/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value))
-            return true;
-
-          return "Debe ser un correo electrónico válido.";
-        },
-        phone(value) {
-          if (value?.length == 10) {
-            return true;
-          } else {
-            return "Debe ser un número de celular válido.";
-          }
-        },
-        identificationDocument(value) {
-          if (value?.length >= 8) {
-            return true;
-          } else {
-            return "Debe ser una documento de identificación válido.";
-          }
-        },
-        professionalCardNumber(value) {
-          if (value?.length == 10) {
-            return true;
-          } else {
-            return "Debe ser un número de tarjeta profesional válido.";
-          }
-        },
-      },
-    });
-
-    const name = useField("name");
-    const professionalCardNumber = useField("professionalCardNumber");
-    const identificationDocument = useField("identificationDocument");
-    const email = useField("email");
-    const phone = useField("phone");
-    const city = useField("city");
-    const speciality = useField("speciality");
-    const address = useField("address");
-
-    const submit = handleSubmit((values) => {
-      alert(JSON.stringify(values, null, 2));
-    });
-
-    return {
-      name,
-      email,
-      submit,
-      phone,
-      identificationDocument,
-      professionalCardNumber,
-      city,
-      speciality,
-      address,
-    };
-  }, */
   methods: {
     onSubmit() {
       if (!this.form) return;
