@@ -191,7 +191,7 @@ export default {
         console.log("YA AGREGAMOSSSS ");
         console.log("Datos usuario", this.email, '-', this.password1);
         let responseCreateUser = await ServicePatient.insertarUsuarioPaciente(this.email, this.password1)
-        if (responseCreateUser.status == 200) {
+        if (responseCreateUser.status == 201) {
           swal({
             title: "Has sido registrado exitosamente",
             text: "Ya puedes iniciar sesion",
@@ -204,7 +204,7 @@ export default {
         else {
           swal({
             title: "El usuario no se ha creado",
-            text: `Error: ${responseCreateUser.response}, vuelva a intentarlo`,
+            text: `Error: ${responseCreateUser.response.json()}, vuelva a intentarlo`,
             button: "Aceptar",
           }).then(() => {
             router.push("/IniciarSesion");
