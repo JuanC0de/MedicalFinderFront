@@ -13,7 +13,14 @@ export default {
     IdEspecialista: "0",
     IdMedico: "3",
     stage: "Pendiente",
-    IdPaciente: "7"
+    IdPaciente: "7",
+    email: null,
+    show2: false,
+    password: 'Password',
+    rules: {
+      required: value => !!value || 'Requerido.',
+      min: v => v.length >= 8 || 'Mínimo 8 caracteres'
+    },
   }),
   methods: {
     onSubmit() {
@@ -44,6 +51,20 @@ export default {
         this.fechaInvalida = true;
       }
     },
+    emailValid(value) {
+      if (!value) {
+        return 'El campo de correo electrónico es requerido.';
+      } else if (
+        !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          value
+        )
+      ) {
+        return 'Debe ingresar un correo electrónico válido.';
+      } else {
+        return true; // El valor es un correo electrónico válido.
+      }
+    },
+
     async insertarCitaNueva() {
       console.log("Entre a la funcion");
       console.log("fecha", this.date);
@@ -124,6 +145,26 @@ export default {
         </v-col>
       </v-row>
 
+      <v-row>
+        <v-col cols="12" sm="6">
+          <v-text-field v-model="email" :readonly="loading" :rules="[required, emailValid]" clearable
+          label="Ingresar Usuario"></v-text-field>
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-text-field :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" clearable
+          :type="show2 ? 'text' : 'password'" name="input-10-2" label="Contraseña" hint="Al menos 8 caracteres"
+          class="input-group--focused" @click:append="show2 = !show2"></v-text-field>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" sm="7">
+          <p class="textoBtn">Si no tiene cuenta, haz click en el siguiente botón </p>
+        </v-col>
+        <v-col cols="12" sm="5">
+          <v-btn>Registrarse</v-btn>
+        </v-col>
+      </v-row>
 
       <v-btn :disabled="!form" :loading="loading" class="me-4 mt-10 agendarbtn" color="SecondaryCyan" type="submit"
         @click="insertarCitaNueva()">
@@ -134,6 +175,9 @@ export default {
 </template>
 
 <style>
+.textoBtn{
+  font-size: 18px;
+}
 .title-lg {
   font-size: 30px;
   /* Cambiar el tamaño de letra */
