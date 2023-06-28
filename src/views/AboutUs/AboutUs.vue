@@ -48,7 +48,7 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/JuanAndres.jpg"
+                  src="@/assets/images/imgWorkingGroup/JuanAndres.jpeg"
                   alt="icono-grupo"
                 />
               </v-avatar>
@@ -70,7 +70,7 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/Vanessa.jpg"
+                  src="@/assets/images/imgWorkingGroup/Vanessa.jpeg"
                   alt="icono-grupo"
                 />
               </v-avatar>
@@ -92,7 +92,7 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/JuanJose.jpg"
+                  src="@/assets/images/imgWorkingGroup/JuanJose.jpeg"
                   alt="icono-grupo"
                 />
               </v-avatar>
@@ -118,7 +118,7 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img  
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/Luisa.jpg"
+                  src="@/assets/images/imgWorkingGroup/Luisa.jpeg"
                   alt="icono-grupo"
                 />
               </v-avatar>
@@ -140,7 +140,7 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/JoseLuis.jpg"
+                  src="@/assets/images/imgWorkingGroup/JoseLuis.jpeg"
                   alt="icono-grupo"
                 />
               </v-avatar>
@@ -162,7 +162,7 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/Majo.jpg"
+                  src="@/assets/images/imgWorkingGroup/Majo.jpeg"
                   alt="icono-grupo"
                 />
               </v-avatar>
