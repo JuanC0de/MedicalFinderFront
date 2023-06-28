@@ -2,10 +2,13 @@
 // import MedicalSearchCard from '@/layouts/MedicalSearchCard/MedicalSearchCard.vue'
 import ServiceMedicalFinder from "./ServiceMedicalFinder";
 import router from "@/router/index";
+import Navbar from '@/components/Navbar.vue';
 
 export default {
   name: "MedicalFinder",
-  components: {},
+  components: {
+    Navbar
+  },
   props: {
     msg: String,
   },
@@ -18,6 +21,10 @@ export default {
     especialistas: [],
   }),
   /********* Ciclo de vida *********/
+  created() {
+    this.IdCiudad = this.$route.query.IdCiudad || '';
+    this.IdEspecialidad = this.$route.query.IdEspecialidad || '';
+  },
   async created() {
     await this.cargarEspecialidades();
     await this.cargarCiudades();
