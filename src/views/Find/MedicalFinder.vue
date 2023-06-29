@@ -172,7 +172,7 @@ export default {
                 <h2 class="text-color-h2">{{ medico.NombreCompletoMed }}</h2>
                 <p>Direcciòn: {{ medico.DireccionConsultorio }}</p>
                 <p>Ciudad: {{ medico.CiudadMed }}</p>
-                <p>Ciudad: {{ medico.Especialidad }}</p>
+                <p>Especialidad: {{ medico.Especialidad }}</p>
               </v-container>
               <v-btn
                 class="me-4 mt-3 mb-5 sizebtn"

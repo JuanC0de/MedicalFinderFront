@@ -84,7 +84,7 @@ export default defineComponent({
                         <v-avatar size=150 class="mt-6">
                         <img
                             class="imgIconoCard"
-                            src=""
+                            :src="this.especialista.fotoPerfil"
                             alt="icono-grupo"
                         />
                         </v-avatar>
