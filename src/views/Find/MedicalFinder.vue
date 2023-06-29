@@ -58,23 +58,19 @@ export default {
       } else {
         console.log("Ocurrió un error", response);
       }
-      console.log('valores de url',this.CiudadSeleccionada,'-',this.EspecialidadSeleccionada)
+      console.log('valores de url', this.CiudadSeleccionada, '-', this.EspecialidadSeleccionada)
     },
     filtrarEspecialistas() {
       this.especialistas = this.especialistas.filter();
     },
     Especialistas() {
       if (
-        Object.keys(this.IdCiudad).length > 0 &&
-        Object.keys(this.IdEspecialidad).length > 0
+        this.CiudadSeleccionada.length > 0 || this.EspecialidadSeleccionada.length > 0
       ) {
         console.log("Ya entre a la función porque no estan vacíos los campos.");
-        router.push({
-          path: "/buscar",
-          params: {
-            IdCiudad: this.IdCiudad,
-            IdEspecialidad: this.IdEspecialidad,
-          },
+        this.especialistas = this.especialistas.filter(especialista => {
+          return especialista.CiudadMed === this.CiudadSeleccionada &&
+            especialista.Especialidad === this.EspecialidadSeleccionada;
         });
       } else {
         console.log("Hay algún campo vacío o ocurrió un error.");
@@ -113,12 +109,7 @@ export default {
                 <v-col cols="5">
                   <!-- <AccordionCities class="ma-1" /> -->
                   <v-col>
-                    <v-autocomplete
-                      v-model="CiudadSeleccionada"
-                      :items="this.ciudades"
-                      label="Ciudades"
-                      persistent-hint
-                    >
+                    <v-autocomplete v-model="CiudadSeleccionada" :items="this.ciudades" label="Ciudades" persistent-hint>
                       <template v-slot:append-outer>
                         <v-slide-x-reverse-transition mode="out-in">
                         </v-slide-x-reverse-transition>
@@ -129,12 +120,8 @@ export default {
                 <v-col cols="5">
                   <!-- <SelectSpecialists class="ma-1"/> -->
                   <v-col>
-                    <v-autocomplete
-                      v-model="EspecialidadSeleccionada"
-                      :items="this.especialidades"
-                      label="Especialidades"
-                      persistent-hint
-                    >
+                    <v-autocomplete v-model="EspecialidadSeleccionada" :items="this.especialidades" label="Especialidades"
+                      persistent-hint>
                       <template v-slot:append-outer>
                         <v-slide-x-reverse-transition mode="out-in">
                         </v-slide-x-reverse-transition>
@@ -143,11 +130,7 @@ export default {
                   </v-col>
                 </v-col>
                 <v-col cols="2">
-                  <v-btn
-                    class="text-White ma-1 w-100 bg-PrincipalCyan"
-                    variant="text"
-                    @click="Especialistas()"
-                  >
+                  <v-btn class="text-White ma-1 w-100 bg-PrincipalCyan" variant="text" @click="Especialistas()">
                     Buscar
                   </v-btn>
                 </v-col>
@@ -162,20 +145,12 @@ export default {
     <!-- Crear un for para generar las cartas de acuerdo a la api -->
     <v-container>
       <v-row align="center">
-        <v-col
-          cols="12"
-          md="6"
-          v-for="medico in this.especialistas"
-          :key="medico.idMedico"
-        >
+        <v-col cols="12" md="6" v-for="medico in this.especialistas" :key="medico.idMedico">
           <v-sheet class="pa-2 ma-2 text-center cardStyles">
             <v-card class="elevation-10">
               <v-avatar size="150" class="mt-6">
-                <img
-                  class="imgIconoCard"
-                  :src="`@/assets/images/imgWorkingGroup/${medico.NombreCompletoMed}.jpg`"
-                  alt="icono-grupo"
-                />
+                <img class="imgIconoCard" :src="`@/assets/images/imgWorkingGroup/${medico.NombreCompletoMed}.jpg`"
+                  alt="icono-grupo" />
               </v-avatar>
               <v-container>
                 <h2 class="text-color-h2">{{ medico.NombreCompletoMed }}</h2>
@@ -183,12 +158,7 @@ export default {
                 <p>{{ medico.correoMed }}</p>
                 <p>Ciudad: {{ medico.ciudad }}</p>
               </v-container>
-              <v-btn
-                class="me-4 mt-3 mb-5 sizebtn"
-                @click="agendar(medico.idMedico)"
-                color="MediumCyan"
-                type="submit"
-              >
+              <v-btn class="me-4 mt-3 mb-5 sizebtn" @click="agendar(medico.idMedico)" color="MediumCyan" type="submit">
                 Agendar
               </v-btn>
             </v-card>
