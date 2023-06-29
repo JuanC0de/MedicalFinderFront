@@ -110,50 +110,30 @@
               </div>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col cols="8" class="HomeParagraph">
-              Nuestro objetivo es brindarte una experiencia sin complicaciones
-              al buscar atención médica. Simplemente selecciona tu ciudad y
-              elige la especialidad que necesitas y nuestra amplia base de datos
-              de profesionales de la salud te mostrará una lista completa de
-              opciones, incluyendo perfiles detallados y horarios de
-              atención.<br /><br />
-              En Medical Finder, nos preocupamos por tu bienestar y queremos que
-              encuentres el cuidado médico adecuado para ti. Nuestro equipo se
-              esfuerza constantemente para asegurarse de que la información que
-              encuentres aquí sea precisa y actualizada.<br /><br />
-              No pierdas más tiempo buscando en directorios interminables o
-              preguntando a tus amigos y familiares. Confía en Medical Finder
-              para encontrar a los mejores profesionales de la salud cerca de
-              ti.<br><br> Tu salud es importante para nosotros. Descubre la comodidad de
-              encontrar atención médica de calidad con Medical Finder.
-            </v-col>
-            <v-col cols="4">
-              <v-row justify="center">
-                <v-col cols="12" sm="7" md="6" lg="5">
-                  <v-sheet elevation="10" rounded="xl">
-                    <v-sheet class="pa-3 bg-primary text-right" rounded="t-xl">
-                      <v-btn icon>
-                        <v-icon>mdi-content-save-cog-outline</v-icon>
-                      </v-btn>
-
-                      <v-btn class="ms-2" icon>
-                        <v-icon>mdi-check-bold</v-icon>
-                      </v-btn>
-                    </v-sheet>
-
-                    <div class="pa-4">
-                      <v-chip-group selected-class="text-primary" column>
-                        <v-chip v-for="tag in tags" :key="tag">
-                          {{ tag }}
-                        </v-chip>
-                      </v-chip-group>
-                    </div>
-                  </v-sheet>
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
+          <v-container>
+            <v-row align="center ml-3">
+              <v-col cols="12" md="6" class="HomeParagraph">
+                Nuestro objetivo es brindarte una experiencia sin complicaciones
+                al buscar atención médica. Simplemente selecciona tu ciudad y
+                elige la especialidad que necesitas y nuestra amplia base de datos
+                de profesionales de la salud te mostrará una lista completa de
+                opciones, incluyendo perfiles detallados y horarios de
+                atención.<br /><br />
+                En Medical Finder, nos preocupamos por tu bienestar y queremos que
+                encuentres el cuidado médico adecuado para ti. Nuestro equipo se
+                esfuerza constantemente para asegurarse de que la información que
+                encuentres aquí sea precisa y actualizada.<br /><br />
+                No pierdas más tiempo buscando en directorios interminables o
+                preguntando a tus amigos y familiares. Confía en Medical Finder
+                para encontrar a los mejores profesionales de la salud cerca de
+                ti.<br><br> Tu salud es importante para nosotros. Descubre la comodidad de
+                encontrar atención médica de calidad con Medical Finder.
+              </v-col>
+              <v-col cols="12" md="6">
+                <img class="imgDoc" src="@/assets/images/imgHome/home/dibujoDoct.png"/>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-container>
       </div>
       <v-card class="" height="500px">
@@ -175,6 +155,42 @@
             cover></v-carousel-item>
         </v-carousel>
       </v-card>
+      <v-container>
+        <div class="textHome mt-4 mb-2 ml-4">Recomendaciones para tu salud</div>
+        <v-row align="center">
+          <v-col cols="12" md="6">
+            <img class="imgDoc1" src="@/assets/images/imgHome/home/dibijoAzul.png"/>
+          </v-col>
+          <v-col cols="12" md="6" class="HomeParagraph">
+            <v-expansion-panels variant="recomendaciones" class="my-4 HomeParagraph">
+              <v-expansion-panel
+                title="Mantén una alimentación balanceada"
+                text="Consumir una dieta equilibrada que incluya una variedad de frutas, verduras, granos enteros, proteínas magras y grasas saludables es esencial para proporcionar los nutrientes necesarios para el funcionamiento óptimo del cuerpo."
+              ></v-expansion-panel>
+              <v-expansion-panel
+                title="Realiza ejercicio regularmente"
+                text="La actividad física regular tiene numerosos beneficios para la salud, como fortalecer el sistema cardiovascular, mejorar la fuerza y flexibilidad muscular, así como contribuir a mantener un peso saludable."
+              ></v-expansion-panel>
+              <v-expansion-panel
+                title="Duerme lo suficiente"
+                text="Un sueño adecuado es crucial para la salud general. Dormir entre 7 y 9 horas cada noche promueve la función cerebral, fortalece el sistema inmunológico y ayuda a mantener un equilibrio emocional adecuado."
+              ></v-expansion-panel>
+              <v-expansion-panel
+                title="Mantén una buena hidratación"
+                text="Beber suficiente agua es esencial para mantener el cuerpo hidratado y asegurar el funcionamiento óptimo de los órganos. Se recomienda consumir alrededor de 2 litros de agua al día, aunque las necesidades pueden variar según la actividad y el clima."
+              ></v-expansion-panel>
+              <v-expansion-panel
+                title="Evita el consumo de tabaco y alcohol"
+                text="El tabaco y el consumo excesivo de alcohol están asociados con una amplia gama de problemas de salud, como enfermedades cardiovasculares, cáncer y daño hepático. Evitar o reducir su consumo es una decisión importante para mantener una vida saludable."
+              ></v-expansion-panel>
+              <v-expansion-panel
+                title="Mantén una buena higiene personal"
+                text="Lavarse las manos regularmente, especialmente antes de comer o después de ir al baño, ayuda a prevenir la propagación de enfermedades. Además, mantener una buena higiene dental, como cepillarse los dientes dos veces al día y usar hilo dental, contribuye a una buena salud bucal."
+              ></v-expansion-panel>
+            </v-expansion-panels>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card>
     <FooterComponent />
   </div>
@@ -195,17 +211,6 @@ export default {
     msg: String,
   },
   data: () => ({
-    tags: [
-      'Salud',
-      'Red de médicos',
-      'Bienestar',
-      'Terapia',
-      'Alimentación balanceada',
-      'Salud mental',
-      'Diagnóstico',
-      'Prevención de enfermedades',
-      'Cuidado personal',
-    ],
     IdCiudad: "",
     IdEspecialidad: "",
     icons: ['mdi-rewind', 'mdi-play', 'mdi-fast-forward'],
@@ -328,7 +333,20 @@ export default {
 }
 
 .HomeParagraph {
-  font-size: 22px;
+  font-size: 19px;
+}
+
+.imgDoc{
+  width: 600px;
+  height: 500px;
+}
+.imgDoc1{
+  width: 500px;
+  height: 400px;
+}
+.textHome{
+  font-size: 35px;
+  color: #31949f;
 }
 </style>
 
