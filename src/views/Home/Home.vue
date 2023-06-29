@@ -256,10 +256,13 @@ export default {
       console.log("Esta es la respuesta deploy - ciudad:", response);
       if (response.length > 0) {
         this.ciudades = response.map(objeto => objeto.city)
+          .filter((ciudad, index, array) => {
+            return array.indexOf(ciudad) === index;
+          });
+
         console.log("Estas son las ciudades", this.ciudades);
-      }
-      else {
-        console.log("Ocurrió un error", response)
+      } else {
+        console.log("Ocurrió un error", response);
       }
     },
     listarEspecialistas() {

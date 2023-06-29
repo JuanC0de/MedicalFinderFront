@@ -28,7 +28,7 @@ class ServiceMedicalFinder{
     }
   }
   async consultarEspecialistas() {
-    let request = "models/apiModels/Medico/";
+    let request = "medico/apiMedico/MedicoM/";
     let url = Global.API_URL + request;
     try {
       const response = await fetch(url);

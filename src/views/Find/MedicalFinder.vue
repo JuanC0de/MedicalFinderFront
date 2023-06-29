@@ -21,14 +21,12 @@ export default {
     EspecialidadSeleccionada: ""
   }),
   /********* Ciclo de vida *********/
-  created() {
-    this.CiudadSeleccionada = this.$route.query.IdCiudad || '';
-    this.EspecialidadSeleccionada = this.$route.query.IdEspecialidad || '';
-  },
   async created() {
     await this.cargarEspecialidades();
     await this.cargarCiudades();
     await this.listarEspecialistas();
+    this.CiudadSeleccionada = this.$route.query.IdCiudad || '';
+    this.EspecialidadSeleccionada = this.$route.query.IdEspecialidad || '';
   },
   methods: {
     async cargarEspecialidades() {
@@ -60,6 +58,7 @@ export default {
       } else {
         console.log("Ocurrió un error", response);
       }
+      console.log('valores de url',this.CiudadSeleccionada,'-',this.EspecialidadSeleccionada)
     },
     filtrarEspecialistas() {
       this.especialistas = this.especialistas.filter();
