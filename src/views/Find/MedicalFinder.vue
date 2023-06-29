@@ -68,21 +68,26 @@ export default {
     },
     Especialistas() {
         console.log("Ya entre a la función porque no estan vacíos los campos.");
-        if(this.CiudadSeleccionada.length > 0 ){
-          this.especialistas = this.totalEspecialistas.filter(especialista => {
+        let total=this.totalEspecialistas
+        if(this.CiudadSeleccionada == null && this.EspecialidadSeleccionada == null){
+          console.log('Estoy entrando a busqueda');
+          this.especialistas = this.totalEspecialistas;
+        }
+        else{
+          if(this.CiudadSeleccionada.length > 0 ){
+          this.especialistas = total.filter(especialista => {
           return especialista.CiudadMed == this.CiudadSeleccionada
         });
         }
         if(this.EspecialidadSeleccionada.length > 0){
-          this.especialistas = this.especialistas.filter(especialista => {
+          this.especialistas = total.filter(especialista => {
           return especialista.Especialidad == this.EspecialidadSeleccionada
           });
         }
-        if(this.CiudadSeleccionada.length == 0 && this.EspecialidadSeleccionada.length == 0){
-          this.especialistas = this.totalEspecialistas;
         }
     },
     agendar(guidMedico) {
+      console.log('Entre a la funcion',guidMedico)
       router.push({
           path: '/buscar/agendarCita',
           query: {
@@ -159,7 +164,7 @@ export default {
               <v-avatar size="150" class="mt-6">
                 <img
                   class="imgIconoCard"
-                  :src="medico.NombreCompletoMed"
+                  :src="medico.fotoPerfil"
                   alt="icono-grupo"
                 />
               </v-avatar>

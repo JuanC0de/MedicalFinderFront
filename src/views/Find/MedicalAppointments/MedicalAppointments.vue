@@ -51,7 +51,9 @@ export default defineComponent({
         this.especialista = response.filter((e)=> {
           return e.guidEspecialista==this.guidEspecialista
         })
+        this.especialista = this.especialista[0]
         console.log("Estes es el especialista", this.especialista);
+        console.log("Estes es el nombre", this.especialista.NombreCompletoMed);
       } else {
         console.log("Ocurrió un error buscando al especialista", response);
       }
