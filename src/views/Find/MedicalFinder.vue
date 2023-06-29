@@ -17,6 +17,7 @@ export default {
     ciudades: [],
     especialidades: [],
     especialistas: [],
+    totalEspecialistas:[],
     CiudadSeleccionada: "",
     EspecialidadSeleccionada: ""
   }),
@@ -54,7 +55,9 @@ export default {
       console.log("Esta es la respuesta deploy - especialistas:", response);
       if (response.length > 0) {
         this.especialistas = response;
+        this.totalEspecialistas = response;
         console.log("Estas son los especialistas", this.especialistas);
+        this.Especialistas()
       } else {
         console.log("Ocurrió un error", response);
       }
@@ -64,17 +67,20 @@ export default {
       this.especialistas = this.especialistas.filter();
     },
     Especialistas() {
-      if (
-        this.CiudadSeleccionada.length > 0 || this.EspecialidadSeleccionada.length > 0
-      ) {
         console.log("Ya entre a la función porque no estan vacíos los campos.");
-        this.especialistas = this.especialistas.filter(especialista => {
-          return especialista.CiudadMed === this.CiudadSeleccionada &&
-            especialista.Especialidad === this.EspecialidadSeleccionada;
+        if(this.CiudadSeleccionada.length > 0 ){
+          this.especialistas = this.totalEspecialistas.filter(especialista => {
+          return especialista.CiudadMed == this.CiudadSeleccionada
         });
-      } else {
-        console.log("Hay algún campo vacío o ocurrió un error.");
-      }
+        }
+        if(this.EspecialidadSeleccionada.length > 0){
+          this.especialistas = this.especialistas.filter(especialista => {
+          return especialista.Especialidad == this.EspecialidadSeleccionada
+          });
+        }
+        if(this.CiudadSeleccionada.length == 0 && this.EspecialidadSeleccionada.length == 0){
+          this.especialistas = this.totalEspecialistas;
+        }
     },
     agendar(guidMedico) {
       router.push({
@@ -161,6 +167,7 @@ export default {
                 <h2 class="text-color-h2">{{ medico.NombreCompletoMed }}</h2>
                 <p>Direcciòn: {{ medico.DireccionConsultorio }}</p>
                 <p>Ciudad: {{ medico.CiudadMed }}</p>
+                <p>Ciudad: {{ medico.Especialidad }}</p>
               </v-container>
               <v-btn
                 class="me-4 mt-3 mb-5 sizebtn"

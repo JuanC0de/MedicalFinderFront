@@ -40,7 +40,7 @@ export default {
         text="Pretendemos ayudar y Satisfacer de manera eficaz y eficiente las necesidades del cuidado, mejorando cada vez más en diferentes aspectos como la atención que tenga el ciudadano y el ambiente dentro de nuestro sistema, también queremos llegar inicialmente a todo el territorio de nuestro país, y así, esparcirnos a nivel mundial."
     />
 
-    <v-container align = "center"> 
+    <v-container align = "center">
       <v-row>
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
@@ -54,7 +54,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Juan Andrés Bolaño 
+                    Juan Andrés Bolaño
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Scrum Master</p>
@@ -76,7 +76,7 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Karelys Vanessa Silva 
+                    Karelys Vanessa Silva
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Product Owner</p>
@@ -98,25 +98,25 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Juan Jose Rojas 
+                    Juan Jose Rojas
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</p>
                     <p class="mt-2">Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum.</p>
                   </v-card-text>
               </v-container>
-            </v-card> 
+            </v-card>
           </v-sheet>
         </v-col>
       </v-row>
     </v-container>
-    <v-container align = "center"> 
+    <v-container align = "center">
       <v-row>
         <v-col order="1">
           <v-sheet class="pa-2 ma-2">
             <v-card class="card">
               <v-avatar size=80 class="align-center">
-                <img  
+                <img
                   class="imgIconoCard"
                   src="@/assets/images/imgWorkingGroup/Luisa.jpeg"
                   alt="icono-grupo"
@@ -124,14 +124,14 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Luisa Fernanda  
+                    Luisa Fernanda
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</p>
                     <p class="mt-2">Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum.</p>
                   </v-card-text>
               </v-container>
-            </v-card> 
+            </v-card>
           </v-sheet>
         </v-col>
         <v-col order="6">
@@ -140,13 +140,13 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/JoseLuis.jpeg"
+                  src="@/assets/images/imgWorkingGroup/JoseLuis.jpg"
                   alt="icono-grupo"
                 />
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Jose Luis Ordoñez 
+                    Jose Luis Ordoñez
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</P>
@@ -168,19 +168,19 @@ export default {
               </v-avatar>
               <v-container>
                   <v-card-title>
-                    Maria Jose Paz 
+                    Maria Jose Paz
                   </v-card-title>
                   <v-card-text class="mt-5">
                     <p>Equipo de Desarrollo</p>
                     <p class="mt-2">Construye el producto de acuerdo con los requisitos del Product Owner y el proceso de Scrum.</p>
                   </v-card-text>
               </v-container>
-            </v-card> 
+            </v-card>
           </v-sheet>
         </v-col>
-      </v-row>  
+      </v-row>
     </v-container>
-  <FooterComponent/>  
+  <FooterComponent/>
 </template>
 
 <style>
