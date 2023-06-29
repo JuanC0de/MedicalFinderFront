@@ -13,17 +13,17 @@ export default {
     msg: String,
   },
   data: () => ({
-    IdCiudad: "",
-    IdEspecialidad: "",
     IdEspecialista: "",
     ciudades: [],
     especialidades: [],
     especialistas: [],
+    CiudadSeleccionada: "",
+    EspecialidadSeleccionada: ""
   }),
   /********* Ciclo de vida *********/
   created() {
-    this.IdCiudad = this.$route.query.IdCiudad || '';
-    this.IdEspecialidad = this.$route.query.IdEspecialidad || '';
+    this.CiudadSeleccionada = this.$route.query.IdCiudad || '';
+    this.EspecialidadSeleccionada = this.$route.query.IdEspecialidad || '';
   },
   async created() {
     await this.cargarEspecialidades();
@@ -115,7 +115,7 @@ export default {
                   <!-- <AccordionCities class="ma-1" /> -->
                   <v-col>
                     <v-autocomplete
-                      v-model="this.IdCiudad"
+                      v-model="CiudadSeleccionada"
                       :items="this.ciudades"
                       label="Ciudades"
                       persistent-hint
@@ -131,7 +131,7 @@ export default {
                   <!-- <SelectSpecialists class="ma-1"/> -->
                   <v-col>
                     <v-autocomplete
-                      v-model="this.IdEspecialidad"
+                      v-model="EspecialidadSeleccionada"
                       :items="this.especialidades"
                       label="Especialidades"
                       persistent-hint
