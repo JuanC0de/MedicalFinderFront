@@ -14,7 +14,6 @@ class ServiceMedicalFinder{
       console.log('Error:', error);
     }
   }
-
   async consultarListaCiudades() {
     let request = "ciudades/apiciu/Ciudad/";
     let url = Global.API_URL + request;

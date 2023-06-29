@@ -36,6 +36,36 @@ class ServiceMedicalAppointments {
       console.log('Error:', error);
     }
   }
+
+  async insertarUsuario(username, password) {
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    console.log("Entre al insertarUsuario");
+    const raw = JSON.stringify({
+      "username": username,
+      "password": password,
+    });
+
+    console.log("raw", raw)
+    let requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    let request = "api/login/";
+    let url = Global.API_URL + request;
+
+    try {
+      const response = await fetch(url, requestOptions);
+      console.log("Esta es la respuesta - insertarUsuario", response);
+      return response
+
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  }
 }
 
 export default new ServiceMedicalAppointments();
