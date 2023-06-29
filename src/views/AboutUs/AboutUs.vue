@@ -140,7 +140,7 @@ export default {
               <v-avatar size=80 class="align-center">
                 <img
                   class="imgIconoCard"
-                  src="@/assets/images/imgWorkingGroup/JoseLuis.jpg"
+                  src="@/assets/images/imgWorkingGroup/JoseLuis.jpeg"
                   alt="icono-grupo"
                 />
               </v-avatar>
