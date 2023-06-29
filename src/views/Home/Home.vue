@@ -265,15 +265,6 @@ export default {
         console.log("Ocurrió un error", response);
       }
     },
-    listarEspecialistas() {
-      if (Object.keys(this.IdCiudad).length > 0 && Object.keys(this.IdEspecialidad).length > 0) {
-        console.log("Ya entre a la función porque no estan vacíos los campos.");
-        router.push({ path: '/buscar', params: { Ciudad: this.IdCiudad, Especialidad:this.IdEspecialidad} });
-      }
-      else {
-        console.log("Hay algún campo vacío o ocurrió un error.");
-      }
-    },
     Especialistas() {
       if (this.IdCiudad && this.IdEspecialidad) {
         router.push({
@@ -284,7 +275,7 @@ export default {
           }
         });
       } else {
-        console.log('Hay algún campo vacío o ocurrió un error.');
+        console.log('Hay algún campo vacío u ocurrió un error.');
       }
     }
   }

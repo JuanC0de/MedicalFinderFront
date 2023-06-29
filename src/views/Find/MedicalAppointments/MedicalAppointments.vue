@@ -16,6 +16,10 @@ export default defineComponent({
     required: true
   }
 },
+  async created() {
+    await this.consultarEspecialista();
+    this.guidEspecialista = this.$route.query.guidEspecialista || '';
+  },
   components: {
     Carousel,
     Slide,
@@ -32,24 +36,26 @@ export default defineComponent({
         'https://img.freepik.com/foto-gratis/examen-medico_1098-16897.jpg?w=440&t=st=1686238767~exp=1686239367~hmac=8d550a58e786fbde9ce7924588372d3c5d301066db6a4e5088d9238eee7afc0d',
       ],
       especialistaId: this.idEspecialista,
-      especialista:{}
+      especialista:{},
+      guidEspecialista:''
     }
-  },
-  async created() {
-    await this.listarEspecialista();
   },
   methods:{
-    async listarEspecialista() {
+    async consultarEspecialista() {
       let response = await ServiceMedicalFinder.consultarEspecialistas();
-      console.log("Esta es la respuesta deploy - especialistas:", response);
+      this.guidEspecialista = this.$route.query.guidEspecialista || '';
+      // console.log('Guid',this.$route.query.guidEspecialista);
+      console.log('Guid variable',this.guidEspecialista);
+      console.log("Esta es la respuesta especialistas:", response);
       if (response.length > 0) {
-        this.especialista = response.filter(especialista=> {return especialista.idMedico==this.especialistaId})
-        console.log("Estas son los especialistas", this.especialista);
+        this.especialista = response.filter((e)=> {
+          return e.guidEspecialista==this.guidEspecialista
+        })
+        console.log("Estes es el especialista", this.especialista);
+      } else {
+        console.log("Ocurrió un error buscando al especialista", response);
       }
-      else {
-        console.log("Ocurrió un error", response)
-      }
-    }
+    },
   }
 })
 </script>
@@ -76,15 +82,15 @@ export default defineComponent({
                         <v-avatar size=150 class="mt-6">
                         <img
                             class="imgIconoCard"
-                            src="@/assets/images/imgWorkingGroup/JuanAndres.jpg"
+                            src=""
                             alt="icono-grupo"
                         />
                         </v-avatar>
                         <v-container>
                             <h2>{{this.especialista.NombreCompletoMed}}</h2>
                             <v-card-text>
-                            <h3>Especialidad</h3>
-                            <p class="mt-6">Descripcion del perfil profesional del médico</p>
+                            <h3>{{this.especialista.Especialidad}}</h3>
+                            <p class="mt-6">{{this.especialista.PerfilProfesional}}</p>
                             </v-card-text>
                         </v-container>
                     </v-card>

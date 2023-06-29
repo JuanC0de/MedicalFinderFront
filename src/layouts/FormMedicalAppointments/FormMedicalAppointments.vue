@@ -2,6 +2,8 @@
 import ServiceMedicalAppointments from "@/views/Find/MedicalAppointments/ServiceMedicalAppointments"
 import swal from "sweetalert";
 import moment from 'moment';
+import ServiceLogin from './ServiceLogin'
+import ServiceMedicalFinder from '../../views/Find/ServiceMedicalFinder'
 export default {
   data: () => ({
     form: false,
@@ -10,19 +12,39 @@ export default {
     queryType: null,
     date: null,
     hour: "11:00:00",
-    IdEspecialista: "0",
-    IdMedico: "3",
+    especialista:{},
+    guidEspecialista:'',
+    IdEspecialista: 0,
+    IdMedico: 0,
     stage: "Pendiente",
     IdPaciente: "7",
     email: null,
     show2: false,
-    password: 'Password',
+    password: '',
     rules: {
       required: value => !!value || 'Requerido.',
       min: v => v.length >= 8 || 'Mínimo 8 caracteres'
     },
   }),
+  async created() {
+    await this.consultarEspecialista();
+    this.guidEspecialista = this.$route.query.guidEspecialista || '';
+  },
   methods: {
+    async consultarEspecialista() {
+      let response = await ServiceMedicalFinder.consultarEspecialistas();
+      this.guidEspecialista = this.$route.query.guidEspecialista || '';
+      console.log("Esta es la respuesta especialistas:", response);
+      if (response.length > 0) {
+        this.especialista = response.filter((e)=> e.guidEspecialista==this.guidEspecialista)
+        // this.IdMedico = this.especialista.IdMedico;
+        this.IdMedico = 3;
+        console.log("Estes es el id especialista", this.especialista);
+      } else {
+        console.log("Ocurrió un error buscando al especialista", response);
+      }
+      console.log('valores de url',this.CiudadSeleccionada,'-',this.EspecialidadSeleccionada)
+    },
     onSubmit() {
       if (!this.form) return;
 
@@ -75,17 +97,20 @@ export default {
       console.log("id medico", this.IdMedico);
       console.log("estado", this.stage);
       console.log("id paciente", this.IdPaciente);
-
-
-      let response = await ServiceMedicalAppointments.insertarCita(
+      let loginResponse = await ServiceLogin.login(this.email,this.password);
+      if (loginResponse.token != undefined) {
+        let responsePacientes = await ServiceMedicalAppointments.consultarListaPacientes()
+        let paciente = responsePacientes.filter((paciente) => {
+          return paciente.correoPac == this.email
+        })
+        let response = await ServiceMedicalAppointments.insertarCita(
         this.date,
         this.reason,
         this.hour,
         this.queryType,
-        this.IdEspecialista,
         this.IdMedico,
         this.stage,
-        this.IdPaciente
+        paciente.IdPaciente
       );
       console.log("Esta es la respuesta deploy: Medico", response);
       if (response.status == 201) {
@@ -106,6 +131,16 @@ export default {
           button: "Aceptar",
         }).then(() => {
           console.log("Ocurrió un error", response);
+        });
+      }
+      }
+      else{
+        swal({
+          title: "Login denegado",
+          text: 'Credenciales incorrectas',
+          button: "Aceptar",
+        }).then(() => {
+          console.log("Ocurrió un error");
         });
       }
     },
@@ -151,7 +186,7 @@ export default {
           label="Ingresar Usuario"></v-text-field>
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" clearable
+          <v-text-field v-model="password" :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" clearable
           :type="show2 ? 'text' : 'password'" name="input-10-2" label="Contraseña" hint="Al menos 8 caracteres"
           class="input-group--focused" @click:append="show2 = !show2"></v-text-field>
         </v-col>

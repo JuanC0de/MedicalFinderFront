@@ -80,11 +80,13 @@ export default {
         console.log("Hay algún campo vacío o ocurrió un error.");
       }
     },
-    agendar(idMedico) {
+    agendar(guidMedico) {
       router.push({
-        path: "/buscar/agendarCita",
-        params: { IdEspecialista: idMedico },
-      });
+          path: '/buscar/agendarCita',
+          query: {
+            guidEspecialista: guidMedico
+          }
+        });
     },
   },
 };
@@ -173,22 +175,20 @@ export default {
               <v-avatar size="150" class="mt-6">
                 <img
                   class="imgIconoCard"
-                  :src="`@/assets/images/imgWorkingGroup/${medico.NombreCompletoMed}.jpg`"
+                  :src="medico.NombreCompletoMed"
                   alt="icono-grupo"
                 />
               </v-avatar>
               <v-container>
                 <h2 class="text-color-h2">{{ medico.NombreCompletoMed }}</h2>
-                <h4 class="text-color-h4">{{ medico.telefonoMed }}</h4>
-                <p>{{ medico.correoMed }}</p>
-                <p>Ciudad: {{ medico.ciudad }}</p>
+                <p>Direcciòn: {{ medico.DireccionConsultorio }}</p>
+                <p>Ciudad: {{ medico.CiudadMed }}</p>
               </v-container>
               <v-btn
                 class="me-4 mt-3 mb-5 sizebtn"
-                @click="agendar(medico.idMedico)"
+                @click="agendar(medico.guidEspecialista)"
                 color="MediumCyan"
-                type="submit"
-              >
+                type="submit">
                 Agendar
               </v-btn>
             </v-card>

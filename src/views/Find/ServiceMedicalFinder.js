@@ -34,7 +34,7 @@ class ServiceMedicalFinder{
       const response = await fetch(url);
       const data = await response.json();
 
-      console.log("Esta es la data de los medicos", data);
+      console.log("Esta es la data de los medicos agendar", data);
       return data;
     } catch (error) {
       console.log('Error:', error);

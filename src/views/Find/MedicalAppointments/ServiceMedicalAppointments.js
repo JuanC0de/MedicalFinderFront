@@ -1,7 +1,7 @@
 import Global from "@/Global";
 
 class ServiceMedicalAppointments {
-  async insertarCita(date, reason, hour, queryType, IdEspecialista, IdMedico, stage, IdPaciente) {
+  async insertarCita(date, reason, hour, queryType, IdMedico, stage, IdPaciente) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     console.log("Entre al insertarCita");
@@ -10,7 +10,6 @@ class ServiceMedicalAppointments {
       "Motivo": reason,
       "Hora": hour,
       "Tipodeconsulta": queryType,
-      "IdEspecialista": IdEspecialista,
       "IdMedico": IdMedico,
       "Estados": stage,
       "IdPaciente": IdPaciente
@@ -36,7 +35,19 @@ class ServiceMedicalAppointments {
       console.log('Error:', error);
     }
   }
+  async consultarListaPacientes() {
+    let request = 'paciente/api/PacienteM/'
+    let url = Global.API_URL + request
+    try {
+      const response = await fetch(url)
+      const data = await response.json()
 
+      console.log('Esta es la data pacientes', data)
+      return data
+    } catch (error) {
+      console.log('Error:', error)
+    }
+  }
   async insertarUsuario(username, password) {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
