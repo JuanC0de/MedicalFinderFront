@@ -19,6 +19,7 @@ export default {
     stage: "Pendiente",
     IdPaciente: "7",
     email: null,
+    selectedHour: null,
     show2: false,
     password: '',
     rules: {
@@ -164,19 +165,31 @@ export default {
       <v-row>
 
         <v-col cols="12" sm="3">
-          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 11:00 </v-btn>
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" 
+          :class="{ 'hora-seleccionada': selectedHour === '11:00:00' }"
+          @click="selectedHour = '11:00:00'"
+          type="submit"> 11:00 </v-btn>
         </v-col>
 
         <v-col cols="12" sm="3">
-          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 12:00 </v-btn>
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan"
+          :class="{ 'hora-seleccionada': selectedHour === '12:00:00' }"
+          @click="selectedHour = '12:00:00'"
+          type="submit"> 12:00 </v-btn>
         </v-col>
 
         <v-col cols="12" sm="3">
-          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 13:00 </v-btn>
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan"
+          :class="{ 'hora-seleccionada': selectedHour === '13:00:00' }"
+          @click="selectedHour = '13:00:00'"
+          type="submit"> 13:00 </v-btn>
         </v-col>
 
         <v-col cols="12" sm="3">
-          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan" type="submit"> 14:00 </v-btn>
+          <v-btn class="me-4 mt-3 horabtn" color="DarkCyan"
+          :class="{ 'hora-seleccionada': selectedHour === '14:00:00' }"
+          @click="selectedHour = '14:00:00'"
+          type="submit"> 14:00 </v-btn>
         </v-col>
       </v-row>
 
@@ -197,7 +210,7 @@ export default {
           <p class="textoBtn">Si no tiene cuenta, haz click en el siguiente botón </p>
         </v-col>
         <v-col cols="12" sm="5">
-          <v-btn>Registrarse</v-btn>
+          <v-btn to="/registro/paciente">Registrarse</v-btn>
         </v-col>
       </v-row>
 
@@ -225,5 +238,9 @@ export default {
 .errorText {
   color: red;
   font-size: 15px;
+}
+.hora-seleccionada {
+  background-color: rgb(45, 112, 199);
+  color: white;
 }
 </style>
